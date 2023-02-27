@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="dummy-sat-assembly">
+  <link
+    name="Cubesat">
+    <inertial>
+      <origin
+        xyz="-0.0066666 0.20622 0.2597"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.15005"
+        ixy="4.7852E-11"
+        ixz="1.2117E-06"
+        iyy="0.15385"
+        iyz="-1.9441E-12"
+        izz="0.15317" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/Cubesat.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.80784 0.49804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/Cubesat.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="LAR">
+    <inertial>
+      <origin
+        xyz="-0.0066665876420233 0.206221772812349 0.259697553866846"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.150045457167344"
+        ixy="4.78523129754275E-11"
+        ixz="1.2117321971579E-06"
+        iyy="0.153849025835761"
+        iyz="-1.94410347682361E-12"
+        izz="0.153165201038861" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/LAR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/LAR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LARjoint"
+    type="continuous">
+    <origin
+      xyz="-0.15697816431175 -0.259307389253299 0.206221772836472"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Cubesat" />
+    <child
+      link="LAR" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Nozzle">
+    <inertial>
+      <origin
+        xyz="-0.0066665876420233 0.206221772812349 0.259697553866846"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.150045457167344"
+        ixy="4.78523129754275E-11"
+        ixz="1.2117321971579E-06"
+        iyy="0.153849025835761"
+        iyz="-1.94410347682361E-12"
+        izz="0.153165201038861" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/Nozzle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/Nozzle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Nozzlejoint"
+    type="continuous">
+    <origin
+      xyz="-0.00697816431174975 -0.409307389253299 0.206221772836472"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="Cubesat" />
+    <child
+      link="Nozzle" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Solarpanel">
+    <inertial>
+      <origin
+        xyz="-0.0066665876420233 0.206221772812349 0.259697553866846"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.150045457167344"
+        ixy="4.78523129754275E-11"
+        ixz="1.2117321971579E-06"
+        iyy="0.153849025835761"
+        iyz="-1.94410347682361E-12"
+        izz="0.153165201038861" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/Solarpanel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/bahador/pybullet/3fgripper/Satellite/meshes/Solarpanel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Solarpaneljoint"
+    type="fixed">
+    <origin
+      xyz="0.14302183568825 -0.259307389253299 0.206221772836472"
+      rpy="1.5707963267949 1.5707963267949 0" />
+    <parent
+      link="Cubesat" />
+    <child
+      link="Solarpanel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
