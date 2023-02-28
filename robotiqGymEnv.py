@@ -7,9 +7,9 @@ os.sys.path.insert(0, currentdir)
 
 import math
 import urdfpy
-import gym
-from gym import spaces
-from gym.utils import seeding
+import gymnasium as gym
+from gymnasium import spaces
+from gymnasium.utils import seeding
 import numpy as np
 import time
 import pybullet as p
@@ -96,7 +96,7 @@ class robotiqGymEnv(gym.Env):
     elif (self._isDiscrete):
       self.action_space = spaces.Discrete(5)
     else:
-      action_dim = 7
+      action_dim = 6
       self._action_bound = 1
       action_high = np.array([self._action_bound] * action_dim , dtype=np.float32)
       self.action_space = spaces.Box(-action_high, action_high, dtype=np.float32)
@@ -110,7 +110,7 @@ class robotiqGymEnv(gym.Env):
     p.resetSimulation()
     print("robot base reset")
     # p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep)
-    p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep, contactERP=0.2) #globalCFM=0.00001
+    p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep, contactERP=0.9) #globalCFM=0.00001
     p.setTimeStep(self._timeStep)
 
     p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
@@ -125,8 +125,10 @@ class robotiqGymEnv(gym.Env):
 
     #pos = grippose[1] + 0.6 * randnumy + 0.3 * np.sign(randnumy)
     xpos = 0.0 + 0.50 * randnumx
+    xpos = 0.0
     ypos = 0.8 + 0.1 * randnumy
     zpos = 1.0 + 0.50 * randnumz 
+    zpos = 1.0
     targetpos = [xpos, ypos, zpos]
 
     # rol  = 0.00 + math.pi * random.uniform(-1,1)
@@ -135,15 +137,15 @@ class robotiqGymEnv(gym.Env):
     yaw = 0.00
     targetorn  = p.getQuaternionFromEuler([rol, pitch, yaw])
 
-    extforce = np.array([randnumf1, randnumf2, randnumf3]) * 10000
+    extforce = np.array([randnumf1, randnumf2, randnumf3]) * 50000
     # extforce = extforce / np.linalg.norm(extforce)
 
     # self.cube = p.loadURDF(os.path.join(self._robotiqRoot, "cube.urdf"), basePosition=[0,0.12,1], baseOrientation=targetorn, useMaximalCoordinates=True, useFixedBase=True)
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
-                                basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True, useFixedBase=True) #, useFixedBase=True
-    # p.changeDynamics(self.blockUid, -1, mass=10000)
-    # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+                                basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
+    p.changeDynamics(self.blockUid, -1, mass=1000)
+    p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     # p.changeDynamics(self.blockUid, -1, 
     #                   lateralFriction=0.45, spinningFriction=0.05, rollingFriction=0.05, restitution=0.005,
@@ -214,8 +216,7 @@ class robotiqGymEnv(gym.Env):
       droll = action[3]
       dpitch = action[4]
       dyaw = action[5]
-      dj1 = action[6]
-      realAction = [dx, dy, dz, droll, dpitch, dyaw, dj1]
+      realAction = [dx, dy, dz, droll, dpitch, dyaw]
     return self.step2(realAction)
 
   def step2(self, action):
@@ -348,23 +349,26 @@ class robotiqGymEnv(gym.Env):
     griplinvel = np.linalg.norm(griplinvel)
     gripangvel = np.linalg.norm(gripangvel)
 
+    closestPoints = list(p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1))
+    closestPoints = [x[8] for x in closestPoints]
 
-    closestPoints = distance.euclidean(np.array(gripperPos),np.array(blockPos))
-    # closestPoints = p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)
+    print(closestPoints)
 
     r = Rotation.from_quat(gripperOrn)
     normalvec = np.matmul(r.as_matrix(), np.array([0,1,0]))
+    # print(normalvec)
     diffvector = np.subtract(np.array(blockPos), np.array(gripperPos))
     dotvec = np.dot(diffvector/np.linalg.norm(diffvector) , normalvec/np.linalg.norm(normalvec))
     redpoint = np.add(np.array(gripperPos), np.multiply(normalvec, 0.12))
-    closestPoints = distance.euclidean(np.array(redpoint),np.array(blockPos))
+    # closestPoints = distance.euclidean(np.array(redpoint),np.array(blockPos))
     orifix = distance.euclidean(np.array(blockOrnEuler),np.array(gripOrnEuler))
     ftipNormalForce, ftipLateralFriction1, ftipLateralFriction1, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2 = self._contactinfo()
     r_top = self._r_topology()
     r_top = 1 if r_top > 0 else 0
 
     
-    distanceReward = 1 - math.tanh(closestPoints)
+    # distanceReward = 1 - math.tanh(closestPoints)
+    distanceReward = closestPoints
     oriReward = 1 - math.tanh(orifix)
     normalForceReward = 1 - math.tanh(totalNormalForce)
     gripangvelReward = 1 - math.tanh(gripangvel)

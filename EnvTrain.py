@@ -1,5 +1,7 @@
+import sys
+import gymnasium
+sys.modules["gym"] = gymnasium
 import os
-import gym
 import numpy as np
 import matplotlib.pyplot as plt
 import time

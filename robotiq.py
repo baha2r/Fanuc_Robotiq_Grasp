@@ -142,73 +142,7 @@ class robotiq:
 
     return self.fingvol
 
-  def applyAction(self, action):
-    if (self._multiDiscrete):
-      joint1_states = p.getJointStates(self.robotiqUid, self.firstjointidx)
-      joint1_states = np.array([x[0] for x in joint1_states])
-    elif (self._isDescrete):
-      joint1_state = np.array(p.getJointState(self.robotiqUid,1)[0])
-      action =  np.array(action)
-      joint_command = np.add(joint1_state, action)
-      joint1_command = 3 * [joint_command]
-      joint3_command = 3 * [-joint_command]
-
-      print(f"action:{action}")
-      print(f"joint1_state:{joint1_command}")
-
-      kp=0.05 
-      kv=0.3
-
-      p.setJointMotorControlArray(bodyUniqueId=self.robotiqUid, 
-                                  jointIndices=self.firstjointidx, 
-                                  controlMode=p.POSITION_CONTROL, 
-                                  targetPositions=joint1_command,
-                                  positionGains=[kp] * len(joint1_command), 
-                                  velocityGains=[kv] * len(joint1_command),
-                                  forces=[self.maxForce] * len(joint1_command))
-      
-      p.setJointMotorControlArray(bodyUniqueId=self.robotiqUid, 
-                                  jointIndices=self.thirdjointidx, 
-                                  controlMode=p.POSITION_CONTROL, 
-                                  targetPositions=joint3_command,
-                                  positionGains=[kp] * len(joint3_command), 
-                                  velocityGains=[kv] * len(joint3_command),
-                                  forces=[self.maxForce] * len(joint3_command))
-    else:
-      self.applyBaseAction(action)
-      action = action[-1] * 0.05
-      l1j1_state = np.array(p.getJointState(self.robotiqUid,1)[0])
-      l2j1_state = np.array(p.getJointState(self.robotiqUid,5)[0])
-      l3j1_state = np.array(p.getJointState(self.robotiqUid,9)[0])
-      joint1_state = np.mean([l1j1_state, l2j1_state, l3j1_state])
-      joint_command = np.add(joint1_state, action)
-      joint1_command = 3 * [joint_command]
-      joint3_command = 3 * [-joint_command]
-
-      # print(f"action:{action}")
-      # print(f"joint1_state:{joint1_command}")
-
-      kp=0.05 
-      kv=0.3
-      
-      ## joint1 control
-      p.setJointMotorControlArray(bodyUniqueId=self.robotiqUid, 
-                                  jointIndices=self.firstjointidx, 
-                                  controlMode=p.POSITION_CONTROL, 
-                                  targetPositions=joint1_command,
-                                  positionGains=[kp] * len(joint1_command), 
-                                  velocityGains=[kv] * len(joint1_command),
-                                  forces=[self.maxForce] * len(joint1_command))
-      ## joint3 control
-      p.setJointMotorControlArray(bodyUniqueId=self.robotiqUid, 
-                                  jointIndices=self.thirdjointidx, 
-                                  controlMode=p.POSITION_CONTROL, 
-                                  targetPositions=joint3_command,
-                                  positionGains=[kp] * len(joint3_command), 
-                                  velocityGains=[kv] * len(joint3_command),
-                                  forces=[self.maxForce] * len(joint3_command))
-
-  def applyBaseAction(self, BaseCommands):
+  def applyAction(self, BaseCommands):
 
     #print ("self.numJoints")
     #print (self.numJoints)
@@ -320,11 +254,11 @@ class robotiq:
       pos , orn = p.getBasePositionAndOrientation(self.robotiqUid)
       pos = np.array(pos)
       orn = np.array(p.getEulerFromQuaternion(orn))
-      poscommand = pos + np.array(BaseCommands[0:3]) * 0.02
-      orncommand = (orn + np.array(BaseCommands[3:6]) * 0.2) 
+      poscommand = pos + np.array(BaseCommands[0:3]) * 0.01
+      orncommand = orn + np.array(BaseCommands[3:6]) * 0.1
       # orncommand = np.remainder(orncommand, np.pi)
       # print(f"orncommand: {orncommand}")
-      orncommand = p.getQuaternionFromEuler( orncommand)
+      orncommand = p.getQuaternionFromEuler(orncommand)
       
 
 

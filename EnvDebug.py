@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 from datetime import datetime
+import pybullet as p
 
 from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC
 # from stable_baselines3.common.env_util import make_vec_env
@@ -27,13 +28,15 @@ def main():
   obs = env.reset()
  
   while not dones:
-    # if env._envStepCounter < 100:
-    #   action = [0 , 0 , 0 , 0 , 0 , 0 , 0.1]
-    # else:
-    #   action = [0 , 0 , 0 , 1 , 0 , 1 , 1]
+    if env._envStepCounter < 100:
+      action = [0 , 0 , 0 , 1 , 0 , 0 ]
+    else:
+      action = [0 , 0 , 0 , 0 , 0 , 1 ]
     # action = env.action_space.sample()
-    action = [0 , 0 , 0 , 0 , 0 , 0 , 0]
+    # action = [0 , 0 , 0 , 0 , 0 , 0]
     obs, rewards, dones, info = env.step(action)
+    targetspeed = p.getBaseVelocity(env.blockUid)
+    # print(targetspeed)
     # print(len(env._robotiq.linkpos))
     # print(env._contactinfo()[4])
     # env.render()

@@ -17,15 +17,15 @@ import multiprocessing as mp
 from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC, DQN
 
-# env = robotiqGymEnv()
+env = robotiqGymEnv()
 # print(env.action_space)
 # print(len(env.observation_space.sample()))
 
-env = gymnasium.make('AdroitHandDoor-v1', max_episode_steps=400)
+# env = gymnasium.make('AdroitHandDoor-v1', max_episode_steps=400)
 print(env.action_space)
 print(env.observation_space)
-multienv = make_vec_env(lambda: env, n_envs=4)
-model = SAC("MlpPolicy", multienv, verbose=1, batch_size=1024)
+# multienv = make_vec_env(lambda: env, n_envs=4)
+# model = SAC("MlpPolicy", multienv, verbose=1, batch_size=1024)
 
 
 
