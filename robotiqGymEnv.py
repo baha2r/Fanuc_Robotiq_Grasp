@@ -125,10 +125,8 @@ class robotiqGymEnv(gym.Env):
 
     #pos = grippose[1] + 0.6 * randnumy + 0.3 * np.sign(randnumy)
     xpos = 0.0 + 0.50 * randnumx
-    xpos = 0.0
     ypos = 0.8 + 0.1 * randnumy
     zpos = 1.0 + 0.50 * randnumz 
-    zpos = 1.0
     targetpos = [xpos, ypos, zpos]
 
     # rol  = 0.00 + math.pi * random.uniform(-1,1)
@@ -144,8 +142,8 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    p.changeDynamics(self.blockUid, -1, mass=1000)
-    p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+    p.changeDynamics(self.blockUid, -1, mass=10000)
+    # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     # p.changeDynamics(self.blockUid, -1, 
     #                   lateralFriction=0.45, spinningFriction=0.05, rollingFriction=0.05, restitution=0.005,
@@ -349,10 +347,8 @@ class robotiqGymEnv(gym.Env):
     griplinvel = np.linalg.norm(griplinvel)
     gripangvel = np.linalg.norm(gripangvel)
 
-    closestPoints = list(p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1))
-    closestPoints = [x[8] for x in closestPoints]
-
-    print(closestPoints)
+    closestPoints = p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)[0][8] - 0.04
+    # closestPoints = [x[8] for x in closestPoints]
 
     r = Rotation.from_quat(gripperOrn)
     normalvec = np.matmul(r.as_matrix(), np.array([0,1,0]))
@@ -368,7 +364,7 @@ class robotiqGymEnv(gym.Env):
 
     
     # distanceReward = 1 - math.tanh(closestPoints)
-    distanceReward = closestPoints
+    distanceReward = 1 - math.tanh(closestPoints)
     oriReward = 1 - math.tanh(orifix)
     normalForceReward = 1 - math.tanh(totalNormalForce)
     gripangvelReward = 1 - math.tanh(gripangvel)

@@ -26,7 +26,7 @@ from stable_baselines3.common.env_util import make_vec_env
 import multiprocessing as mp
 
 date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
-NAME = f"{date}_TD3_rtop1"
+NAME = f"{date}_SAC_M10000"
 numberofenv = 4
 
 # callable function to create the environment

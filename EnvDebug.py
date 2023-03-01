@@ -19,7 +19,7 @@ from stable_baselines3.common.results_plotter import load_results, ts2xy
 
 def main():
 
-  env = robotiqGymEnv(records=False, renders=True, isDiscrete=False)
+  env = robotiqGymEnv(records=False, renders=False, isDiscrete=False)
 
   # mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
   # print(mean_reward)
