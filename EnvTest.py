@@ -1,5 +1,8 @@
 import os
-import gym
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+import sys
+import gymnasium
+sys.modules["gym"] = gymnasium
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -17,11 +20,11 @@ from stable_baselines3.common.env_util import make_vec_env
 
 def main():
 
-  env = robotiqGymEnv(records=True, renders=True)
+  env = robotiqGymEnv(records=False, renders=True)
   # env = make_vec_env(lambda: env, n_envs=4)
 
   # rewa = evaluate_policy(model, env, deterministic=True, return_episode_rewards = True)
-  dir = "models/20230207-12:41PM_SAC_rtop1/best_model.zip"
+  dir = "models/20230228-05:02PM_SAC_M10000/best_model.zip"
   # dir = "tensorboard/20230127-03:21PM_SAC/model.zip"
   model = SAC.load(dir)
 

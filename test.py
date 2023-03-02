@@ -4,6 +4,7 @@
 
 from robotiqGymEnv import robotiqGymEnv
 # from robotiq import robotiq
+import math
 import numpy as np
 import torch as th
 import pybullet as p
@@ -17,13 +18,20 @@ import multiprocessing as mp
 from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC, DQN
 
-env = robotiqGymEnv()
+# env = robotiqGymEnv()
 # print(env.action_space)
 # print(len(env.observation_space.sample()))
 
+x1 = np.array([-0.008170424584835623, 0.788484132430747, 0.9801512117861174])
+x2 = np.array([-0.008170424584835643, 0.054901180623924795, 0.948788412455851])
+distance = np.linalg.norm(x1-x2)
+print(distance)
+
+1 - math.tanh(2)
+
 # env = gymnasium.make('AdroitHandDoor-v1', max_episode_steps=400)
-print(env.action_space)
-print(env.observation_space)
+# print(env.action_space)
+# print(env.observation_space)
 # multienv = make_vec_env(lambda: env, n_envs=4)
 # model = SAC("MlpPolicy", multienv, verbose=1, batch_size=1024)
 

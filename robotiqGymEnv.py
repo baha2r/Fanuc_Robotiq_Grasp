@@ -142,7 +142,7 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    p.changeDynamics(self.blockUid, -1, mass=10000)
+    p.changeDynamics(self.blockUid, -1, mass=1000)
     # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     # p.changeDynamics(self.blockUid, -1, 
@@ -347,7 +347,7 @@ class robotiqGymEnv(gym.Env):
     griplinvel = np.linalg.norm(griplinvel)
     gripangvel = np.linalg.norm(gripangvel)
 
-    closestPoints = p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)[0][8] - 0.04
+    closestPoints = np.absolute(p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)[0][8] - 0.04)
     # closestPoints = [x[8] for x in closestPoints]
 
     r = Rotation.from_quat(gripperOrn)
@@ -361,9 +361,7 @@ class robotiqGymEnv(gym.Env):
     ftipNormalForce, ftipLateralFriction1, ftipLateralFriction1, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2 = self._contactinfo()
     r_top = self._r_topology()
     r_top = 1 if r_top > 0 else 0
-
     
-    # distanceReward = 1 - math.tanh(closestPoints)
     distanceReward = 1 - math.tanh(closestPoints)
     oriReward = 1 - math.tanh(orifix)
     normalForceReward = 1 - math.tanh(totalNormalForce)
@@ -374,7 +372,7 @@ class robotiqGymEnv(gym.Env):
     
     # reward = -10*closestPoints + 10*dotvec  + 100*min(ftipContactPoints) - blocklinvel - blockangvel + r_top - totalNormalForce/100 - gripangvel/10
     # reward = distanceReward + oriReward + r_top #+ normalForceReward + gripangvelReward + fingerActionReward + r_top + dotvec + min(ftipContactPoints)
-    reward = distanceReward + oriReward + r_top# - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
+    reward = distanceReward + oriReward + r_top # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
     # print(f'gripperPos {gripPos}')
     # print(f"blockPos {blockPos}")
     # print(f'blocklinvel {blocklinvel}')
