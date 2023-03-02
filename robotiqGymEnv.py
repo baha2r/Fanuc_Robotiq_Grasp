@@ -142,7 +142,7 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    p.changeDynamics(self.blockUid, -1, mass=10000)
+    p.changeDynamics(self.blockUid, -1, mass=100)
     # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     # p.changeDynamics(self.blockUid, -1, 
