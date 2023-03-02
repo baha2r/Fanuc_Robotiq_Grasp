@@ -20,11 +20,11 @@ from stable_baselines3.common.env_util import make_vec_env
 
 def main():
 
-  env = robotiqGymEnv(records=False, renders=True)
+  env = robotiqGymEnv(records=False, renders=False)
   # env = make_vec_env(lambda: env, n_envs=4)
 
   # rewa = evaluate_policy(model, env, deterministic=True, return_episode_rewards = True)
-  dir = "models/20230228-05:02PM_SAC_M10000/best_model.zip"
+  dir = "models/20230301-08:19PM_SAC_M1000/best_model.zip"
   # dir = "tensorboard/20230127-03:21PM_SAC/model.zip"
   model = SAC.load(dir)
 
