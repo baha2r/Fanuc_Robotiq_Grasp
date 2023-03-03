@@ -9,6 +9,7 @@ import copy
 import math
 import pybullet_data
 from scipy.spatial import ConvexHull, distance
+from scipy.spatial.transform import Rotation as R
 
 
 class robotiq:
