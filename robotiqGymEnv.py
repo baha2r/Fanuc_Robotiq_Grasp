@@ -134,7 +134,7 @@ class robotiqGymEnv(gym.Env):
 
     # rol  = 0.00 + math.pi * random.uniform(-1,1)
     rol  = 0.00
-    pitch = randnumpitch
+    pitch = 0.00
     yaw = 0.00
     targetorn  = p.getQuaternionFromEuler([rol, pitch, yaw])
 
