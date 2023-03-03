@@ -1,0 +1,76 @@
+pybullet build time: Feb  1 2023 23:25:41
+2023-03-03 12:29:48.018992: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-03-03 12:29:48.691378: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2023-03-03 12:29:48.691458: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2023-03-03 12:29:48.691467: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+Using cuda device
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Logging to ./tensorboard/20230303-12:29PM_SAC_M100_0.05/SAC_1
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 283      |
+| time/              |          |
+|    episodes        | 10       |
+|    fps             | 91       |
+|    time_elapsed    | 65       |
+|    total_timesteps | 6012     |
+| train/             |          |
+|    actor_loss      | -12.8    |
+|    critic_loss     | 0.607    |
+|    ent_coef        | 0.895    |
+|    ent_coef_loss   | -1.12    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 369      |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 252      |
+| time/              |          |
+|    episodes        | 20       |
+|    fps             | 92       |
+|    time_elapsed    | 108      |
+|    total_timesteps | 10020    |
+| train/             |          |
+|    actor_loss      | -16.1    |
+|    critic_loss     | 0.296    |
+|    ent_coef        | 0.83     |
+|    ent_coef_loss   | -1.87    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 620      |
+---------------------------------
