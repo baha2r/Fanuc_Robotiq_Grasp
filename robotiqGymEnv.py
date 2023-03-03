@@ -64,7 +64,7 @@ class robotiqGymEnv(gym.Env):
     self._cam_pitch = -40
     self._reach = 0
     self._keypoints = 100
-    self.distance_threshold = 0.03
+    self.distance_threshold = 0.05
     
 
     self._p = p
@@ -142,7 +142,7 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    p.changeDynamics(self.blockUid, -1, mass=10000)
+    p.changeDynamics(self.blockUid, -1, mass=1000)
     # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     # p.changeDynamics(self.blockUid, -1, 
@@ -385,10 +385,10 @@ class robotiqGymEnv(gym.Env):
     # print(f"joint action {self._action[-1]}")
     # print(f"gripOrnEuler {gripOrnEuler}")
     # print(f"ftipContactPoints {ftipContactPoints}")
-    print(f"r_top {r_top}")
-    print(f"totalNormalForce {totalNormalForce}")
+    # print(f"r_top {r_top}")
+    # print(f"totalNormalForce {totalNormalForce}")
     # print(f"dotvec {dotvec*200}")
-    print(f"closestPoints {closestPoints}")
+    # print(f"closestPoints {closestPoints}")
 
     return reward
 
