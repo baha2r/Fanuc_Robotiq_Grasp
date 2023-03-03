@@ -15,11 +15,12 @@ from robotiqGymEnv import robotiqGymEnv
 from stable_baselines3.common import results_plotter
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.results_plotter import load_results, ts2xy
+from scipy.spatial.transform import Rotation as R
 
 
 def main():
 
-  env = robotiqGymEnv(records=False, renders=False, isDiscrete=False)
+  env = robotiqGymEnv(records=False, renders=False)
 
   # mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
   # print(mean_reward)
@@ -28,19 +29,20 @@ def main():
   obs = env.reset()
  
   while not dones:
-    if env._envStepCounter < 100:
-      action = [0 , 0 , 0 , 1 , 0 , 0 ]
-    else:
-      action = [0 , 0 , 0 , 0 , 0 , 1 ]
+    # if env._envStepCounter < 100:
+    #   action = [0 , 0 , 0 , 0 , 0 , 0 ]
+    # else:
+    #   action = [0 , 0 , 0 , 0 , -0.1 , 0 ]
     # action = env.action_space.sample()
-    # action = [0 , 0 , 0 , 0 , 0 , 0]
+    action = [0 , 0 , 0 , 0 , 0.1 , 0]
     obs, rewards, dones, info = env.step(action)
     targetspeed = p.getBaseVelocity(env.blockUid)
+    print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(env._robotiq.robotiqUid)[1]))
+    print(p.getEulerFromQuaternion(p.getBasePositionAndOrientation(env.blockUid)[1]))
     # print(targetspeed)
     # print(len(env._robotiq.linkpos))
     # print(env._contactinfo()[4])
-    # env.render()
-
+    env.render()
 
 
 if __name__ == "__main__":
