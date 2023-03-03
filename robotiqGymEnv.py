@@ -64,7 +64,7 @@ class robotiqGymEnv(gym.Env):
     self._cam_pitch = -40
     self._reach = 0
     self._keypoints = 100
-    self.distance_threshold = 0.05
+    self.distance_threshold = 0.03
     
 
     self._p = p
@@ -142,7 +142,7 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    p.changeDynamics(self.blockUid, -1, mass=100)
+    p.changeDynamics(self.blockUid, -1, mass=10000)
     # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     # p.changeDynamics(self.blockUid, -1, 
@@ -347,7 +347,7 @@ class robotiqGymEnv(gym.Env):
     griplinvel = np.linalg.norm(griplinvel)
     gripangvel = np.linalg.norm(gripangvel)
 
-    closestPoints = np.absolute(p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)[0][8] - 0.04)
+    closestPoints = np.absolute(p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)[0][8] - self.distance_threshold)
     # closestPoints = [x[8] for x in closestPoints]
 
     r = Rotation.from_quat(gripperOrn)
