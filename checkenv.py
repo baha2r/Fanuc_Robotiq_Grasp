@@ -10,10 +10,10 @@ from robotiqGymEnv import robotiqGymEnv
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3 import SAC
 
-env = robotiqGymEnv(renders=False)
-model = SAC.load("./tensorboard/20230301-08:19PM_SAC_M1000/model")
+env = robotiqGymEnv()
+model = SAC.load("./models/20230301-08:19PM_SAC_M1000/best_model.zip")
 
 # check_env(env) #skip_render_check=False
 
-episode_reward, episode_length = evaluate_policy(model, env, n_eval_episodes=10, deterministic=True, render=False)
+episode_reward, episode_length = evaluate_policy(model, env, n_eval_episodes=20, deterministic=True)
 print(episode_reward, episode_length)
