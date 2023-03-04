@@ -22,6 +22,7 @@ from pkg_resources import parse_version
 from scipy.spatial.transform import Rotation
 from sklearn.preprocessing import normalize
 from scipy.spatial import ConvexHull, distance
+from pybullet_utils import transformations
 
 largeValObservation = 40
 
@@ -397,15 +398,28 @@ class robotiqGymEnv(gym.Env):
 
   def _r_topology(self):
 
-    blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
-    block_urdf = urdfpy.URDF.load("urdf/block.urdf")
-    block_urdf = block_urdf.visual_trimesh_fk()
-    for block_trimesh, v in block_urdf.items():
-      pass
-    block_hull = trimesh.convex.convex_hull(block_trimesh.vertices)
-    randpoints = trimesh.sample.volume_mesh(block_hull, self._keypoints)
-    center_mass = block_hull.center_mass + blockPos
-    randpoints = randpoints + center_mass
+    aabb_min, aabb_max = p.getAABB(self.blockUid)
+    points = np.array([])
+    for i in range(100):
+      x = random.uniform(aabb_min[0], aabb_max[0])
+      y = random.uniform(aabb_min[1], aabb_max[1])
+      z = random.uniform(aabb_min[2], aabb_max[2])
+      point = (x, y, z)
+      points = np.append(points, point)
+    points = np.reshape(points, (-1, 3))
+    
+
+
+
+    # blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
+    # block_urdf = urdfpy.URDF.load("urdf/block.urdf")
+    # block_urdf = block_urdf.visual_trimesh_fk()
+    # for block_trimesh, v in block_urdf.items():
+    #   pass
+    # block_hull = trimesh.convex.convex_hull(block_trimesh.vertices)
+    # randpoints = trimesh.sample.volume_mesh(block_hull, self._keypoints)
+    # center_mass = block_hull.center_mass + blockPos
+    # randpoints = randpoints + center_mass
     
 
     gripper_link_pose = []
@@ -416,8 +430,9 @@ class robotiqGymEnv(gym.Env):
 
     gripper_link_pose = np.array(gripper_link_pose)
     hull = trimesh.convex.convex_hull(gripper_link_pose)
-    n = hull.contains(randpoints)
+    n = hull.contains(points)
     n_count = np.count_nonzero(n) / self._keypoints
+    print(f"n_count {n_count}")
 
     return n_count
     

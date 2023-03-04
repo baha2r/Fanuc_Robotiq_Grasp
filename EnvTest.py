@@ -38,6 +38,7 @@ def main():
   while not dones:
       action, _states = model.predict(obs)
       obs, rewards, dones, info = env.step(action)
+      # env._r_topology()
 
       # print(f"block position: {obs[19:22]}")
       # print(f"gripper psoition action: {action[0:3]}")
@@ -48,7 +49,7 @@ def main():
       # print(np.linalg.norm(env._p.getBaseVelocity(env._robotiq.robotiqUid)[1]))
       if dones:
           env.reset()
-      env.render()
+      # env.render()
 
 if __name__ == "__main__":
   main()
