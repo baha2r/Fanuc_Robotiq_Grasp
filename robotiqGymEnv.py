@@ -65,7 +65,8 @@ class robotiqGymEnv(gym.Env):
     self._cam_pitch = -40
     self._reach = 0
     self._keypoints = 100
-    self.distance_threshold = 0.05
+    self.distance_threshold = 0.04
+    self.targetmass = 1_000
     
 
     self._p = p
@@ -139,15 +140,16 @@ class robotiqGymEnv(gym.Env):
     yaw = 0.00
     targetorn  = p.getQuaternionFromEuler([rol, pitch, yaw])
 
-    extforce = np.array([randnumf1, randnumf2, randnumf3]) * 50000
     # extforce = extforce / np.linalg.norm(extforce)
 
     # self.cube = p.loadURDF(os.path.join(self._robotiqRoot, "cube.urdf"), basePosition=[0,0.12,1], baseOrientation=targetorn, useMaximalCoordinates=True, useFixedBase=True)
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    p.changeDynamics(self.blockUid, -1, mass=1000)
-    # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+    self.targetmass = 10_000
+    p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
+    extforce = np.array([randnumf1, randnumf2, randnumf3]) * (100*self.targetmass)
+    p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     # p.changeDynamics(self.blockUid, -1, 
     #                   lateralFriction=0.45, spinningFriction=0.05, rollingFriction=0.05, restitution=0.005,
@@ -408,9 +410,6 @@ class robotiqGymEnv(gym.Env):
       points = np.append(points, point)
     points = np.reshape(points, (-1, 3))
     
-
-
-
     # blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
     # block_urdf = urdfpy.URDF.load("urdf/block.urdf")
     # block_urdf = block_urdf.visual_trimesh_fk()
@@ -432,7 +431,7 @@ class robotiqGymEnv(gym.Env):
     hull = trimesh.convex.convex_hull(gripper_link_pose)
     n = hull.contains(points)
     n_count = np.count_nonzero(n) / self._keypoints
-    print(f"n_count {n_count}")
+    # print(f"n_count {n_count}")
 
     return n_count
     
