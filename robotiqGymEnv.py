@@ -401,9 +401,9 @@ class robotiqGymEnv(gym.Env):
   def _r_topology(self):
 
     aabb_min, aabb_max = p.getAABB(self.blockUid)
-    x = np.linspace(aabb_min[0], aabb_max[0], 10)
-    y = np.linspace(aabb_min[1], aabb_max[1], 10)
-    z = np.linspace(aabb_min[2], aabb_max[2], 10)
+    x = np.linspace(aabb_min[0], aabb_max[0], 5)
+    y = np.linspace(aabb_min[1], aabb_max[1], 5)
+    z = np.linspace(aabb_min[2], aabb_max[2], 5)
 
     points = []
     for i in range(len(x)):
