@@ -156,8 +156,8 @@ class robotiqGymEnv(gym.Env):
     #                   linearDamping=0.04, angularDamping=0.04, 
     #                   contactProcessingThreshold=0.001, activationState=1, collisionMargin=0.001)
 
+      
     p.setGravity(0, 0, 0)
-    
     self._envStepCounter = 0
     p.stepSimulation()
     self._observation = self.getExtendedObservation()
@@ -401,14 +401,25 @@ class robotiqGymEnv(gym.Env):
   def _r_topology(self):
 
     aabb_min, aabb_max = p.getAABB(self.blockUid)
-    points = np.array([])
-    for i in range(100):
-      x = random.uniform(aabb_min[0], aabb_max[0])
-      y = random.uniform(aabb_min[1], aabb_max[1])
-      z = random.uniform(aabb_min[2], aabb_max[2])
-      point = (x, y, z)
-      points = np.append(points, point)
-    points = np.reshape(points, (-1, 3))
+    x = np.linspace(aabb_min[0], aabb_max[0], 10)
+    y = np.linspace(aabb_min[1], aabb_max[1], 10)
+    z = np.linspace(aabb_min[2], aabb_max[2], 10)
+
+    points = []
+    for i in range(len(x)):
+        for j in range(len(y)):
+            for k in range(len(z)):
+                points.append([x[i], y[j], z[k]])
+    points = np.array(points)
+
+    # points = np.array([])
+    # for i in range(self):
+    #   x = random.uniform(aabb_min[0], aabb_max[0])
+    #   y = random.uniform(aabb_min[1], aabb_max[1])
+    #   z = random.uniform(aabb_min[2], aabb_max[2])
+    #   point = (x, y, z)
+    #   points = np.append(points, point)
+    # points = np.reshape(points, (-1, 3))
     
     # blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
     # block_urdf = urdfpy.URDF.load("urdf/block.urdf")
