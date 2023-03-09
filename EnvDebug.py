@@ -35,13 +35,13 @@ def main():
     #   action = [0 , 0 , 0 , 0 , -0.1 , 0 ]
     # action = env.action_space.sample()
     action = [1 , 0 , 0 , 0 , 0.1 , 0]
-    obs, rewards, dones, info = env.step(action)
+    obs, rewards, dones, trunct, info = env.step(action)
     targetspeed = p.getBaseVelocity(env.blockUid)
     # print(p.getAABB(env.blockUid))
     # print((p.getBasePositionAndOrientation(env._robotiq.robotiqUid)[1]))
     # print(p.getBasePositionAndOrientation(env.blockUid)[0])
-    print(p.getBaseVelocity(env.blockUid)[0])
-    # print(p.getBaseVelocity(env._robotiq.robotiqUid)[0])
+    # print(p.getBaseVelocity(env.blockUid)[0])
+    print(p.getBaseVelocity(env._robotiq.robotiqUid)[0])
     # print(targetspeed)
     # print(len(env._robotiq.linkpos))
     # print(env._contactinfo()[4])

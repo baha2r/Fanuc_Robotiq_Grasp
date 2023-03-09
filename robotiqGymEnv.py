@@ -308,23 +308,7 @@ class robotiqGymEnv(gym.Env):
     # reward = -10*closestPoints + 10*dotvec  + 100*min(ftipContactPoints) - blocklinvel - blockangvel + r_top - totalNormalForce/100 - gripangvel/10
     # reward = distanceReward + oriReward + r_top #+ normalForceReward + gripangvelReward + fingerActionReward + r_top + dotvec + min(ftipContactPoints)
     reward = distanceReward + oriReward + r_top + forcepenalty # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
-    # print(f'gripperPos {gripPos}')
-    # print(f"blockPos {blockPos}")
-    # print(f'blocklinvel {blocklinvel}')
-    # print(f'blockangvel {blockangvel}')
-    # print(f"blockOrnEuler {blockOrnEuler}")
-    # print(f"gripOrnEuler {gripOrnEuler}")
-    # print(f"distanceReward {distanceReward}")
-    # print(f"oriReward {oriReward}")
-    # print(f"orifix {orifix}")
-    # print(f"joint action {self._action[-1]}")
-    # print(f"gripOrnEuler {gripOrnEuler}")
-    # print(f"ftipContactPoints {ftipContactPoints}")
-    # print(f"r_top {r_top}")
-    # print(f"totalNormalForce {totalNormalForce}")
-    # print(f"dotvec {dotvec*200}")
-    # print(f"closestPoints {closestPoints}")
-
+ 
     return reward
 
   def _r_topology(self):

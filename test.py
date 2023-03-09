@@ -20,7 +20,7 @@ from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC, DQN
 
 env = robotiqGymEnv()
 # print(env.action_space)
-print((env.observation_space.sample()))
+print(len(env.observation_space.sample()))
 
 x1 = np.array([-0.008170424584835623, 0.788484132430747, 0.9801512117861174])
 x2 = np.array([-0.008170424584835643, 0.054901180623924795, 0.948788412455851])

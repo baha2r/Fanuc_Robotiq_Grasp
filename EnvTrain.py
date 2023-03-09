@@ -26,7 +26,7 @@ from stable_baselines3.common.env_util import make_vec_env
 import multiprocessing as mp
 
 date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
-NAME = f"{date}_SAC_M1000_0.04_wovel_40states"
+NAME = f"{date}_SAC_M1000_WTS"
 numberofenv = 4
 
 # callable function to create the environment
@@ -49,5 +49,5 @@ callback = EvalCallback(env, best_model_save_path=f"./models/{NAME}/", log_path=
 model = SAC("MlpPolicy", multienv, action_noise=action_noise, verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , train_freq=numberofenv, batch_size=1024)
 
 
-model.learn(total_timesteps=1e7, log_interval=10, callback=callback)
+model.learn(total_timesteps=2e7, log_interval=10, callback=callback)
 model.save(f"./tensorboard/{NAME}/model")
