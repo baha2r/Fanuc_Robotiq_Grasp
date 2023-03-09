@@ -13,10 +13,9 @@ from stable_baselines3 import SAC
 env = robotiqGymEnv()
 # model = SAC.load("./models/20230301-08:19PM_SAC_M1000/best_model.zip")
 
-obs, info = env.reset(seed=123)
-print(type(obs))
-print(type(env.observation_space))
-check_env(env) #skip_render_check=False
+# obs, info = env.reset(seed=123)
+
+check_env(env, skip_render_check=True) #skip_render_check=False
 
 # episode_reward, episode_length = evaluate_policy(model, env, n_eval_episodes=20, deterministic=True)
 # print(episode_reward, episode_length)

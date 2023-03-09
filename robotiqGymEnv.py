@@ -2,7 +2,6 @@ from asyncio import PidfdChildWatcher
 import os, inspect
 from turtle import distance
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-# print("current_dir=" + currentdir) #current_dir=/home/bahador/pybullet/3fgripper
 os.sys.path.insert(0, currentdir)
 
 import math
@@ -52,6 +51,7 @@ class robotiqGymEnv(gym.Env):
     self._keypoints = 100
     self.distance_threshold = 0.04
     self.targetmass = 1_000
+    self.success_counter = 0
     
 
     self._p = p
@@ -90,7 +90,6 @@ class robotiqGymEnv(gym.Env):
 
     p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
     self._robotiq = robotiq.robotiq(urdfRootPath=self._robotiqRoot, timeStep=self._timeStep)
-    grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
     randnumx  = random.uniform(-1,1)
     randnumy  = random.uniform(-1,1)
     randnumz  = random.uniform(-1,1)
@@ -113,8 +112,6 @@ class robotiqGymEnv(gym.Env):
     yaw = 0.00
     targetorn  = p.getQuaternionFromEuler([rol, pitch, yaw])
 
-    # extforce = extforce / np.linalg.norm(extforce)
-
     # self.cube = p.loadURDF(os.path.join(self._robotiqRoot, "cube.urdf"), basePosition=[0,0.12,1], baseOrientation=targetorn, useMaximalCoordinates=True, useFixedBase=True)
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
@@ -123,31 +120,27 @@ class robotiqGymEnv(gym.Env):
     p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
     extforce = np.array([randnumf1, randnumf2, randnumf3]) * (100*self.targetmass)
     p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
-    
-    # p.changeDynamics(self.blockUid, -1, 
-    #                   lateralFriction=0.45, spinningFriction=0.05, rollingFriction=0.05, restitution=0.005,
-    #                   linearDamping=0.04, angularDamping=0.04, 
-    #                   contactProcessingThreshold=0.001, activationState=1, collisionMargin=0.001)
-
       
     p.setGravity(0, 0, 0)
     self._envStepCounter = 0
     p.stepSimulation()
     self._observation = self.getExtendedObservation()
-    self._achieved_goal = self.achieved_goal()
-    self._desired_goal = self.desired_goal()
-    # self.OBSERVATION = {"observation": self._observation, "achieved_goal": self._achieved_goal, "desired_goal": self._desired_goal}
     info = {"is_success": self._is_success()}
     return self._observation, info
 
   def _is_success(self):
-    # d = self.goal_distance(achieved_goal, desired_goal)
-    return np.float32(0 < self.distance_threshold)
+
+    if self._reward() > 2 :
+      self.success_counter += 1
+    else:
+      self.success_counter = 0
+
+    return np.float32(self.success_counter > 200)
 
   def close(self): # p.disconnect()
     p.disconnect()
 
-  def getExtendedObservation(self): # adding blockInGripper pose and ori into _observation
+  def getExtendedObservation(self): 
     self._observation = self._robotiq.getObservation()
     gripperPos , gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
     griplinvel, gripangvel = p.getBaseVelocity(self._robotiq.robotiqUid)
@@ -155,7 +148,6 @@ class robotiqGymEnv(gym.Env):
     blocklinVel, blockangVel = p.getBaseVelocity(self.blockUid)
     blockEul = p.getEulerFromQuaternion(blockOri)
     gripEul = p.getEulerFromQuaternion(gripperOrn)
-    # blockPose = np.array(blockPose, dtype=np.float32)
 
     blockPose = np.array([blockPos[0], blockPos[1], blockPos[2],
                           blockEul[0], blockEul[1], blockEul[2]], dtype=np.float32)
@@ -194,7 +186,7 @@ class robotiqGymEnv(gym.Env):
 
     return self._observation
 
-  def step(self, action): # create realAction and return step2(realAction)
+  def step(self, action): 
 
     dx = action[0]
     dy = action[1]
@@ -216,18 +208,11 @@ class robotiqGymEnv(gym.Env):
     if self._renders:
       time.sleep(self._timeStep)
     self._observation = self.getExtendedObservation()
-    # self.OBSERVATION = {"observation": self.getExtendedObservation(), "achieved_goal": self.achieved_goal(), "desired_goal": self.desired_goal()}
-
     done = self._termination()
-    # npaction = np.array([action[3]])  #only penalize rotation until learning works well [action[0],action[1],action[3]])
-    # actionCost = np.linalg.norm(npaction) * 10.
-    # reward = self.compute_reward(self._achieved_goal, self._desired_goal, None)
     reward = self._reward()
-    # if reward>0:
-    #   print("reward: ", reward)
+    infos = {"is_success": self._is_success()}
 
-    # return np.array(self._observation), reward, done, {}
-    ob, reward, terminated, truncated, info = self._observation, reward, done, False, {}
+    ob, reward, terminated, truncated, info = self._observation, reward, done, False, infos
     return ob, reward, terminated, truncated, info 
 
   def render(self, mode="rgb_array", close=False):
@@ -253,50 +238,11 @@ class robotiqGymEnv(gym.Env):
     return rgb_array
 
   def _termination(self):
-    # state = p.getLinkState(self._robotiq.robotiqUid, self._robotiq.kukaEndEffectorIndex)
-    state = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
-    # actualPos = state[0]
 
-    if (self._envStepCounter > self._maxSteps):
-      self._observation = self.getExtendedObservation()
-      # print("Maybe Next TIME!")
-      # print(f"reward {self._reward()}")
+    self._observation = self.getExtendedObservation()
+    done = True if self._envStepCounter > self._maxSteps else False
 
-      return True
-
-    maxDist = 0.0005
-
-    # if (len(contactpoints)):
-    #   print("terminating, attempting grasp!!!!")
-
-    #   #start grasp and terminate
-    #   """
-    #   fingerAngle = 0.3
-    #   for i in range(100):
-    #     graspAction = [0, 0, 0.0001, 0, fingerAngle]
-    #     self._robotiq.applyAction(graspAction)
-    #     p.stepSimulation()
-    #     fingerAngle = fingerAngle - (0.3 / 100.)
-    #     if (fingerAngle < 0):
-    #       fingerAngle = 0
-
-    #   for i in range(1000):
-    #     graspAction = [0, 0, 0.001, 0, fingerAngle]
-    #     self._robotiq.applyAction(graspAction)
-    #     p.stepSimulation()
-    #     blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
-    #     if (blockPos[2] > 0.23):
-    #       break
-    #     # state = p.getLinkState(self._robotiq.robotiqUid, self._robotiq.kukaEndEffectorIndex)
-    #     state = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
-    #     actualEndEffectorPos = state[0]
-    #     if (actualEndEffectorPos[2] > 0.5):
-    #       break
-    #   """
-    #   return False
-
-
-    return False
+    return done
 
   def _contactinfo(self):
     totalNormalForce = 0
@@ -353,11 +299,11 @@ class robotiqGymEnv(gym.Env):
     
     distanceReward = 1 - math.tanh(closestPoints)
     oriReward = 1 - math.tanh(orifix)
-    normalForceReward = 1 - math.tanh(totalNormalForce)
-    gripangvelReward = 1 - math.tanh(gripangvel)
-    fingerActionReward = 1 - math.tanh(abs(self._action[-1]))
-    positionActionReward = np.linalg.norm(self._action[0:3]) / np.sqrt(3)
-    orientationActionReward = np.linalg.norm(self._action[3:6]) / np.sqrt(3)
+    # normalForceReward = 1 - math.tanh(totalNormalForce)
+    # gripangvelReward = 1 - math.tanh(gripangvel)
+    # fingerActionReward = 1 - math.tanh(abs(self._action[-1]))
+    # positionActionReward = np.linalg.norm(self._action[0:3]) / np.sqrt(3)
+    # orientationActionReward = np.linalg.norm(self._action[3:6]) / np.sqrt(3)
     
     # reward = -10*closestPoints + 10*dotvec  + 100*min(ftipContactPoints) - blocklinvel - blockangvel + r_top - totalNormalForce/100 - gripangvel/10
     # reward = distanceReward + oriReward + r_top #+ normalForceReward + gripangvelReward + fingerActionReward + r_top + dotvec + min(ftipContactPoints)
@@ -429,31 +375,6 @@ class robotiqGymEnv(gym.Env):
 
     return n_count
     
-  def goal_distance(self, achieved_goal, desired_goal):
-    assert achieved_goal.shape == desired_goal.shape
-    # return np.linalg.norm(goal_a - goal_b, axis=-1)
-    d = distance.euclidean(achieved_goal, desired_goal)
-    return d
-
-  def compute_reward(self, achieved_goal, desired_goal, info) -> float:
-    # return super().compute_reward(achieved_goal, desired_goal, info)
-    d = self.goal_distance(achieved_goal, desired_goal)
-    if self.reward_type == "sparse":
-      return -np.float32(d < self.distance_threshold)
-    else:
-      return -d
-
-  def desired_goal(self):
-    blockPos, _ = p.getBasePositionAndOrientation(self.blockUid)
-    self._desired_goal = np.array([blockPos[0] + 0.1, blockPos[1] + 0.6, blockPos[2]], dtype=np.float32)    
-    return self._desired_goal
-
-  def achieved_goal(self):
-    
-    blockPos, _ = p.getBasePositionAndOrientation(self.blockUid)
-    self._achieved_goal = np.array([blockPos[0], blockPos[1], blockPos[2]], dtype=np.float32)
-    return self._achieved_goal
-
 
 if __name__ == "__main__":
   robotiqGymEnv()
