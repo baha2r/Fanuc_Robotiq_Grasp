@@ -18,16 +18,16 @@ import multiprocessing as mp
 from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC, DQN
 
-# env = robotiqGymEnv()
+env = robotiqGymEnv()
 # print(env.action_space)
-# print(len(env.observation_space.sample()))
+print((env.observation_space.sample()))
 
 x1 = np.array([-0.008170424584835623, 0.788484132430747, 0.9801512117861174])
 x2 = np.array([-0.008170424584835643, 0.054901180623924795, 0.948788412455851])
 distance = np.linalg.norm(x1-x2)
-print(distance)
+# print(distance)
 
-1 - math.tanh(2)
+print(1 - math.tanh(0.04))
 
 # env = gymnasium.make('AdroitHandDoor-v1', max_episode_steps=400)
 # print(env.action_space)
