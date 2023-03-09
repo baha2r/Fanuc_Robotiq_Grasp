@@ -181,8 +181,8 @@ class robotiqGymEnv(gym.Env):
     point2 = np.array(closestpoint[0][6], dtype=np.float32)
     minpos = np.subtract(point1, point2)
     self._observation = np.append(self._observation, minpos)
-    totalforce = self._contactinfo()[4]
-    self._observation = np.append(self._observation, totalforce)
+    # totalforce = self._contactinfo()[4]
+    # self._observation = np.append(self._observation, totalforce)
 
     return self._observation
 

@@ -20,3 +20,115 @@ robot base reset
 robot base reset
 robot base reset
 Logging to ./tensorboard/20230309-03:46PM_SAC_M1000_WTS/SAC_1
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 148      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 10       |
+|    fps             | 187      |
+|    time_elapsed    | 32       |
+|    total_timesteps | 6012     |
+| train/             |          |
+|    actor_loss      | -11.5    |
+|    critic_loss     | 0.482    |
+|    ent_coef        | 0.896    |
+|    ent_coef_loss   | -1.1     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 369      |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 170      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20       |
+|    fps             | 192      |
+|    time_elapsed    | 52       |
+|    total_timesteps | 10020    |
+| train/             |          |
+|    actor_loss      | -14.7    |
+|    critic_loss     | 0.444    |
+|    ent_coef        | 0.831    |
+|    ent_coef_loss   | -1.88    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 620      |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 153      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 30       |
+|    fps             | 195      |
+|    time_elapsed    | 82       |
+|    total_timesteps | 16032    |
+| train/             |          |
+|    actor_loss      | -19.4    |
+|    critic_loss     | 0.348    |
+|    ent_coef        | 0.742    |
+|    ent_coef_loss   | -3.01    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 995      |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 156      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 40       |
+|    fps             | 196      |
+|    time_elapsed    | 101      |
+|    total_timesteps | 20040    |
+| train/             |          |
+|    actor_loss      | -22.4    |
+|    critic_loss     | 0.773    |
+|    ent_coef        | 0.688    |
+|    ent_coef_loss   | -3.77    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 1246     |
+---------------------------------
