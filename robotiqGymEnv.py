@@ -63,9 +63,9 @@ class robotiqGymEnv(gym.Env):
       p.connect(p.DIRECT)
 
     # self.seed()
-    seed = seeding.np_random(None)[1]
+    # seed = seeding.np_random(None)[1]
     # print("seed=", seed)
-    self.reset(seed)
+    self.reset()
     
 
     ## observation space
@@ -78,8 +78,8 @@ class robotiqGymEnv(gym.Env):
     action_high = np.array([self._action_bound] * action_dim , dtype=np.float32)
     self.action_space = spaces.Box(-action_high, action_high, dtype=np.float32)
 
-  def reset(self, seed=None, options={}):
-    super().reset(seed=seed)
+  def reset(self):
+    # super().reset(seed=seed)
     #print("robotiqGymEnv _reset")
     self.terminated = 0
     p.resetSimulation()
@@ -181,6 +181,7 @@ class robotiqGymEnv(gym.Env):
     point2 = np.array(closestpoint[0][6], dtype=np.float32)
     minpos = np.subtract(point1, point2)
     self._observation = np.append(self._observation, minpos)
+    self._observation = np.array(self._observation, dtype=np.float64)
     # totalforce = self._contactinfo()[4]
     # self._observation = np.append(self._observation, totalforce)
 
@@ -212,8 +213,8 @@ class robotiqGymEnv(gym.Env):
     reward = self._reward()
     infos = {"is_success": self._is_success()}
 
-    ob, reward, terminated, truncated, info = self._observation, reward, done, False, infos
-    return ob, reward, terminated, truncated, info 
+    ob, reward, terminated, truncated, info = self._observation, reward, done, done, infos
+    return ob, reward, terminated, info 
 
   def render(self, mode="rgb_array", close=False):
     if mode != "rgb_array":      return np.array([])

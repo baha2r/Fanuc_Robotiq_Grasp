@@ -42,7 +42,7 @@ multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
 n_actions = env.action_space.shape[-1]
 action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 
-callback = EvalCallback(env, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=20000, deterministic=True, render=False, n_eval_episodes=10)
+callback = EvalCallback(env, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=2000, deterministic=True, render=False, n_eval_episodes=10)
 # model = SAC("MlpPolicy", multienv, learning_rate=1e-5, action_noise=action_noise, 
 #             verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , batch_size=1024, 
 #             policy_kwargs = dict(net_arch=dict(pi=[512, 1024, 512], qf=[512, 1024, 512]))) #, train_freq=numberofenv
