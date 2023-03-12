@@ -328,14 +328,16 @@ class robotiqGymEnv(gym.Env):
   def _r_topology(self):
 
     aabb_min, aabb_max = p.getAABB(self.blockUid)
-    points = np.array([])
-    for i in range(100):
-      x = random.uniform(aabb_min[0], aabb_max[0])
-      y = random.uniform(aabb_min[1], aabb_max[1])
-      z = random.uniform(aabb_min[2], aabb_max[2])
-      point = (x, y, z)
-      points = np.append(points, point)
-    points = np.reshape(points, (-1, 3))
+    x = np.linspace(aabb_min[0], aabb_max[0], 5)
+    y = np.linspace(aabb_min[1], aabb_max[1], 5)
+    z = np.linspace(aabb_min[2], aabb_max[2], 5)
+    
+    points = []
+    for i in range(len(x)):
+        for j in range(len(y)):
+            for k in range(len(z)):
+                points.append([x[i], y[j], z[k]])
+    points = np.array(points)
     
 
     gripper_link_pose = []
