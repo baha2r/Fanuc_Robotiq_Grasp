@@ -5,7 +5,7 @@ import gymnasium
 sys.modules["gym"] = gymnasium
 import pybullet as p
 from pickle import TRUE
-from gymnasium.utils.env_checker import check_env
+from gym.utils.env_checker import check_env
 from robotiqGymEnv import robotiqGymEnv
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3 import SAC

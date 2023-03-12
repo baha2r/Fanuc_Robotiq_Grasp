@@ -23,35 +23,48 @@ from sklearn.preprocessing import normalize
 from scipy.spatial import ConvexHull, distance
 from pybullet_utils import transformations
 
-largeValObservation = 500
+largeValObservation = 40
 
 RENDER_HEIGHT = 720
 RENDER_WIDTH = 960
 
 
 class robotiqGymEnv(gym.Env):
-  metadata = {"render_modes": ["human", "rgb_array"], 'video.frames_per_second': 50}
+  metadata = {'render.modes': ['human', 'rgb_array'], 'video.frames_per_second': 50}
 
   def __init__(self,
                urdfRoot=pybullet_data.getDataPath(),
                actionRepeat=1,
+               isEnableSelfCollision=True,
                renders=False,
                records=False,
+               isDiscrete=False,
+               multiDiscrete=False,
+               rewardType='sparse',
                max_episode_steps=500):
     print("robotiqGymEnv __init__")
+    self.reward_type = rewardType
+    self._isDiscrete = isDiscrete
+    self._multiDiscrete = multiDiscrete
     self._timeStep = 1. / 240.
     self._urdfRoot = urdfRoot
     self._robotiqRoot = "urdf/"
     self._actionRepeat = actionRepeat
+    self._isEnableSelfCollision = isEnableSelfCollision
     self._observation = []
+    self._achieved_goal = []
+    self._desired_goal = []
     self._envStepCounter = 0
     self._renders = renders
     self._records = records
     self._maxSteps = max_episode_steps
+    self.terminated = 0
+    self._cam_dist = 0.4
+    self._cam_yaw = 180
+    self._cam_pitch = -40
+    self._reach = 0
     self._keypoints = 100
     self.distance_threshold = 0.04
-    self.targetmass = 1_000
-    self.success_counter = 0
     
 
     self._p = p
@@ -62,34 +75,39 @@ class robotiqGymEnv(gym.Env):
     else:
       p.connect(p.DIRECT)
 
-    # self.seed()
-    # seed = seeding.np_random(None)[1]
-    # print("seed=", seed)
     self.reset()
     
 
     ## observation space
-    observation_high = np.array([largeValObservation] * len(self.getExtendedObservation()), dtype=np.float64)
-    self.observation_space = spaces.Box(low = -observation_high, high = observation_high, dtype=np.float64)
+    observation_high = np.array([largeValObservation] * len(self.getExtendedObservation()), dtype=np.float32)
+    self.observation_space = spaces.Box(-observation_high, observation_high, dtype=np.float32)
+
 
     ## action space
-    action_dim = 6
-    self._action_bound = 1
-    action_high = np.array([self._action_bound] * action_dim , dtype=np.float32)
-    self.action_space = spaces.Box(-action_high, action_high, dtype=np.float32)
+    if (self._multiDiscrete):
+      self.action_space = spaces.MultiDiscrete([5,5,5])
+    elif (self._isDiscrete):
+      self.action_space = spaces.Discrete(5)
+    else:
+      action_dim = 6
+      self._action_bound = 1
+      action_high = np.array([self._action_bound] * action_dim , dtype=np.float32)
+      self.action_space = spaces.Box(-action_high, action_high, dtype=np.float32)
 
-  def reset(self):
+    self.viewer = None
+
+  def reset(self): # return _observaton form getExtendedObservation()
+    
     # super().reset(seed=seed)
-    #print("robotiqGymEnv _reset")
     self.terminated = 0
     p.resetSimulation()
     print("robot base reset")
-    # p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep)
     p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep, contactERP=0.9) #globalCFM=0.00001
     p.setTimeStep(self._timeStep)
 
     p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
-    self._robotiq = robotiq.robotiq(urdfRootPath=self._robotiqRoot, timeStep=self._timeStep)
+    self._robotiq = robotiq.robotiq(urdfRootPath=self._robotiqRoot, timeStep=self._timeStep, isDiscrete=self._isDiscrete, multiDiscrete=self._multiDiscrete)
+    grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
     randnumx  = random.uniform(-1,1)
     randnumy  = random.uniform(-1,1)
     randnumz  = random.uniform(-1,1)
@@ -116,31 +134,32 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    self.targetmass = 1_000
+    self.targetmass = 10_000
     p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
     extforce = np.array([randnumf1, randnumf2, randnumf3]) * (100*self.targetmass)
     p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
-      
+    
     p.setGravity(0, 0, 0)
+    
     self._envStepCounter = 0
+    self.success_counter = 0
     p.stepSimulation()
     self._observation = self.getExtendedObservation()
-    info = {"is_success": self._is_success()}
-    return self._observation, info
+
+    return self._observation
 
   def _is_success(self):
-
     if self._reward() > 2 :
       self.success_counter += 1
     else:
       self.success_counter = 0
 
-    return np.float32(self.success_counter > 200)
+    return np.float32(self.success_counter > 150)
 
   def close(self): # p.disconnect()
     p.disconnect()
 
-  def getExtendedObservation(self): 
+  def getExtendedObservation(self): # adding blockInGripper pose and ori into _observation
     self._observation = self._robotiq.getObservation()
     gripperPos , gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
     griplinvel, gripangvel = p.getBaseVelocity(self._robotiq.robotiqUid)
@@ -169,26 +188,22 @@ class robotiqGymEnv(gym.Env):
                         blockangVel[0]-gripangvel[0], blockangVel[1]-gripangvel[1], blockangVel[2]-gripangvel[2]], dtype=np.float32)
     self._observation = np.append(self._observation, relVel)
 
-    ## uncomment this for 45 state space
-    # contactInfo = self._contactinfo()
-    # contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
-    #                         contactInfo[3][0], contactInfo[3][1], contactInfo[3][2]], dtype=np.float32)
-    # self._observation = np.append(self._observation, contactInfo)
-
-    ## uncomment this for approaching state space, 40 state space
     closestpoint = p.getClosestPoints(self._robotiq.robotiqUid, self.blockUid, 100, -1, -1)
     point1 = np.array(closestpoint[0][5], dtype=np.float32)
     point2 = np.array(closestpoint[0][6], dtype=np.float32)
     minpos = np.subtract(point1, point2)
     self._observation = np.append(self._observation, minpos)
-    self._observation = np.array(self._observation, dtype=np.float64)
-    # totalforce = self._contactinfo()[4]
+    totalforce = self._contactinfo()[4]
     # self._observation = np.append(self._observation, totalforce)
+
+    # contactInfo = self._contactinfo()
+    # contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
+    #                         contactInfo[3][0], contactInfo[3][1], contactInfo[3][2]], dtype=np.float32)
+    # self._observation = np.append(self._observation, contactInfo)
 
     return self._observation
 
-  def step(self, action): 
-
+  def step(self, action): # create realAction and return step2(realAction)
     dx = action[0]
     dy = action[1]
     dz = action[2]
@@ -210,10 +225,10 @@ class robotiqGymEnv(gym.Env):
       time.sleep(self._timeStep)
     self._observation = self.getExtendedObservation()
     done = self._termination()
+    # npaction = np.array([action[3]])  #only penalize rotation until learning works well [action[0],action[1],action[3]])
     reward = self._reward()
     infos = {"is_success": self._is_success()}
-
-    ob, reward, terminated, truncated, info = self._observation, reward, done, done, infos
+    ob, reward, terminated, truncated, info = self._observation, reward, done, False, infos
     return ob, reward, terminated, info 
 
   def render(self, mode="rgb_array", close=False):
@@ -239,11 +254,12 @@ class robotiqGymEnv(gym.Env):
     return rgb_array
 
   def _termination(self):
+    
+    if (self._envStepCounter > self._maxSteps):
+      self._observation = self.getExtendedObservation()
+      return True
 
-    self._observation = self.getExtendedObservation()
-    done = True if self._envStepCounter > self._maxSteps else False
-
-    return done
+    return False
 
   def _contactinfo(self):
     totalNormalForce = 0
@@ -283,67 +299,43 @@ class robotiqGymEnv(gym.Env):
     gripangvel = np.linalg.norm(gripangvel)
 
     closestPoints = np.absolute(p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)[0][8] - self.distance_threshold)
-    # closestPoints = [x[8] for x in closestPoints]
 
     r = Rotation.from_quat(gripperOrn)
     normalvec = np.matmul(r.as_matrix(), np.array([0,1,0]))
-    # print(normalvec)
     diffvector = np.subtract(np.array(blockPos), np.array(gripperPos))
     dotvec = np.dot(diffvector/np.linalg.norm(diffvector) , normalvec/np.linalg.norm(normalvec))
     redpoint = np.add(np.array(gripperPos), np.multiply(normalvec, 0.12))
-    # closestPoints = distance.euclidean(np.array(redpoint),np.array(blockPos))
     orifix = distance.euclidean(np.array(blockOrnEuler),np.array(gripOrnEuler))
     ftipNormalForce, ftipLateralFriction1, ftipLateralFriction1, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2 = self._contactinfo()
     r_top = self._r_topology()
     r_top = 1 if r_top > 0 else 0
-    forcepenalty = -1 if totalNormalForce > 0 else 0
+    contactpenalize = -1 if totalNormalForce > 0 else 0
     
     distanceReward = 1 - math.tanh(closestPoints)
     oriReward = 1 - math.tanh(orifix)
-    # normalForceReward = 1 - math.tanh(totalNormalForce)
-    # gripangvelReward = 1 - math.tanh(gripangvel)
-    # fingerActionReward = 1 - math.tanh(abs(self._action[-1]))
-    # positionActionReward = np.linalg.norm(self._action[0:3]) / np.sqrt(3)
-    # orientationActionReward = np.linalg.norm(self._action[3:6]) / np.sqrt(3)
+    normalForceReward = 1 - math.tanh(totalNormalForce)
+    gripangvelReward = 1 - math.tanh(gripangvel)
+    fingerActionReward = 1 - math.tanh(abs(self._action[-1]))
+    positionActionReward = np.linalg.norm(self._action[0:3]) / np.sqrt(3)
+    orientationActionReward = np.linalg.norm(self._action[3:6]) / np.sqrt(3)
     
     # reward = -10*closestPoints + 10*dotvec  + 100*min(ftipContactPoints) - blocklinvel - blockangvel + r_top - totalNormalForce/100 - gripangvel/10
     # reward = distanceReward + oriReward + r_top #+ normalForceReward + gripangvelReward + fingerActionReward + r_top + dotvec + min(ftipContactPoints)
-    reward = distanceReward + oriReward + r_top + forcepenalty # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
- 
+    reward = distanceReward + oriReward + r_top + contactpenalize # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
+
     return reward
 
   def _r_topology(self):
 
     aabb_min, aabb_max = p.getAABB(self.blockUid)
-    x = np.linspace(aabb_min[0], aabb_max[0], 5)
-    y = np.linspace(aabb_min[1], aabb_max[1], 5)
-    z = np.linspace(aabb_min[2], aabb_max[2], 5)
-
-    points = []
-    for i in range(len(x)):
-        for j in range(len(y)):
-            for k in range(len(z)):
-                points.append([x[i], y[j], z[k]])
-    points = np.array(points)
-
-    # points = np.array([])
-    # for i in range(self):
-    #   x = random.uniform(aabb_min[0], aabb_max[0])
-    #   y = random.uniform(aabb_min[1], aabb_max[1])
-    #   z = random.uniform(aabb_min[2], aabb_max[2])
-    #   point = (x, y, z)
-    #   points = np.append(points, point)
-    # points = np.reshape(points, (-1, 3))
-    
-    # blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
-    # block_urdf = urdfpy.URDF.load("urdf/block.urdf")
-    # block_urdf = block_urdf.visual_trimesh_fk()
-    # for block_trimesh, v in block_urdf.items():
-    #   pass
-    # block_hull = trimesh.convex.convex_hull(block_trimesh.vertices)
-    # randpoints = trimesh.sample.volume_mesh(block_hull, self._keypoints)
-    # center_mass = block_hull.center_mass + blockPos
-    # randpoints = randpoints + center_mass
+    points = np.array([])
+    for i in range(100):
+      x = random.uniform(aabb_min[0], aabb_max[0])
+      y = random.uniform(aabb_min[1], aabb_max[1])
+      z = random.uniform(aabb_min[2], aabb_max[2])
+      point = (x, y, z)
+      points = np.append(points, point)
+    points = np.reshape(points, (-1, 3))
     
 
     gripper_link_pose = []
@@ -359,7 +351,7 @@ class robotiqGymEnv(gym.Env):
     # print(f"n_count {n_count}")
 
     return n_count
-    
+
 
 if __name__ == "__main__":
   robotiqGymEnv()

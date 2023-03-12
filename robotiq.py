@@ -112,10 +112,8 @@ class robotiq:
     observation = np.array([pos[0], pos[1], pos[2],
                             ornEuler[0], ornEuler[1], ornEuler[2],
                             linvel[0], linvel[1], linvel[2],
-                            angvel[0], angvel[1], angvel[2]],
-                            
-                            dtype=np.float32)
-                            #l1j1_state, l2j1_state, l3j1_state],
+                            angvel[0], angvel[1], angvel[2]], dtype=np.float32)
+                            #l1j1_state, l2j1_state, l3j1_state
     
     observation1 = np.array([pos[0], pos[1], pos[2], 
                             orn[0], orn[1], orn[2], orn[3],
@@ -146,9 +144,7 @@ class robotiq:
     return self.fingvol
 
   def applyAction(self, BaseCommands):
-
-    #print ("self.numJoints")
-    #print (self.numJoints)
+    
     if (self.useInverseKinematics):
 
       dx = BaseCommands[0]
