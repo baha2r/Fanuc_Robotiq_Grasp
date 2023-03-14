@@ -194,7 +194,7 @@ class robotiqGymEnv(gym.Env):
     minpos = np.subtract(point1, point2)
     self._observation = np.append(self._observation, minpos)
     totalforce = self._contactinfo()[4]
-    # self._observation = np.append(self._observation, totalforce)
+    self._observation = np.append(self._observation, totalforce)
 
     # contactInfo = self._contactinfo()
     # contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
@@ -321,7 +321,7 @@ class robotiqGymEnv(gym.Env):
     
     # reward = -10*closestPoints + 10*dotvec  + 100*min(ftipContactPoints) - blocklinvel - blockangvel + r_top - totalNormalForce/100 - gripangvel/10
     # reward = distanceReward + oriReward + r_top #+ normalForceReward + gripangvelReward + fingerActionReward + r_top + dotvec + min(ftipContactPoints)
-    reward = distanceReward + oriReward + r_top + contactpenalize # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
+    reward = distanceReward + oriReward + r_top + 0.5 * contactpenalize # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
 
     return reward
 
