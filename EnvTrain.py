@@ -43,7 +43,7 @@ multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
 n_actions = env.action_space.shape[-1]
 action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 evalenv = Monitor(env)
-NAME = f"{date}_SAC_M{mass}_{distance_threshold}_WTS"
+NAME = f"{date}_SAC_M{mass}_{distance_threshold}_woTS"
 callback = EvalCallback(evalenv, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=20000, deterministic=True, render=False)#, n_eval_episodes=10)
 model = SAC("MlpPolicy", multienv, action_noise=action_noise, verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , train_freq=numberofenv, batch_size=1024)
 
