@@ -154,7 +154,7 @@ class robotiqGymEnv(gym.Env):
     else:
       self.success_counter = 0
 
-    return np.float32(self.success_counter > 150)
+    return np.float32(self.success_counter > 100)
 
   def close(self): # p.disconnect()
     p.disconnect()
@@ -193,8 +193,10 @@ class robotiqGymEnv(gym.Env):
     point2 = np.array(closestpoint[0][6], dtype=np.float32)
     minpos = np.subtract(point1, point2)
     self._observation = np.append(self._observation, minpos)
+    self._observation = np.append(self._observation, closestpoint[0][8])
+    
     totalforce = self._contactinfo()[4]
-    # self._observation = np.append(self._observation, totalforce)
+    self._observation = np.append(self._observation, totalforce)
 
     # contactInfo = self._contactinfo()
     # contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
@@ -321,7 +323,7 @@ class robotiqGymEnv(gym.Env):
     
     # reward = -10*closestPoints + 10*dotvec  + 100*min(ftipContactPoints) - blocklinvel - blockangvel + r_top - totalNormalForce/100 - gripangvel/10
     # reward = distanceReward + oriReward + r_top #+ normalForceReward + gripangvelReward + fingerActionReward + r_top + dotvec + min(ftipContactPoints)
-    reward = distanceReward + oriReward + r_top + 0.5 * contactpenalize # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
+    reward = distanceReward + oriReward + r_top + contactpenalize # - (positionActionReward * distanceReward) - (orientationActionReward * oriReward)
 
     return reward
 
