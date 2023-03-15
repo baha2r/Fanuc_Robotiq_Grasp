@@ -31,16 +31,16 @@ def make_my_env():
 env = robotiqGymEnv()
 mass = env.targetmass
 distance_threshold = env.distance_threshold
-multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
+# multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
 
 # The noise objects
 n_actions = env.action_space.shape[-1]
 action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 evalenv = Monitor(env)
-NAME = f"{date}_SAC_M{mass}_{distance_threshold}_WTS"
+NAME = f"{date}_SAC_M{mass}_{distance_threshold}_39"
 stop_train_callback = StopTrainingOnNoModelImprovement(max_no_improvement_evals=10, min_evals=50, verbose=1)
 callback = EvalCallback(evalenv, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/",callback_after_eval=stop_train_callback, eval_freq=20000, deterministic=True, render=False)#, n_eval_episodes=10)
-model = SAC("MlpPolicy", multienv, action_noise=action_noise, verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , batch_size=1024 )
+model = SAC("MlpPolicy", env, action_noise=action_noise, verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , batch_size=1024 )
 
 
 model.learn(total_timesteps=3e7, log_interval=10, callback=callback)
