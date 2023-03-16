@@ -40,7 +40,7 @@ evalenv = Monitor(env)
 NAME = f"{date}_SAC_M{mass}_{distance_threshold}_39"
 stop_train_callback = StopTrainingOnNoModelImprovement(max_no_improvement_evals=10, min_evals=50, verbose=1)
 callback = EvalCallback(evalenv, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=20000, deterministic=True, render=False)#, callback_after_eval=stop_train_callback, n_eval_episodes=10)
-model = SAC("MlpPolicy", multienv, action_noise=action_noise, verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , batch_size=1024, train_freq=numberofenv)
+model = SAC("MlpPolicy", multienv, verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , batch_size=1024, train_freq=numberofenv)#, action_noise=action_noise
 
 
 model.learn(total_timesteps=3e7, log_interval=10, callback=callback)

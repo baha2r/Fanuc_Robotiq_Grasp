@@ -20,3 +20,59 @@ robot base reset
 robot base reset
 robot base reset
 Logging to ./tensorboard/20230316-03:41PM_SAC_M10000_0.04_39/SAC_1
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 139      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 10       |
+|    fps             | 201      |
+|    time_elapsed    | 29       |
+|    total_timesteps | 6012     |
+| train/             |          |
+|    actor_loss      | -12.5    |
+|    critic_loss     | 0.659    |
+|    ent_coef        | 0.895    |
+|    ent_coef_loss   | -1.11    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 369      |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 139      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20       |
+|    fps             | 207      |
+|    time_elapsed    | 48       |
+|    total_timesteps | 10020    |
+| train/             |          |
+|    actor_loss      | -16.2    |
+|    critic_loss     | 0.481    |
+|    ent_coef        | 0.83     |
+|    ent_coef_loss   | -1.87    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 620      |
+---------------------------------
