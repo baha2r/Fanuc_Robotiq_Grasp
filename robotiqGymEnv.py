@@ -23,7 +23,7 @@ from sklearn.preprocessing import normalize
 from scipy.spatial import ConvexHull, distance
 from pybullet_utils import transformations
 
-largeValObservation = 40
+largeValObservation = 500
 
 RENDER_HEIGHT = 720
 RENDER_WIDTH = 960
@@ -195,8 +195,8 @@ class robotiqGymEnv(gym.Env):
     self._observation = np.append(self._observation, minpos)
     # self._observation = np.append(self._observation, closestpoint[0][8])
     
-    totalforce = self._contactinfo()[4]
-    # self._observation = np.append(self._observation, totalforce)
+    totalforce = 1 if self._contactinfo()[4]>0 else 0
+    self._observation = np.append(self._observation, totalforce)
 
     # contactInfo = self._contactinfo()
     # contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
