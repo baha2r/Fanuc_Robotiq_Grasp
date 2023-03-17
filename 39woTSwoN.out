@@ -36700,3 +36700,83 @@ robot base reset
 |    learning_rate   | 0.0003   |
 |    n_updates       | 389521   |
 ---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 640      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 12450    |
+|    fps             | 185      |
+|    time_elapsed    | 33608    |
+|    total_timesteps | 6238452  |
+| train/             |          |
+|    actor_loss      | -120     |
+|    critic_loss     | 4.9      |
+|    ent_coef        | 0.0161   |
+|    ent_coef_loss   | -0.479   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 389897   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=6240000, episode_reward=755.42 +/- 113.38
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 755      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 6240000  |
+| train/             |          |
+|    actor_loss      | -117     |
+|    critic_loss     | 3.21     |
+|    ent_coef        | 0.0161   |
+|    ent_coef_loss   | -0.351   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 389993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 643      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 12460    |
+|    fps             | 185      |
+|    time_elapsed    | 33645    |
+|    total_timesteps | 6242460  |
+| train/             |          |
+|    actor_loss      | -116     |
+|    critic_loss     | 10.1     |
+|    ent_coef        | 0.0164   |
+|    ent_coef_loss   | 0.699    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 390147   |
+---------------------------------
