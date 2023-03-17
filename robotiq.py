@@ -112,8 +112,7 @@ class robotiq:
     observation = np.array([pos[0], pos[1], pos[2],
                             ornEuler[0], ornEuler[1], ornEuler[2],
                             linvel[0], linvel[1], linvel[2],
-                            angvel[0], angvel[1], angvel[2],
-                            l1j1_state, l2j1_state, l3j1_state], dtype=np.float32)
+                            angvel[0], angvel[1], angvel[2]], dtype=np.float32)
                             #l1j1_state, l2j1_state, l3j1_state
     
     observation1 = np.array([pos[0], pos[1], pos[2], 
