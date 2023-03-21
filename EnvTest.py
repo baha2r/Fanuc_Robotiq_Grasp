@@ -24,31 +24,31 @@ def main():
   # env = make_vec_env(lambda: env, n_envs=4)
 
   # rewa = evaluate_policy(model, env, deterministic=True, return_episode_rewards = True)
-  dir = "models/20230304-05:35PM_SAC_M1000_0.04_wovel/best_model.zip"
+  dir = "models/20230316-03:42PM_SAC_M10000_0.04_39/best_model.zip"
   # dir = "tensorboard/20230127-03:21PM_SAC/model.zip"
   model = SAC.load(dir)
 
 
-  # mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
-  # print(mean_reward)
+  mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
+  print(mean_reward)
 
-  dones = False
-  obs = env.reset()
+  # dones = False
+  # obs = env.reset()
  
-  while not dones:
-      action, _states = model.predict(obs)
-      obs, rewards, dones, info = env.step(action)
-      # env._r_topology()
+  # while not dones:
+  #     action, _states = model.predict(obs)
+  #     obs, rewards, dones, info = env.step(action)
+  #     # env._r_topology()
 
-      # print(f"block position: {obs[19:22]}")
-      # print(f"gripper psoition action: {action[0:3]}")
-      # print(f"gripper orientation norm action: {np.linalg.norm(action[3:6])/ np.sqrt(3)}")
-      # print(f"total normal force: {env._contactinfo()[4]}")
-      # print(f"reward: {rewards}")
-      # print(env._contactinfo()[4])
-      # print(np.linalg.norm(env._p.getBaseVelocity(env._robotiq.robotiqUid)[1]))
-      if dones:
-          env.reset()
+  #     # print(f"block position: {obs[19:22]}")
+  #     # print(f"gripper psoition action: {action[0:3]}")
+  #     # print(f"gripper orientation norm action: {np.linalg.norm(action[3:6])/ np.sqrt(3)}")
+  #     # print(f"total normal force: {env._contactinfo()[4]}")
+  #     # print(f"reward: {rewards}")
+  #     # print(env._contactinfo()[4])
+  #     # print(np.linalg.norm(env._p.getBaseVelocity(env._robotiq.robotiqUid)[1]))
+  #     if dones:
+  #         env.reset()
       # env.render()
 
 if __name__ == "__main__":
