@@ -56062,3 +56062,27 @@ robot base reset
 |    learning_rate   | 0.0003   |
 |    n_updates       | 594931   |
 ---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=9520000, episode_reward=761.60 +/- 40.18
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 762      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 9520000  |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 5.21     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.307    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 594993   |
+---------------------------------
