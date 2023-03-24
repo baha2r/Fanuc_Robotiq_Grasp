@@ -56086,3 +56086,5948 @@ Success rate: 0.00%
 |    learning_rate   | 0.0003   |
 |    n_updates       | 594993   |
 ---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 635      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19010    |
+|    fps             | 197      |
+|    time_elapsed    | 48220    |
+|    total_timesteps | 9525012  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 8.24     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -0.697   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 595307   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 654      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19020    |
+|    fps             | 197      |
+|    time_elapsed    | 48243    |
+|    total_timesteps | 9529020  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 4.84     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.945   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 595557   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 659      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19030    |
+|    fps             | 197      |
+|    time_elapsed    | 48273    |
+|    total_timesteps | 9535032  |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 4.46     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.215    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 595933   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 669      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19040    |
+|    fps             | 197      |
+|    time_elapsed    | 48292    |
+|    total_timesteps | 9539040  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 17.9     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 2.25     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 596183   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 672      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19050    |
+|    fps             | 197      |
+|    time_elapsed    | 48321    |
+|    total_timesteps | 9545052  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 12.3     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.76     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 596559   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 684      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19060    |
+|    fps             | 197      |
+|    time_elapsed    | 48340    |
+|    total_timesteps | 9549060  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 9.91     |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | 0.389    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 596810   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 680      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19070    |
+|    fps             | 197      |
+|    time_elapsed    | 48368    |
+|    total_timesteps | 9555072  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 12.7     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -2.24    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 597185   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 684      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19080    |
+|    fps             | 197      |
+|    time_elapsed    | 48387    |
+|    total_timesteps | 9559080  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.36     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.136   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 597436   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 675      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19090    |
+|    fps             | 197      |
+|    time_elapsed    | 48415    |
+|    total_timesteps | 9565092  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 12.1     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 1.08     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 597812   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 670      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19100    |
+|    fps             | 197      |
+|    time_elapsed    | 48436    |
+|    total_timesteps | 9569100  |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 3.36     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.622    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 598062   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 660      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19110    |
+|    fps             | 197      |
+|    time_elapsed    | 48464    |
+|    total_timesteps | 9575112  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 2.57     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | 0.29     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 598438   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 646      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19120    |
+|    fps             | 197      |
+|    time_elapsed    | 48483    |
+|    total_timesteps | 9579120  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 5.93     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | 0.843    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 598688   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 637      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19130    |
+|    fps             | 197      |
+|    time_elapsed    | 48514    |
+|    total_timesteps | 9585132  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.99     |
+|    ent_coef        | 0.0148   |
+|    ent_coef_loss   | -0.601   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 599064   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 630      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19140    |
+|    fps             | 197      |
+|    time_elapsed    | 48534    |
+|    total_timesteps | 9589140  |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 3.77     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.851   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 599315   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 632      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19150    |
+|    fps             | 197      |
+|    time_elapsed    | 48562    |
+|    total_timesteps | 9595152  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 10.5     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.112    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 599690   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 630      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19160    |
+|    fps             | 197      |
+|    time_elapsed    | 48581    |
+|    total_timesteps | 9599160  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 9.33     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.326   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 599941   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=9600000, episode_reward=680.97 +/- 42.84
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 681      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 9600000  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 9.19     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.88    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 599993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 648      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19170    |
+|    fps             | 197      |
+|    time_elapsed    | 48623    |
+|    total_timesteps | 9605172  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 3.25     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.798   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 600317   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 640      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19180    |
+|    fps             | 197      |
+|    time_elapsed    | 48642    |
+|    total_timesteps | 9609180  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 9.2      |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.149   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 600567   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 633      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19190    |
+|    fps             | 197      |
+|    time_elapsed    | 48670    |
+|    total_timesteps | 9615192  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 5.35     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.964    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 600943   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 637      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19200    |
+|    fps             | 197      |
+|    time_elapsed    | 48691    |
+|    total_timesteps | 9619200  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.44     |
+|    ent_coef        | 0.0159   |
+|    ent_coef_loss   | -0.364   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 601193   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 625      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19210    |
+|    fps             | 197      |
+|    time_elapsed    | 48720    |
+|    total_timesteps | 9625212  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.64     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.249    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 601569   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 632      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19220    |
+|    fps             | 197      |
+|    time_elapsed    | 48741    |
+|    total_timesteps | 9629220  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 7.73     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.234   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 601820   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 619      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19230    |
+|    fps             | 197      |
+|    time_elapsed    | 48769    |
+|    total_timesteps | 9635232  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 8.06     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.514   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 602195   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 619      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19240    |
+|    fps             | 197      |
+|    time_elapsed    | 48788    |
+|    total_timesteps | 9639240  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 4.65     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | 0.127    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 602446   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 603      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19250    |
+|    fps             | 197      |
+|    time_elapsed    | 48816    |
+|    total_timesteps | 9645252  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 9.02     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.201    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 602822   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 605      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19260    |
+|    fps             | 197      |
+|    time_elapsed    | 48837    |
+|    total_timesteps | 9649260  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 2.47     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | -0.717   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 603072   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 602      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19270    |
+|    fps             | 197      |
+|    time_elapsed    | 48865    |
+|    total_timesteps | 9655272  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.12     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 1.43     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 603448   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 594      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19280    |
+|    fps             | 197      |
+|    time_elapsed    | 48883    |
+|    total_timesteps | 9659280  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 2.72     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.572    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 603698   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 598      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19290    |
+|    fps             | 197      |
+|    time_elapsed    | 48912    |
+|    total_timesteps | 9665292  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 4.41     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | 0.878    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 604074   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 597      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19300    |
+|    fps             | 197      |
+|    time_elapsed    | 48932    |
+|    total_timesteps | 9669300  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 11.7     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.79    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 604325   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 603      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19310    |
+|    fps             | 197      |
+|    time_elapsed    | 48961    |
+|    total_timesteps | 9675312  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 4.61     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -0.948   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 604700   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 596      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19320    |
+|    fps             | 197      |
+|    time_elapsed    | 48980    |
+|    total_timesteps | 9679320  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 5.26     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | 0.6      |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 604951   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=9680000, episode_reward=697.43 +/- 114.59
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 697      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 9680000  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 21.7     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | 0.00395  |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 604993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 612      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19330    |
+|    fps             | 197      |
+|    time_elapsed    | 49020    |
+|    total_timesteps | 9685332  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 4.19     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -1.19    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 605327   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 603      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19340    |
+|    fps             | 197      |
+|    time_elapsed    | 49039    |
+|    total_timesteps | 9689340  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 12.9     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.173    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 605577   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 606      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19350    |
+|    fps             | 197      |
+|    time_elapsed    | 49067    |
+|    total_timesteps | 9695352  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 11.5     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.351   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 605953   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 604      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19360    |
+|    fps             | 197      |
+|    time_elapsed    | 49088    |
+|    total_timesteps | 9699360  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 8.01     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.335   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 606203   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 601      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19370    |
+|    fps             | 197      |
+|    time_elapsed    | 49116    |
+|    total_timesteps | 9705372  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 7.18     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.718   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 606579   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 615      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19380    |
+|    fps             | 197      |
+|    time_elapsed    | 49135    |
+|    total_timesteps | 9709380  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 7.74     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.354   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 606830   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 616      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19390    |
+|    fps             | 197      |
+|    time_elapsed    | 49166    |
+|    total_timesteps | 9715392  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 6.44     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.599    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 607205   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 619      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19400    |
+|    fps             | 197      |
+|    time_elapsed    | 49185    |
+|    total_timesteps | 9719400  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 7.2      |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -1.01    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 607456   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 629      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19410    |
+|    fps             | 197      |
+|    time_elapsed    | 49213    |
+|    total_timesteps | 9725412  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 4.26     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.017    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 607832   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 636      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19420    |
+|    fps             | 197      |
+|    time_elapsed    | 49232    |
+|    total_timesteps | 9729420  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 3.64     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | -1.27    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 608082   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 635      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19430    |
+|    fps             | 197      |
+|    time_elapsed    | 49262    |
+|    total_timesteps | 9735432  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 2.77     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | -0.531   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 608458   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 639      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19440    |
+|    fps             | 197      |
+|    time_elapsed    | 49281    |
+|    total_timesteps | 9739440  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 12.7     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | 0.743    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 608708   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 654      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19450    |
+|    fps             | 197      |
+|    time_elapsed    | 49310    |
+|    total_timesteps | 9745452  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 21.6     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.702    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 609084   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 645      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19460    |
+|    fps             | 197      |
+|    time_elapsed    | 49329    |
+|    total_timesteps | 9749460  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 2.42     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -0.496   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 609335   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 646      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19470    |
+|    fps             | 197      |
+|    time_elapsed    | 49358    |
+|    total_timesteps | 9755472  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 4.1      |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | -0.694   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 609710   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 639      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19480    |
+|    fps             | 197      |
+|    time_elapsed    | 49376    |
+|    total_timesteps | 9759480  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 32.5     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | 1.51     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 609961   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=9760000, episode_reward=719.91 +/- 105.26
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 720      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 9760000  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 6.64     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.584    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 609993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 635      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19490    |
+|    fps             | 197      |
+|    time_elapsed    | 49416    |
+|    total_timesteps | 9765492  |
+| train/             |          |
+|    actor_loss      | -99.9    |
+|    critic_loss     | 5.58     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.543   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 610337   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 639      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19500    |
+|    fps             | 197      |
+|    time_elapsed    | 49437    |
+|    total_timesteps | 9769500  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 2.46     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.0983  |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 610587   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 637      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19510    |
+|    fps             | 197      |
+|    time_elapsed    | 49466    |
+|    total_timesteps | 9775512  |
+| train/             |          |
+|    actor_loss      | -99.9    |
+|    critic_loss     | 2.49     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | 0.392    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 610963   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 625      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19520    |
+|    fps             | 197      |
+|    time_elapsed    | 49486    |
+|    total_timesteps | 9779520  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 4.25     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -0.329   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 611213   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 621      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19530    |
+|    fps             | 197      |
+|    time_elapsed    | 49515    |
+|    total_timesteps | 9785532  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 4.95     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.436    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 611589   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 621      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19540    |
+|    fps             | 197      |
+|    time_elapsed    | 49534    |
+|    total_timesteps | 9789540  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.15     |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | 0.918    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 611840   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 614      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19550    |
+|    fps             | 197      |
+|    time_elapsed    | 49563    |
+|    total_timesteps | 9795552  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.22     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.14     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 612215   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 616      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19560    |
+|    fps             | 197      |
+|    time_elapsed    | 49582    |
+|    total_timesteps | 9799560  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 5.89     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.393    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 612466   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 626      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19570    |
+|    fps             | 197      |
+|    time_elapsed    | 49610    |
+|    total_timesteps | 9805572  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.56     |
+|    ent_coef        | 0.016    |
+|    ent_coef_loss   | -0.00737 |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 612842   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 629      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19580    |
+|    fps             | 197      |
+|    time_elapsed    | 49629    |
+|    total_timesteps | 9809580  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 16.9     |
+|    ent_coef        | 0.0159   |
+|    ent_coef_loss   | 0.419    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 613092   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 634      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19590    |
+|    fps             | 197      |
+|    time_elapsed    | 49658    |
+|    total_timesteps | 9815592  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 8.3      |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | 1.24     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 613468   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 630      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19600    |
+|    fps             | 197      |
+|    time_elapsed    | 49677    |
+|    total_timesteps | 9819600  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 7.62     |
+|    ent_coef        | 0.0159   |
+|    ent_coef_loss   | -1.17    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 613718   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 621      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19610    |
+|    fps             | 197      |
+|    time_elapsed    | 49706    |
+|    total_timesteps | 9825612  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 9.36     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.501    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 614094   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 639      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19620    |
+|    fps             | 197      |
+|    time_elapsed    | 49726    |
+|    total_timesteps | 9829620  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 4.98     |
+|    ent_coef        | 0.0159   |
+|    ent_coef_loss   | 1.81     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 614345   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 644      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19630    |
+|    fps             | 197      |
+|    time_elapsed    | 49756    |
+|    total_timesteps | 9835632  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.36     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.162    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 614720   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 654      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19640    |
+|    fps             | 197      |
+|    time_elapsed    | 49775    |
+|    total_timesteps | 9839640  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.01     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | 0.239    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 614971   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=9840000, episode_reward=748.60 +/- 69.81
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 749      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 9840000  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 3.58     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | -0.358   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 614993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 653      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19650    |
+|    fps             | 197      |
+|    time_elapsed    | 49816    |
+|    total_timesteps | 9845652  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 4.5      |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.199    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 615347   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 655      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19660    |
+|    fps             | 197      |
+|    time_elapsed    | 49835    |
+|    total_timesteps | 9849660  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 5.65     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.445    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 615597   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 654      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19670    |
+|    fps             | 197      |
+|    time_elapsed    | 49865    |
+|    total_timesteps | 9855672  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.05     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.244   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 615973   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 652      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19680    |
+|    fps             | 197      |
+|    time_elapsed    | 49884    |
+|    total_timesteps | 9859680  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 6.17     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.966    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 616223   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 656      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19690    |
+|    fps             | 197      |
+|    time_elapsed    | 49915    |
+|    total_timesteps | 9865692  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.77     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.893    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 616599   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 648      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19700    |
+|    fps             | 197      |
+|    time_elapsed    | 49934    |
+|    total_timesteps | 9869700  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.01     |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | 1.6      |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 616850   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 655      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19710    |
+|    fps             | 197      |
+|    time_elapsed    | 49963    |
+|    total_timesteps | 9875712  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 15.5     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.514    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 617225   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 633      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19720    |
+|    fps             | 197      |
+|    time_elapsed    | 49983    |
+|    total_timesteps | 9879720  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 30.2     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.699   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 617476   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 599      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19730    |
+|    fps             | 197      |
+|    time_elapsed    | 50011    |
+|    total_timesteps | 9885732  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 5.14     |
+|    ent_coef        | 0.016    |
+|    ent_coef_loss   | 1.08     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 617852   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 598      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19740    |
+|    fps             | 197      |
+|    time_elapsed    | 50030    |
+|    total_timesteps | 9889740  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 6.38     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | -0.482   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 618102   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 593      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19750    |
+|    fps             | 197      |
+|    time_elapsed    | 50059    |
+|    total_timesteps | 9895752  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.78     |
+|    ent_coef        | 0.0159   |
+|    ent_coef_loss   | -0.912   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 618478   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 596      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19760    |
+|    fps             | 197      |
+|    time_elapsed    | 50079    |
+|    total_timesteps | 9899760  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.83     |
+|    ent_coef        | 0.0159   |
+|    ent_coef_loss   | 1.68     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 618728   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 587      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19770    |
+|    fps             | 197      |
+|    time_elapsed    | 50109    |
+|    total_timesteps | 9905772  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 4.2      |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.357   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 619104   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 592      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19780    |
+|    fps             | 197      |
+|    time_elapsed    | 50129    |
+|    total_timesteps | 9909780  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.05     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.585   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 619355   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 596      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19790    |
+|    fps             | 197      |
+|    time_elapsed    | 50159    |
+|    total_timesteps | 9915792  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 27       |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.368    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 619730   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 609      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19800    |
+|    fps             | 197      |
+|    time_elapsed    | 50179    |
+|    total_timesteps | 9919800  |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 11.3     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -0.108   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 619981   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=9920000, episode_reward=700.73 +/- 156.73
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 701      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 9920000  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.63     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 1.1      |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 619993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 615      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19810    |
+|    fps             | 197      |
+|    time_elapsed    | 50219    |
+|    total_timesteps | 9925812  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 3.04     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.212    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 620357   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 616      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19820    |
+|    fps             | 197      |
+|    time_elapsed    | 50238    |
+|    total_timesteps | 9929820  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.07     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.286    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 620607   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 656      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19830    |
+|    fps             | 197      |
+|    time_elapsed    | 50266    |
+|    total_timesteps | 9935832  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 8.04     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | -0.571   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 620983   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 646      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19840    |
+|    fps             | 197      |
+|    time_elapsed    | 50285    |
+|    total_timesteps | 9939840  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 20.3     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -0.8     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 621233   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 658      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19850    |
+|    fps             | 197      |
+|    time_elapsed    | 50314    |
+|    total_timesteps | 9945852  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 18.9     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.216    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 621609   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 651      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19860    |
+|    fps             | 197      |
+|    time_elapsed    | 50336    |
+|    total_timesteps | 9949860  |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 5.1      |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 1.19     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 621860   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 652      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19870    |
+|    fps             | 197      |
+|    time_elapsed    | 50364    |
+|    total_timesteps | 9955872  |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 2.9      |
+|    ent_coef        | 0.016    |
+|    ent_coef_loss   | -1.4     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 622235   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 640      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19880    |
+|    fps             | 197      |
+|    time_elapsed    | 50383    |
+|    total_timesteps | 9959880  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.43     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | -1.02    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 622486   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 630      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19890    |
+|    fps             | 197      |
+|    time_elapsed    | 50411    |
+|    total_timesteps | 9965892  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.71     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.839   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 622862   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 619      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19900    |
+|    fps             | 197      |
+|    time_elapsed    | 50430    |
+|    total_timesteps | 9969900  |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 16.8     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.249   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 623112   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 604      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19910    |
+|    fps             | 197      |
+|    time_elapsed    | 50458    |
+|    total_timesteps | 9975912  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 3.41     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.418    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 623488   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 606      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19920    |
+|    fps             | 197      |
+|    time_elapsed    | 50477    |
+|    total_timesteps | 9979920  |
+| train/             |          |
+|    actor_loss      | -98.7    |
+|    critic_loss     | 17.2     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | 2.33     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 623738   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 600      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19930    |
+|    fps             | 197      |
+|    time_elapsed    | 50505    |
+|    total_timesteps | 9985932  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 2.86     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | -0.359   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 624114   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 608      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19940    |
+|    fps             | 197      |
+|    time_elapsed    | 50524    |
+|    total_timesteps | 9989940  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 4.61     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | -0.594   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 624365   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 589      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19950    |
+|    fps             | 197      |
+|    time_elapsed    | 50552    |
+|    total_timesteps | 9995952  |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 5.71     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | -1.46    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 624740   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 588      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19960    |
+|    fps             | 197      |
+|    time_elapsed    | 50572    |
+|    total_timesteps | 9999960  |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 13.5     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.606   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 624991   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=10000000, episode_reward=665.30 +/- 70.61
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 665      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 10000000 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 5.23     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.416   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 624993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 604      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19970    |
+|    fps             | 197      |
+|    time_elapsed    | 50612    |
+|    total_timesteps | 10005972 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.44     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.585    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 625367   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 606      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19980    |
+|    fps             | 197      |
+|    time_elapsed    | 50631    |
+|    total_timesteps | 10009980 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 6.48     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.561    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 625617   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 621      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 19990    |
+|    fps             | 197      |
+|    time_elapsed    | 50659    |
+|    total_timesteps | 10015992 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 20.6     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | -0.0666  |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 625993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 635      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20000    |
+|    fps             | 197      |
+|    time_elapsed    | 50679    |
+|    total_timesteps | 10020000 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.75     |
+|    ent_coef        | 0.0159   |
+|    ent_coef_loss   | 0.223    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 626243   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 638      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20010    |
+|    fps             | 197      |
+|    time_elapsed    | 50708    |
+|    total_timesteps | 10026012 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 3.43     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | -0.584   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 626619   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 631      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20020    |
+|    fps             | 197      |
+|    time_elapsed    | 50727    |
+|    total_timesteps | 10030020 |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 3.81     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 1.01     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 626870   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 633      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20030    |
+|    fps             | 197      |
+|    time_elapsed    | 50758    |
+|    total_timesteps | 10036032 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 6.81     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.515   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 627245   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 634      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20040    |
+|    fps             | 197      |
+|    time_elapsed    | 50777    |
+|    total_timesteps | 10040040 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 7.2      |
+|    ent_coef        | 0.0147   |
+|    ent_coef_loss   | -0.409   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 627496   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 649      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20050    |
+|    fps             | 197      |
+|    time_elapsed    | 50805    |
+|    total_timesteps | 10046052 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 8.77     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | 0.904    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 627872   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 644      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20060    |
+|    fps             | 197      |
+|    time_elapsed    | 50824    |
+|    total_timesteps | 10050060 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.34     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | 0.341    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 628122   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 644      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20070    |
+|    fps             | 197      |
+|    time_elapsed    | 50855    |
+|    total_timesteps | 10056072 |
+| train/             |          |
+|    actor_loss      | -106     |
+|    critic_loss     | 5.56     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.363    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 628498   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 651      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20080    |
+|    fps             | 197      |
+|    time_elapsed    | 50875    |
+|    total_timesteps | 10060080 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.9      |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.815    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 628748   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 638      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20090    |
+|    fps             | 197      |
+|    time_elapsed    | 50904    |
+|    total_timesteps | 10066092 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.87     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | -0.184   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 629124   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 618      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20100    |
+|    fps             | 197      |
+|    time_elapsed    | 50924    |
+|    total_timesteps | 10070100 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 6.87     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.626    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 629375   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 634      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20110    |
+|    fps             | 197      |
+|    time_elapsed    | 50952    |
+|    total_timesteps | 10076112 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 4.89     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.673    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 629750   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=10080000, episode_reward=660.14 +/- 70.55
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 660      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 10080000 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.77     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.753   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 629993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 653      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20120    |
+|    fps             | 197      |
+|    time_elapsed    | 50982    |
+|    total_timesteps | 10080120 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 14.9     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.631    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 630001   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 643      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20130    |
+|    fps             | 197      |
+|    time_elapsed    | 51010    |
+|    total_timesteps | 10086132 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 7.78     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | 0.28     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 630377   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 643      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20140    |
+|    fps             | 197      |
+|    time_elapsed    | 51029    |
+|    total_timesteps | 10090140 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 2.62     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | 0.274    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 630627   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 645      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20150    |
+|    fps             | 197      |
+|    time_elapsed    | 51058    |
+|    total_timesteps | 10096152 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 7.29     |
+|    ent_coef        | 0.0146   |
+|    ent_coef_loss   | 0.122    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 631003   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 663      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20160    |
+|    fps             | 197      |
+|    time_elapsed    | 51079    |
+|    total_timesteps | 10100160 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 3.55     |
+|    ent_coef        | 0.0148   |
+|    ent_coef_loss   | 0.896    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 631253   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 645      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20170    |
+|    fps             | 197      |
+|    time_elapsed    | 51107    |
+|    total_timesteps | 10106172 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.93     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -1.11    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 631629   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 640      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20180    |
+|    fps             | 197      |
+|    time_elapsed    | 51126    |
+|    total_timesteps | 10110180 |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 6.55     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | 0.0112   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 631880   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 648      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20190    |
+|    fps             | 197      |
+|    time_elapsed    | 51155    |
+|    total_timesteps | 10116192 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 9.83     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | 0.0305   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 632255   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 657      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20200    |
+|    fps             | 197      |
+|    time_elapsed    | 51174    |
+|    total_timesteps | 10120200 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.59     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.793   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 632506   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 645      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20210    |
+|    fps             | 197      |
+|    time_elapsed    | 51204    |
+|    total_timesteps | 10126212 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 6.58     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.0979   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 632882   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 650      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20220    |
+|    fps             | 197      |
+|    time_elapsed    | 51223    |
+|    total_timesteps | 10130220 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.8      |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.814   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 633132   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 659      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20230    |
+|    fps             | 197      |
+|    time_elapsed    | 51251    |
+|    total_timesteps | 10136232 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 7.74     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.468    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 633508   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 658      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20240    |
+|    fps             | 197      |
+|    time_elapsed    | 51271    |
+|    total_timesteps | 10140240 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.06     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -1.19    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 633758   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 667      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20250    |
+|    fps             | 197      |
+|    time_elapsed    | 51301    |
+|    total_timesteps | 10146252 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 7.39     |
+|    ent_coef        | 0.0148   |
+|    ent_coef_loss   | 0.542    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 634134   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 660      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20260    |
+|    fps             | 197      |
+|    time_elapsed    | 51320    |
+|    total_timesteps | 10150260 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 6.33     |
+|    ent_coef        | 0.0148   |
+|    ent_coef_loss   | 0.5      |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 634385   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 671      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20270    |
+|    fps             | 197      |
+|    time_elapsed    | 51349    |
+|    total_timesteps | 10156272 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.15     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 1.03     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 634760   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=10160000, episode_reward=732.02 +/- 54.11
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 732      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 10160000 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 4.97     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.692    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 634993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 686      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20280    |
+|    fps             | 197      |
+|    time_elapsed    | 51381    |
+|    total_timesteps | 10160280 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 4.61     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.744   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 635011   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 680      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20290    |
+|    fps             | 197      |
+|    time_elapsed    | 51409    |
+|    total_timesteps | 10166292 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 6.19     |
+|    ent_coef        | 0.0148   |
+|    ent_coef_loss   | 0.463    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 635387   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 677      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20300    |
+|    fps             | 197      |
+|    time_elapsed    | 51429    |
+|    total_timesteps | 10170300 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 3.64     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.357    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 635637   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 687      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20310    |
+|    fps             | 197      |
+|    time_elapsed    | 51457    |
+|    total_timesteps | 10176312 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 17.9     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | -0.256   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 636013   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 673      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20320    |
+|    fps             | 197      |
+|    time_elapsed    | 51477    |
+|    total_timesteps | 10180320 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 2.21     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 1.1      |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 636263   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 672      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20330    |
+|    fps             | 197      |
+|    time_elapsed    | 51506    |
+|    total_timesteps | 10186332 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 9.61     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.312   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 636639   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 660      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20340    |
+|    fps             | 197      |
+|    time_elapsed    | 51524    |
+|    total_timesteps | 10190340 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.6      |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.815    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 636890   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 650      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20350    |
+|    fps             | 197      |
+|    time_elapsed    | 51553    |
+|    total_timesteps | 10196352 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 9.97     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | -0.306   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 637265   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 649      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20360    |
+|    fps             | 197      |
+|    time_elapsed    | 51573    |
+|    total_timesteps | 10200360 |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 4.67     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 1.03     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 637516   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 652      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20370    |
+|    fps             | 197      |
+|    time_elapsed    | 51602    |
+|    total_timesteps | 10206372 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.75     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -1.14    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 637892   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 635      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20380    |
+|    fps             | 197      |
+|    time_elapsed    | 51621    |
+|    total_timesteps | 10210380 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 7.64     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 1.37     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 638142   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 609      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20390    |
+|    fps             | 197      |
+|    time_elapsed    | 51649    |
+|    total_timesteps | 10216392 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 2.62     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -1.32    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 638518   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 614      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20400    |
+|    fps             | 197      |
+|    time_elapsed    | 51669    |
+|    total_timesteps | 10220400 |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 4.07     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.102    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 638768   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 608      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20410    |
+|    fps             | 197      |
+|    time_elapsed    | 51699    |
+|    total_timesteps | 10226412 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 2.97     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.306    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 639144   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 605      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20420    |
+|    fps             | 197      |
+|    time_elapsed    | 51718    |
+|    total_timesteps | 10230420 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 17.9     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -0.715   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 639395   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 592      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20430    |
+|    fps             | 197      |
+|    time_elapsed    | 51746    |
+|    total_timesteps | 10236432 |
+| train/             |          |
+|    actor_loss      | -107     |
+|    critic_loss     | 6.18     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.883    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 639770   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=10240000, episode_reward=782.57 +/- 22.21
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 783      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 10240000 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 15.4     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | 0.227    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 639993   |
+---------------------------------
+New best mean reward!
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 599      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20440    |
+|    fps             | 197      |
+|    time_elapsed    | 51778    |
+|    total_timesteps | 10240440 |
+| train/             |          |
+|    actor_loss      | -99.8    |
+|    critic_loss     | 7.97     |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | -0.182   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 640021   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 593      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20450    |
+|    fps             | 197      |
+|    time_elapsed    | 51806    |
+|    total_timesteps | 10246452 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 9.28     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.117    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 640397   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 598      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20460    |
+|    fps             | 197      |
+|    time_elapsed    | 51826    |
+|    total_timesteps | 10250460 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 5.53     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.706    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 640647   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 589      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20470    |
+|    fps             | 197      |
+|    time_elapsed    | 51855    |
+|    total_timesteps | 10256472 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 7.79     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.472    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 641023   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 598      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20480    |
+|    fps             | 197      |
+|    time_elapsed    | 51874    |
+|    total_timesteps | 10260480 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 18.3     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.825    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 641273   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 622      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20490    |
+|    fps             | 197      |
+|    time_elapsed    | 51904    |
+|    total_timesteps | 10266492 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 19.2     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | 0.235    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 641649   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 625      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20500    |
+|    fps             | 197      |
+|    time_elapsed    | 51923    |
+|    total_timesteps | 10270500 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 9.55     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.438   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 641900   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 633      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20510    |
+|    fps             | 197      |
+|    time_elapsed    | 51953    |
+|    total_timesteps | 10276512 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 9.67     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.444    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 642275   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 631      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20520    |
+|    fps             | 197      |
+|    time_elapsed    | 51972    |
+|    total_timesteps | 10280520 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.29     |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | -1.04    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 642526   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 646      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20530    |
+|    fps             | 197      |
+|    time_elapsed    | 52002    |
+|    total_timesteps | 10286532 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 12.2     |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | -1.02    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 642902   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 657      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20540    |
+|    fps             | 197      |
+|    time_elapsed    | 52021    |
+|    total_timesteps | 10290540 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.78     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | -1.49    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 643152   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 655      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20550    |
+|    fps             | 197      |
+|    time_elapsed    | 52050    |
+|    total_timesteps | 10296552 |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 6.34     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.145   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 643528   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 657      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20560    |
+|    fps             | 197      |
+|    time_elapsed    | 52069    |
+|    total_timesteps | 10300560 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 10.9     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -1       |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 643778   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 666      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20570    |
+|    fps             | 197      |
+|    time_elapsed    | 52098    |
+|    total_timesteps | 10306572 |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 3        |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.46    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 644154   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 663      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20580    |
+|    fps             | 197      |
+|    time_elapsed    | 52118    |
+|    total_timesteps | 10310580 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 6.75     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | -0.457   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 644405   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 672      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20590    |
+|    fps             | 197      |
+|    time_elapsed    | 52148    |
+|    total_timesteps | 10316592 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.41     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | -0.668   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 644780   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=10320000, episode_reward=582.94 +/- 81.67
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 583      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 10320000 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 4.57     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | 0.879    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 644993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 672      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20600    |
+|    fps             | 197      |
+|    time_elapsed    | 52179    |
+|    total_timesteps | 10320600 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 13       |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | -0.484   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 645031   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 679      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20610    |
+|    fps             | 197      |
+|    time_elapsed    | 52209    |
+|    total_timesteps | 10326612 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 12.1     |
+|    ent_coef        | 0.0147   |
+|    ent_coef_loss   | -1.75    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 645407   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 695      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20620    |
+|    fps             | 197      |
+|    time_elapsed    | 52231    |
+|    total_timesteps | 10330620 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 8.87     |
+|    ent_coef        | 0.0144   |
+|    ent_coef_loss   | 0.663    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 645657   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 696      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20630    |
+|    fps             | 197      |
+|    time_elapsed    | 52262    |
+|    total_timesteps | 10336632 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 5.92     |
+|    ent_coef        | 0.0144   |
+|    ent_coef_loss   | 0.767    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 646033   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 695      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20640    |
+|    fps             | 197      |
+|    time_elapsed    | 52281    |
+|    total_timesteps | 10340640 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.31     |
+|    ent_coef        | 0.0146   |
+|    ent_coef_loss   | -0.51    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 646283   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 713      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20650    |
+|    fps             | 197      |
+|    time_elapsed    | 52309    |
+|    total_timesteps | 10346652 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 5.09     |
+|    ent_coef        | 0.0147   |
+|    ent_coef_loss   | -0.794   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 646659   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 701      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20660    |
+|    fps             | 197      |
+|    time_elapsed    | 52330    |
+|    total_timesteps | 10350660 |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 3.94     |
+|    ent_coef        | 0.0144   |
+|    ent_coef_loss   | -0.754   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 646910   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 687      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20670    |
+|    fps             | 197      |
+|    time_elapsed    | 52360    |
+|    total_timesteps | 10356672 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 3.32     |
+|    ent_coef        | 0.0147   |
+|    ent_coef_loss   | -0.0497  |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 647285   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 688      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20680    |
+|    fps             | 197      |
+|    time_elapsed    | 52379    |
+|    total_timesteps | 10360680 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 3.66     |
+|    ent_coef        | 0.0146   |
+|    ent_coef_loss   | -0.0103  |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 647536   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 668      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20690    |
+|    fps             | 197      |
+|    time_elapsed    | 52408    |
+|    total_timesteps | 10366692 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.9      |
+|    ent_coef        | 0.015    |
+|    ent_coef_loss   | -0.111   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 647912   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 667      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20700    |
+|    fps             | 197      |
+|    time_elapsed    | 52427    |
+|    total_timesteps | 10370700 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 12.2     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.395    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 648162   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 657      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20710    |
+|    fps             | 197      |
+|    time_elapsed    | 52457    |
+|    total_timesteps | 10376712 |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 3.69     |
+|    ent_coef        | 0.0146   |
+|    ent_coef_loss   | 0.705    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 648538   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 633      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20720    |
+|    fps             | 197      |
+|    time_elapsed    | 52475    |
+|    total_timesteps | 10380720 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.63     |
+|    ent_coef        | 0.0148   |
+|    ent_coef_loss   | -0.302   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 648788   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 629      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20730    |
+|    fps             | 197      |
+|    time_elapsed    | 52506    |
+|    total_timesteps | 10386732 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 12.3     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | -0.0378  |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 649164   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 626      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20740    |
+|    fps             | 197      |
+|    time_elapsed    | 52525    |
+|    total_timesteps | 10390740 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 21.2     |
+|    ent_coef        | 0.0147   |
+|    ent_coef_loss   | -0.862   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 649415   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 616      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20750    |
+|    fps             | 197      |
+|    time_elapsed    | 52554    |
+|    total_timesteps | 10396752 |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 5.58     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | -1.01    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 649790   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=10400000, episode_reward=729.03 +/- 61.35
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 729      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 10400000 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.11     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.826    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 649993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 614      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20760    |
+|    fps             | 197      |
+|    time_elapsed    | 52583    |
+|    total_timesteps | 10400760 |
+| train/             |          |
+|    actor_loss      | -105     |
+|    critic_loss     | 3.98     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.289    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 650041   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 618      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20770    |
+|    fps             | 197      |
+|    time_elapsed    | 52612    |
+|    total_timesteps | 10406772 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 2.74     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -1.08    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 650417   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 619      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20780    |
+|    fps             | 197      |
+|    time_elapsed    | 52632    |
+|    total_timesteps | 10410780 |
+| train/             |          |
+|    actor_loss      | -100     |
+|    critic_loss     | 14.1     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.377   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 650667   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 637      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20790    |
+|    fps             | 197      |
+|    time_elapsed    | 52662    |
+|    total_timesteps | 10416792 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 7.48     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.364    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 651043   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 637      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20800    |
+|    fps             | 197      |
+|    time_elapsed    | 52683    |
+|    total_timesteps | 10420800 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 4.29     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 0.445    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 651293   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 630      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20810    |
+|    fps             | 197      |
+|    time_elapsed    | 52712    |
+|    total_timesteps | 10426812 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 24.5     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | -0.0378  |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 651669   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 649      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20820    |
+|    fps             | 197      |
+|    time_elapsed    | 52731    |
+|    total_timesteps | 10430820 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 6.8      |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | -1.25    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 651920   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 640      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20830    |
+|    fps             | 197      |
+|    time_elapsed    | 52762    |
+|    total_timesteps | 10436832 |
+| train/             |          |
+|    actor_loss      | -104     |
+|    critic_loss     | 18.8     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -1.17    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 652295   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 636      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20840    |
+|    fps             | 197      |
+|    time_elapsed    | 52782    |
+|    total_timesteps | 10440840 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 6.82     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.806    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 652546   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 645      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20850    |
+|    fps             | 197      |
+|    time_elapsed    | 52811    |
+|    total_timesteps | 10446852 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 21.7     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 0.701    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 652922   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 647      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20860    |
+|    fps             | 197      |
+|    time_elapsed    | 52830    |
+|    total_timesteps | 10450860 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 6.18     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.811   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 653172   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 644      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20870    |
+|    fps             | 197      |
+|    time_elapsed    | 52859    |
+|    total_timesteps | 10456872 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.06     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | 0.712    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 653548   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 641      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20880    |
+|    fps             | 197      |
+|    time_elapsed    | 52878    |
+|    total_timesteps | 10460880 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 6.96     |
+|    ent_coef        | 0.0158   |
+|    ent_coef_loss   | -0.261   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 653798   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 633      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20890    |
+|    fps             | 197      |
+|    time_elapsed    | 52907    |
+|    total_timesteps | 10466892 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 16.3     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | 0.0275   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 654174   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 629      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20900    |
+|    fps             | 197      |
+|    time_elapsed    | 52926    |
+|    total_timesteps | 10470900 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 2.85     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.529    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 654425   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 634      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20910    |
+|    fps             | 197      |
+|    time_elapsed    | 52954    |
+|    total_timesteps | 10476912 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 3.35     |
+|    ent_coef        | 0.0155   |
+|    ent_coef_loss   | 0.709    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 654800   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Eval num_timesteps=10480000, episode_reward=674.22 +/- 106.12
+Episode length: 501.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 501      |
+|    mean_reward     | 674      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 10480000 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 2.61     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.85    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 654993   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 623      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20920    |
+|    fps             | 197      |
+|    time_elapsed    | 52984    |
+|    total_timesteps | 10480920 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5        |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | 1.37     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 655051   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 629      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20930    |
+|    fps             | 197      |
+|    time_elapsed    | 53012    |
+|    total_timesteps | 10486932 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 4.7      |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.646   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 655427   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 625      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20940    |
+|    fps             | 197      |
+|    time_elapsed    | 53033    |
+|    total_timesteps | 10490940 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 10.4     |
+|    ent_coef        | 0.0153   |
+|    ent_coef_loss   | -0.165   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 655677   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 619      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20950    |
+|    fps             | 197      |
+|    time_elapsed    | 53063    |
+|    total_timesteps | 10496952 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 2.82     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | -0.126   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 656053   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 613      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20960    |
+|    fps             | 197      |
+|    time_elapsed    | 53082    |
+|    total_timesteps | 10500960 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 7.46     |
+|    ent_coef        | 0.0157   |
+|    ent_coef_loss   | -0.69    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 656303   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 619      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20970    |
+|    fps             | 197      |
+|    time_elapsed    | 53111    |
+|    total_timesteps | 10506972 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 6.23     |
+|    ent_coef        | 0.0152   |
+|    ent_coef_loss   | 1.51     |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 656679   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 627      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20980    |
+|    fps             | 197      |
+|    time_elapsed    | 53131    |
+|    total_timesteps | 10510980 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 9.32     |
+|    ent_coef        | 0.0148   |
+|    ent_coef_loss   | 0.0668   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 656930   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 644      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 20990    |
+|    fps             | 197      |
+|    time_elapsed    | 53161    |
+|    total_timesteps | 10516992 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 5.76     |
+|    ent_coef        | 0.0149   |
+|    ent_coef_loss   | 0.421    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 657305   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 647      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 21000    |
+|    fps             | 197      |
+|    time_elapsed    | 53180    |
+|    total_timesteps | 10521000 |
+| train/             |          |
+|    actor_loss      | -101     |
+|    critic_loss     | 2.93     |
+|    ent_coef        | 0.0151   |
+|    ent_coef_loss   | 0.313    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 657556   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 639      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 21010    |
+|    fps             | 197      |
+|    time_elapsed    | 53210    |
+|    total_timesteps | 10527012 |
+| train/             |          |
+|    actor_loss      | -102     |
+|    critic_loss     | 5.79     |
+|    ent_coef        | 0.0154   |
+|    ent_coef_loss   | -0.155   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 657932   |
+---------------------------------
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 654      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 21020    |
+|    fps             | 197      |
+|    time_elapsed    | 53230    |
+|    total_timesteps | 10531020 |
+| train/             |          |
+|    actor_loss      | -103     |
+|    critic_loss     | 13.8     |
+|    ent_coef        | 0.0156   |
+|    ent_coef_loss   | -0.378   |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 658182   |
+---------------------------------
