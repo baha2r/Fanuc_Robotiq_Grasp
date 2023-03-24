@@ -125,8 +125,8 @@ class robotiqGymEnv(gym.Env):
     targetpos = [xpos, ypos, zpos]
 
     # rol  = 0.00 + math.pi * random.uniform(-1,1)
-    rol  = 0.00
-    pitch = 0.00
+    rol  = math.pi * random.uniform(-1,1)
+    pitch = math.pi * random.uniform(-1,1)
     yaw = 0.00
     targetorn  = p.getQuaternionFromEuler([rol, pitch, yaw])
 
