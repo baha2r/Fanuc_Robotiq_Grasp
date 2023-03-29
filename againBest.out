@@ -1,0 +1,52 @@
+pybullet build time: Feb  1 2023 23:25:41
+2023-03-28 21:12:19.818186: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-03-28 21:12:20.497356: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2023-03-28 21:12:20.497438: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2023-03-28 21:12:20.497448: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+robotiqGymEnv __init__
+robot base reset
+Using cuda device
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+Logging to ./tensorboard/20230328-09:12PM_SAC_M10000_0.04_39/SAC_1
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+robot base reset
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 501      |
+|    ep_rew_mean     | 113      |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    episodes        | 10       |
+|    fps             | 203      |
+|    time_elapsed    | 29       |
+|    total_timesteps | 6012     |
+| train/             |          |
+|    actor_loss      | -12.6    |
+|    critic_loss     | 0.604    |
+|    ent_coef        | 0.895    |
+|    ent_coef_loss   | -1.11    |
+|    learning_rate   | 0.0003   |
+|    n_updates       | 369      |
+---------------------------------
