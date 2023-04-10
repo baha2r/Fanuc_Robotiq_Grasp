@@ -332,7 +332,7 @@ class robotiqGymEnv(gym.Env):
     return reward
 
   def _r_topology(self):
-    red_point_dot_radius = 10 # Small sphere radius
+    red_point_dot_radius = 2 # Small sphere radius
     red_point_dot_color = [1, 0, 0] # Red color: [r, g, b]
     red_point_dot_opacity = 1.0  # Fully opaque
 
@@ -347,10 +347,10 @@ class robotiqGymEnv(gym.Env):
             for k in range(len(z)):
                 points.append([x[i], y[j], z[k]])
     points = np.array(points)
-    red_point_dot_color = np.array(red_point_dot_color) * len(points)
+    red_point_dot_color = np.array([red_point_dot_color] * len(points))
     
     p.addUserDebugPoints(pointPositions=points,
-                          pointColorsRGB=points,
+                          pointColorsRGB=red_point_dot_color,
                           pointSize=red_point_dot_radius)
 
 
