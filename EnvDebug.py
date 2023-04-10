@@ -20,7 +20,7 @@ from scipy.spatial.transform import Rotation as R
 
 def main():
 
-  env = robotiqGymEnv(records=False, renders=False)
+  env = robotiqGymEnv(records=False, renders=True)
 
   # mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
   # print(mean_reward)
@@ -29,12 +29,18 @@ def main():
   obs = env.reset()
  
   while not dones:
+    xtargetvel = p.getBaseVelocity(env.blockUid)[0][0]
+    ytargetvel = p.getBaseVelocity(env.blockUid)[0][1]
+    ztargetvel = p.getBaseVelocity(env.blockUid)[0][2]
+    print("xvel: ", xtargetvel)
+    print("yvel: ", ytargetvel)
+    print("zvel: ", ztargetvel)
     # if env._envStepCounter < 100:
     #   action = [0 , 0 , 0 , 0 , 0 , 0 ]
     # else:
     #   action = [0 , 0 , 0 , 0 , -0.1 , 0 ]
     # action = env.action_space.sample()
-    action = [1 , 0 , 0 , 0 , 0.1 , 0]
+    action = [0 , 0 , 0 , 0 , 0 , 0]
     obs, rewards, dones, info = env.step(action)
     targetspeed = p.getBaseVelocity(env.blockUid)
     # print(p.getAABB(env.blockUid))
@@ -45,7 +51,7 @@ def main():
     # print(targetspeed)
     # print(len(env._robotiq.linkpos))
     # print(env._contactinfo()[4])
-    env.render()
+    # env.render()
 
 
 if __name__ == "__main__":

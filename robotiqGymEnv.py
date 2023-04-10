@@ -120,8 +120,11 @@ class robotiqGymEnv(gym.Env):
 
     #pos = grippose[1] + 0.6 * randnumy + 0.3 * np.sign(randnumy)
     xpos = 0.0 + 0.50 * randnumx
+    # xpos = -.36
     ypos = 0.8 + 0.1 * randnumy
+    # ypos = 0.88
     zpos = 1.0 + 0.50 * randnumz 
+    # zpos = 1.423
     targetpos = [xpos, ypos, zpos]
 
     # rol  = 0.00 + math.pi * random.uniform(-1,1)
@@ -137,6 +140,7 @@ class robotiqGymEnv(gym.Env):
     self.targetmass = 10_000
     p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
     extforce = np.array([randnumf1, randnumf2, randnumf3]) * (100*self.targetmass)
+    extforce = np.array([0,0,0]) * (100*self.targetmass)
     p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     p.setGravity(0, 0, 0)
@@ -328,6 +332,9 @@ class robotiqGymEnv(gym.Env):
     return reward
 
   def _r_topology(self):
+    red_point_dot_radius = 10 # Small sphere radius
+    red_point_dot_color = [1, 0, 0] # Red color: [r, g, b]
+    red_point_dot_opacity = 1.0  # Fully opaque
 
     aabb_min, aabb_max = p.getAABB(self.blockUid)
     x = np.linspace(aabb_min[0], aabb_max[0], 5)
@@ -340,7 +347,13 @@ class robotiqGymEnv(gym.Env):
             for k in range(len(z)):
                 points.append([x[i], y[j], z[k]])
     points = np.array(points)
+    red_point_dot_color = np.array(red_point_dot_color) * len(points)
     
+    p.addUserDebugPoints(pointPositions=points,
+                          pointColorsRGB=points,
+                          pointSize=red_point_dot_radius)
+
+
 
     gripper_link_pose = []
     for i in range(self._robotiq.numJoints):
