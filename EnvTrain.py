@@ -23,7 +23,7 @@ date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
 
 numberofenv = 4
 
-# callable function to create the environment~
+# callable function to create the environment
 def make_my_env():
     env = robotiqGymEnv()
     return env

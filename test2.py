@@ -35,7 +35,6 @@ def get_tensorboard_data(log_dir):
 
     return pd.concat(dfs, ignore_index=True)
 
-
 log_dir = './tensorboard/20230316-03:42PM_SAC_M10000_0.04_39/SAC_1/events.out.tfevents.1678995745.pse-System-Product-Name.2384611.0'
 df = get_tensorboard_data(log_dir)
 print(df.tag('eval/mean_reward') )
