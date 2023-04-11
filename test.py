@@ -21,12 +21,14 @@ def main():
     threshold_step = max_step - timesteps_to_remove
     
     # Filter events and write to a new file
-    with tf.summary.create_file_writer(os.path.dirname(output_file)).as_default() as writer:
-        for event in event_file_loader.EventFileLoader(input_file).Load():
-            if event.step <= threshold_step:
-                writer.add_event(event)
-            else:
-                break
+    writer = EventFileWriter(os.path.dirname(output_file))
+    for event in event_file_loader.EventFileLoader(input_file).Load():
+        if event.step <= threshold_step:
+            writer.add_event(event)
+        else:
+            break
+
+    writer.close()
 
 if __name__ == "__main__":
     main()
