@@ -50,6 +50,7 @@ class robotiq:
     startpos = [0, 0, 1]
     startOrientation = p.getQuaternionFromEuler([0, -math.pi/2, 0]) #p.getQuaternionFromEuler([0,math.pi/2,0])
     self.robotiqUid = p.loadURDF(os.path.join(self.urdfRootPath, "robotiq.urdf"), startpos, startOrientation)
+    # p.changeDynamics(self.robotiqUid, -1, mass=100)
     # self.robotiqUid = p.loadURDF(os.path.join(self.urdfRootPath, "robotiq_macos.urdf"), [0.000000, 0.000000, 1.00000], p.getQuaternionFromEuler([0, math.pi / 2 ,0]))
     self.cid = p.createConstraint(self.robotiqUid, -1, -1, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0], startpos)
     
@@ -113,7 +114,8 @@ class robotiq:
                             ornEuler[0], ornEuler[1], ornEuler[2],
                             linvel[0], linvel[1], linvel[2],
                             angvel[0], angvel[1], angvel[2]], dtype=np.float32)
-                            #l1j1_state, l2j1_state, l3j1_state
+                            # l1j1_state, l2j1_state, l3j1_state]
+                            #
     
     observation1 = np.array([pos[0], pos[1], pos[2], 
                             orn[0], orn[1], orn[2], orn[3],

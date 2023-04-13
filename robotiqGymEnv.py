@@ -102,7 +102,7 @@ class robotiqGymEnv(gym.Env):
     self.terminated = 0
     p.resetSimulation()
     print("robot base reset")
-    p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep, contactERP=0.9) #globalCFM=0.00001
+    p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep, contactERP=0.9, globalCFM=0.00001) #globalCFM=0.00001
     p.setTimeStep(self._timeStep)
 
     p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
@@ -120,11 +120,11 @@ class robotiqGymEnv(gym.Env):
 
     #pos = grippose[1] + 0.6 * randnumy + 0.3 * np.sign(randnumy)
     xpos = 0.0 + 0.50 * randnumx
-    # xpos = -.36
+    xpos = -.016
     ypos = 0.8 + 0.1 * randnumy
-    # ypos = 0.88
+    ypos = 0.71
     zpos = 1.0 + 0.50 * randnumz 
-    # zpos = 1.423
+    zpos = 1.123
     targetpos = [xpos, ypos, zpos]
 
     # rol  = 0.00 + math.pi * random.uniform(-1,1)
@@ -137,10 +137,11 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    self.targetmass = 10_000
+    self.targetmass = 1100
+    
     p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
     extforce = np.array([randnumf1, randnumf2, randnumf3]) * (100*self.targetmass)
-    extforce = np.array([0,0,0]) * (100*self.targetmass)
+    # extforce = np.array([0,0,0]) * (100*self.targetmass)
     p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     
     p.setGravity(0, 0, 0)
@@ -202,9 +203,9 @@ class robotiqGymEnv(gym.Env):
     totalforce = self._contactinfo()[4]
     # self._observation = np.append(self._observation, totalforce)
 
-    # contactInfo = self._contactinfo()
-    # contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
-    #                         contactInfo[3][0], contactInfo[3][1], contactInfo[3][2]], dtype=np.float32)
+    contactInfo = self._contactinfo()
+    contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
+                            contactInfo[3][0], contactInfo[3][1], contactInfo[3][2]], dtype=np.float32)
     # self._observation = np.append(self._observation, contactInfo)
 
     return self._observation
@@ -349,9 +350,9 @@ class robotiqGymEnv(gym.Env):
     points = np.array(points)
     red_point_dot_color = np.array([red_point_dot_color] * len(points))
     
-    p.addUserDebugPoints(pointPositions=points,
-                          pointColorsRGB=red_point_dot_color,
-                          pointSize=red_point_dot_radius)
+    # p.addUserDebugPoints(pointPositions=points,
+    #                       pointColorsRGB=red_point_dot_color,
+    #                       pointSize=red_point_dot_radius)
 
 
 
