@@ -1,40 +1,31 @@
-import os
-import pandas as pd
+from numpy import loadtxt
+from matplotlib import pyplot as plt
 import numpy as np
-from tensorboard.backend.event_processing import event_accumulator
 
-def get_tensorboard_data(log_dir):
-    ea = event_accumulator.EventAccumulator(log_dir,
-                                            size_guidance={
-                                                event_accumulator.SCALARS: 0,
-                                                event_accumulator.IMAGES: 0,
-                                                event_accumulator.AUDIO: 0,
-                                                event_accumulator.HISTOGRAMS: 0,
-                                                event_accumulator.COMPRESSED_HISTOGRAMS: 0,
-                                            })
 
-    ea.Reload()  # Load all data in the log directory
+data = loadtxt('closestpsuccess.csv', delimiter=',')
+data2 = loadtxt('closestcontact3.csv', delimiter=',')
 
-    # Extract scalar data
-    scalar_tags = ea.Tags()['scalars']
-    
-    # Return an empty DataFrame if no scalar events are found
-    if not scalar_tags:
-        return pd.DataFrame(columns=['step', 'value', 'wall_time', 'tag'])
+reward = loadtxt('Rewardsuccess.csv', delimiter=',')
+contact = loadtxt('Rewardcontact3.csv', delimiter=',')
 
-    # Convert scalar data to pandas DataFrame
-    dfs = []
-    for tag in scalar_tags:
-        events = ea.Scalars(tag)
-        step = [event.step for event in events]
-        value = [event.value for event in events]
-        wall_time = [event.wall_time for event in events]
-        df = pd.DataFrame({'step': step, 'value': value, 'wall_time': wall_time})
-        df['tag'] = tag
-        dfs.append(df)
+plt.figure()
+plt.plot(data, label="reward")
+plt.plot(data2, label="contact")
+plt.plot(np.zeros(len(data)), linestyle='--')
+plt.title("Closest Point")
+plt.xlabel("Timestep")
+plt.ylabel("Closest Point")
+plt.legend()
+plt.show()
+# savetxt('Reward.csv', rewards_, delimiter=' ')
 
-    return pd.concat(dfs, ignore_index=True)
-
-log_dir = './tensorboard/20230316-03:42PM_SAC_M10000_0.04_39/SAC_1/events.out.tfevents.1678995745.pse-System-Product-Name.2384611.0'
-df = get_tensorboard_data(log_dir)
-print(df.tag('eval/mean_reward') )
+plt.figure()
+plt.plot(reward, label="reward")
+plt.plot(contact, label="contact")
+plt.plot(np.ones(len(reward)) *3, linestyle='--')
+plt.title("Reward")
+plt.xlabel("Timestep")
+plt.ylabel("Reward")
+plt.legend()
+plt.show()

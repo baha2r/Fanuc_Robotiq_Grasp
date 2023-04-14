@@ -120,11 +120,11 @@ class robotiqGymEnv(gym.Env):
 
     #pos = grippose[1] + 0.6 * randnumy + 0.3 * np.sign(randnumy)
     xpos = 0.0 + 0.50 * randnumx
-    xpos = -.016
+    # xpos = 0.16
     ypos = 0.8 + 0.1 * randnumy
-    ypos = 0.71
+    # ypos = 0.6
     zpos = 1.0 + 0.50 * randnumz 
-    zpos = 1.123
+    # zpos = 1.05
     targetpos = [xpos, ypos, zpos]
 
     # rol  = 0.00 + math.pi * random.uniform(-1,1)
@@ -137,12 +137,13 @@ class robotiqGymEnv(gym.Env):
 
     self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
-    self.targetmass = 1100
+    self.targetmass = 700
     
     p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
     extforce = np.array([randnumf1, randnumf2, randnumf3]) * (100*self.targetmass)
-    # extforce = np.array([0,0,0]) * (100*self.targetmass)
+    # extforce = np.array([-1,.5,1]) * (100*self.targetmass)
     p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+    # p.applyExternalTorque(self.blockUid, -1 , [0,100,0] , p.LINK_FRAME)
     
     p.setGravity(0, 0, 0)
     
@@ -201,7 +202,7 @@ class robotiqGymEnv(gym.Env):
     # self._observation = np.append(self._observation, closestpoint[0][8])
     
     totalforce = self._contactinfo()[4]
-    # self._observation = np.append(self._observation, totalforce)
+    self._observation = np.append(self._observation, totalforce)
 
     contactInfo = self._contactinfo()
     contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
@@ -242,7 +243,7 @@ class robotiqGymEnv(gym.Env):
     if mode != "rgb_array":      return np.array([])
     base_pos, base_orn = self._p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
     target_pos, target_orn = self._p.getBasePositionAndOrientation(self.blockUid)
-    camera_pos = base_pos + np.array([0, 0, 0.2])
+    camera_pos = base_pos + np.array([0, 0.2, 0.1])
     width = RENDER_WIDTH
     height = RENDER_HEIGHT
     view_matrix = p.computeViewMatrix(cameraEyePosition=camera_pos, cameraTargetPosition=target_pos, cameraUpVector=[0, 1, 0])
@@ -256,7 +257,7 @@ class robotiqGymEnv(gym.Env):
     rgb_array = np.reshape(rgb_array, (height, width, 4))
 
     rgb_array = rgb_array[:, :, :3]
-    p.resetDebugVisualizerCamera(cameraDistance = 0.9, cameraYaw = 90, cameraPitch = -20, cameraTargetPosition = base_pos)
+    p.resetDebugVisualizerCamera(cameraDistance = 0.6, cameraYaw = 45, cameraPitch = -10, cameraTargetPosition = camera_pos)
 
     return rgb_array
 

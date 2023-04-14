@@ -20,7 +20,7 @@ from scipy.spatial.transform import Rotation as R
 
 def main():
 
-  env = robotiqGymEnv(records=False, renders=True)
+  env = robotiqGymEnv(records=True, renders=True)
 
   # mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
   # print(mean_reward)
@@ -51,7 +51,7 @@ def main():
     # print(targetspeed)
     # print(len(env._robotiq.linkpos))
     # print(env._contactinfo()[4])
-    # env.render()
+    env.render()
 
 
 if __name__ == "__main__":
