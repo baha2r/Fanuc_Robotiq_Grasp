@@ -48,7 +48,7 @@ class robotiq:
   def reset(self):
 
     startpos = [0, 0, 1]
-    startOrientation = p.getQuaternionFromEuler([0, -math.pi/2, 0]) #p.getQuaternionFromEuler([0,math.pi/2,0])
+    startOrientation = p.getQuaternionFromEuler([0, -math.pi/2, math.pi]) #p.getQuaternionFromEuler([0,-math.pi/2,0])
     self.robotiqUid = p.loadURDF(os.path.join(self.urdfRootPath, "robotiq.urdf"), startpos, startOrientation)
     # p.changeDynamics(self.robotiqUid, -1, mass=100)
     # self.robotiqUid = p.loadURDF(os.path.join(self.urdfRootPath, "robotiq_macos.urdf"), [0.000000, 0.000000, 1.00000], p.getQuaternionFromEuler([0, math.pi / 2 ,0]))

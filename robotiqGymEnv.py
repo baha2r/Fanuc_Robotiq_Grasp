@@ -202,7 +202,7 @@ class robotiqGymEnv(gym.Env):
     # self._observation = np.append(self._observation, closestpoint[0][8])
     
     totalforce = self._contactinfo()[4]
-    self._observation = np.append(self._observation, totalforce)
+    # self._observation = np.append(self._observation, totalforce)
 
     contactInfo = self._contactinfo()
     contactInfo = np.array([contactInfo[0], contactInfo[1], contactInfo[2], 
@@ -243,7 +243,7 @@ class robotiqGymEnv(gym.Env):
     if mode != "rgb_array":      return np.array([])
     base_pos, base_orn = self._p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
     target_pos, target_orn = self._p.getBasePositionAndOrientation(self.blockUid)
-    camera_pos = base_pos + np.array([0, 0.2, 0.1])
+    camera_pos = base_pos + np.array([0, 0, 0.2])
     width = RENDER_WIDTH
     height = RENDER_HEIGHT
     view_matrix = p.computeViewMatrix(cameraEyePosition=camera_pos, cameraTargetPosition=target_pos, cameraUpVector=[0, 1, 0])
@@ -257,7 +257,7 @@ class robotiqGymEnv(gym.Env):
     rgb_array = np.reshape(rgb_array, (height, width, 4))
 
     rgb_array = rgb_array[:, :, :3]
-    p.resetDebugVisualizerCamera(cameraDistance = 0.6, cameraYaw = 45, cameraPitch = -10, cameraTargetPosition = camera_pos)
+    p.resetDebugVisualizerCamera(cameraDistance = 0.9, cameraYaw = 90, cameraPitch = -20, cameraTargetPosition = base_pos)
 
     return rgb_array
 
