@@ -51,7 +51,7 @@ def main():
     # print(targetspeed)
     # print(len(env._robotiq.linkpos))
     # print(env._contactinfo()[4])
-    env.render()
+    # env.render()
 
 
 if __name__ == "__main__":
