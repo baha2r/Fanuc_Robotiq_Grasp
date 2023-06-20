@@ -1,5 +1,7 @@
 # Observation Space
-The observation space for the robotic arm environment consists of 12 continuous variables representing various aspects of the robot's position and movement, as well as its velocity. The table below lists each variable in the observation space, along with its corresponding control and angle limits, the name of the variable as it appears in the XML file, the joint that the variable corresponds to, and the unit of measurement.
+The observation space for the robotic arm environment is represented by the configuration, Box(-inf, inf, (40,), float32). This space consists of a set of 40 continuous variables, each describing a distinct attribute related to the position, movement, and velocity of both the robotic gripper and its target. These variables embody an extensive range of information about the environment, capturing the dynamism and intricacies involved in the manipulative tasks of the robotic arm. 
+
+The table provided below offers a comprehensive overview of each variable within the observation space. It outlines not only the variable itself, but also the corresponding limits and the unit of measurement used. This range from negative infinity to positive infinity underscores the continuous nature of these variables, further emphasizing the complexity of the tasks and movements this robotic arm is designed to perform.
 
 | Num | Observation                                                  | Min  | Max  | Unit             |
 |-----|--------------------------------------------------------------|------|------|------------------|
@@ -46,13 +48,22 @@ The observation space for the robotic arm environment consists of 12 continuous 
 
 
 # Action Space
-The action space is defined as a Box(-1.0, 1.0, (6,), float32), encompassing the absolute position and orientation of the 3f RobotiQ gripper. Control actions are applied by adjusting the real movement of the gripper's base in six degrees of freedom (6dof), consisting of three translational and three rotational movements. To ensure compatibility, the input of control actions is scaled to a range between -1 and 1. The elements of the action array are as follows:
+The action space is defined within a Box(-1.0, 1.0, (6,), float32), which encapsulates the absolute position and orientation of the 3f RobotiQ gripper when functioning as an end-effector. Control actions are enforced by modulating the physical motion of the gripper's base across six degrees of freedom (6dof). This comprises three translational (linear) and three rotational (angular) movements that are executed by the robotic manipulator through inverse kinematics. For compatibility purposes, control action inputs are scaled to a range between -1 and 1. The elements of the action array are as follows:
 
 | Num | Action                                               | Control Min | Control Max | Angle Min  | Angle Max  | Name   | Joint | Unit        |
 |-----|------------------------------------------------------|-------------|-------------|------------|------------|--------|-------|-------------|
 | 0   | Linear translation of the gripper in x direction     | -1          | 1           | -0.01 (m)  | 0.01 (m)   | dx     | slide | position (m)|
 | 1   | Linear translation of the gripper in y direction     | -1          | 1           | -0.01 (m)  | 0.01 (m)   | dy     | slide | position (m)|
 | 2   | Linear translation of the gripper in z direction     | -1          | 1           | -0.01 (m)  | 0.01 (m)   | dz     | slide | position (m)|
-| 3   | Rotate the arm around the X-axis                     | -1          | 1           | -0.1 (deg) | 0.1 (deg)  | droll  | rotate| angle (rad) |
-| 4   | Rotate the arm around the Y-axis                     | -1          | 1           | -0.1 (deg) | 0.1 (deg)  | dpitch | rotate| angle (rad) |
-| 5   | Rotate the arm around the Z-axis                     | -1          | 1           | -0.1 (deg) | 0.1 (deg)  | dyaw   | rotate| angle (rad) |
+| 3   | Rotate the arm around the X-axis                     | -1          | 1           | -0.1 (deg) | 0.1 (deg)  | droll  | rotate| angle (deg) |
+| 4   | Rotate the arm around the Y-axis                     | -1          | 1           | -0.1 (deg) | 0.1 (deg)  | dpitch | rotate| angle (deg) |
+| 5   | Rotate the arm around the Z-axis                     | -1          | 1           | -0.1 (deg) | 0.1 (deg)  | dyaw   | rotate| angle (deg) |
+
+# Rewards
+In this work, we introduce a novel reward function that integrates both dense and sparse rewards, aiming to address the challenge of precisely approaching to grasp a moving, floating object. The agent employs the dense reward component to ascertain the appropriate approach towards the target, while simultaneously maintaining its position and orientation. Subsequently, the sparse reward aspect of the reward function provides guidance to maintain an optimal posture, preserve a safe distance between the gripper and the target, and ultimately prevent contact with the target.
+
+# Episode End
+The episode will be truncated when the duration reaches a total of max_episode_steps which by default is set to 500 timesteps. The episode is never terminated since the task is continuing with an infinite horizon.
+
+
+
