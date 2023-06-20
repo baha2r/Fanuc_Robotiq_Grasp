@@ -23,41 +23,40 @@ from sklearn.preprocessing import normalize
 from scipy.spatial import ConvexHull, distance
 from pybullet_utils import transformations
 
-largeValObservation = 40
+large_val_observation = 40
 
 RENDER_HEIGHT = 720
 RENDER_WIDTH = 960
-
 
 class robotiqGymEnv(gym.Env):
   metadata = {'render.modes': ['human', 'rgb_array'], 'video.frames_per_second': 50}
 
   def __init__(self,
-               urdfRoot=pybullet_data.getDataPath(),
-               actionRepeat=1,
-               isEnableSelfCollision=True,
+               urdf_root=pybullet_data.getDataPath(),
+               action_repeat=1,
+               enable_self_collision=True,
                renders=False,
                records=False,
-               isDiscrete=False,
-               multiDiscrete=False,
+               is_discrete=False,
+               multi_discrete=False,
                rewardType='sparse',
                max_episode_steps=500):
     print("robotiqGymEnv __init__")
     self.reward_type = rewardType
-    self._isDiscrete = isDiscrete
-    self._multiDiscrete = multiDiscrete
+    self._is_discrete = is_discrete
+    self._multi_discrete = multi_discrete
     self._timeStep = 1. / 240.
-    self._urdfRoot = urdfRoot
-    self._robotiqRoot = "urdf/"
-    self._actionRepeat = actionRepeat
-    self._isEnableSelfCollision = isEnableSelfCollision
+    self._urdf_root = urdf_root
+    self._robotiq_root = "urdf/"
+    self._action_repeat = action_repeat
+    self._enable_self_collision = enable_self_collision
     self._observation = []
     self._achieved_goal = []
     self._desired_goal = []
-    self._envStepCounter = 0
+    self._env_step_counter = 0
     self._renders = renders
     self._records = records
-    self._maxSteps = max_episode_steps
+    self._max_steps = max_episode_steps
     self.terminated = 0
     self._cam_dist = 0.4
     self._cam_yaw = 180
@@ -79,14 +78,14 @@ class robotiqGymEnv(gym.Env):
     
 
     ## observation space
-    observation_high = np.array([largeValObservation] * len(self.getExtendedObservation()), dtype=np.float32)
+    observation_high = np.array([large_val_observation] * len(self.getExtendedObservation()), dtype=np.float32)
     self.observation_space = spaces.Box(-observation_high, observation_high, dtype=np.float32)
 
 
     ## action space
-    if (self._multiDiscrete):
-      self.action_space = spaces.MultiDiscrete([5,5,5])
-    elif (self._isDiscrete):
+    if (self._multi_discrete):
+      self.action_space = spaces.MultiDiscrete([5, 5, 5,])
+    elif (self._is_discrete):
       self.action_space = spaces.Discrete(5)
     else:
       action_dim = 6
@@ -105,9 +104,9 @@ class robotiqGymEnv(gym.Env):
     p.setPhysicsEngineParameter(numSolverIterations=150, numSubSteps=4, fixedTimeStep=self._timeStep, contactERP=0.9, globalCFM=0.00001) #globalCFM=0.00001
     p.setTimeStep(self._timeStep)
 
-    p.loadURDF(os.path.join(self._urdfRoot, "plane.urdf"), [0, 0, 0])
-    self._robotiq = robotiq.robotiq(urdfRootPath=self._robotiqRoot, timeStep=self._timeStep, isDiscrete=self._isDiscrete, multiDiscrete=self._multiDiscrete)
-    grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
+    p.loadURDF(os.path.join(self._urdf_root, "plane.urdf"), [0, 0, 0])
+    self._robotiq = robotiq.robotiq(urdf_root_path=self._robotiq_root, time_step=self._timeStep, is_discrete=self._is_discrete, multi_discrete=self._multi_discrete)
+    grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
     randnumx  = random.uniform(-1,1)
     randnumy  = random.uniform(-1,1)
     randnumz  = random.uniform(-1,1)
@@ -133,9 +132,9 @@ class robotiqGymEnv(gym.Env):
     yaw = 0.00
     targetorn  = p.getQuaternionFromEuler([rol, pitch, yaw])
 
-    # self.cube = p.loadURDF(os.path.join(self._robotiqRoot, "cube.urdf"), basePosition=[0,0.12,1], baseOrientation=targetorn, useMaximalCoordinates=True, useFixedBase=True)
+    # self.cube = p.loadURDF(os.path.join(self._robotiq_root, "cube.urdf"), basePosition=[0,0.12,1], baseOrientation=targetorn, useMaximalCoordinates=True, useFixedBase=True)
 
-    self.blockUid = p.loadURDF(os.path.join(self._robotiqRoot, "block.urdf"), 
+    self.blockUid = p.loadURDF(os.path.join(self._robotiq_root, "block.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
     self.targetmass = 700
     
@@ -147,7 +146,7 @@ class robotiqGymEnv(gym.Env):
     
     p.setGravity(0, 0, 0)
     
-    self._envStepCounter = 0
+    self._env_step_counter = 0
     self.success_counter = 0
     p.stepSimulation()
     self._observation = self.getExtendedObservation()
@@ -166,9 +165,9 @@ class robotiqGymEnv(gym.Env):
     p.disconnect()
 
   def getExtendedObservation(self): # adding blockInGripper pose and ori into _observation
-    self._observation = self._robotiq.getObservation()
-    gripperPos , gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
-    griplinvel, gripangvel = p.getBaseVelocity(self._robotiq.robotiqUid)
+    self._observation = self._robotiq.get_observation()
+    gripperPos , gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
+    griplinvel, gripangvel = p.getBaseVelocity(self._robotiq.robotiq_uid)
     blockPos, blockOri = p.getBasePositionAndOrientation(self.blockUid)
     blocklinVel, blockangVel = p.getBaseVelocity(self.blockUid)
     blockEul = p.getEulerFromQuaternion(blockOri)
@@ -194,7 +193,7 @@ class robotiqGymEnv(gym.Env):
                         blockangVel[0]-gripangvel[0], blockangVel[1]-gripangvel[1], blockangVel[2]-gripangvel[2]], dtype=np.float32)
     self._observation = np.append(self._observation, relVel)
 
-    closestpoint = p.getClosestPoints(self._robotiq.robotiqUid, self.blockUid, 100, -1, -1)
+    closestpoint = p.getClosestPoints(self._robotiq.robotiq_uid, self.blockUid, 100, -1, -1)
     point1 = np.array(closestpoint[0][5], dtype=np.float32)
     point2 = np.array(closestpoint[0][6], dtype=np.float32)
     minpos = np.subtract(point1, point2)
@@ -223,12 +222,12 @@ class robotiqGymEnv(gym.Env):
 
   def step2(self, action):
     self._action = action
-    for i in range(self._actionRepeat):
-      self._robotiq.applyAction(action)
+    for i in range(self._action_repeat):
+      self._robotiq.apply_action(action)
       p.stepSimulation()
       if self._termination():
         break
-      self._envStepCounter += 1
+      self._env_step_counter += 1
     if self._renders:
       time.sleep(self._timeStep)
     self._observation = self.getExtendedObservation()
@@ -241,29 +240,24 @@ class robotiqGymEnv(gym.Env):
 
   def render(self, mode="rgb_array", close=False):
     if mode != "rgb_array":      return np.array([])
-    base_pos, base_orn = self._p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
+    base_pos, base_orn = self._p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
     target_pos, target_orn = self._p.getBasePositionAndOrientation(self.blockUid)
     camera_pos = base_pos + np.array([0, 0, 0.2])
     width = RENDER_WIDTH
     height = RENDER_HEIGHT
     view_matrix = p.computeViewMatrix(cameraEyePosition=camera_pos, cameraTargetPosition=target_pos, cameraUpVector=[0, 1, 0])
     proj_matrix = self._p.computeProjectionMatrixFOV(fov=60, aspect=float(width) / height, nearVal=0.1, farVal=100.0)
-    #renderer=self._p.ER_TINY_RENDERER)
     width, height, rgbImg, depthImg, segImg = p.getCameraImage(width, height, viewMatrix = view_matrix, projectionMatrix = proj_matrix, 
-                                                               shadow=1, renderer=p.ER_BULLET_HARDWARE_OPENGL) #ER_BULLET_HARDWARE_OPENGL 
-
-
+                                                               shadow=1, renderer=p.ER_BULLET_HARDWARE_OPENGL)
     rgb_array = np.array(rgbImg, dtype=np.uint8)
     rgb_array = np.reshape(rgb_array, (height, width, 4))
-
     rgb_array = rgb_array[:, :, :3]
     p.resetDebugVisualizerCamera(cameraDistance = 0.9, cameraYaw = 90, cameraPitch = -20, cameraTargetPosition = base_pos)
-
     return rgb_array
 
   def _termination(self):
     
-    if (self._envStepCounter > self._maxSteps):
+    if (self._env_step_counter > self._max_steps):
       self._observation = self.getExtendedObservation()
       return True
 
@@ -276,14 +270,14 @@ class robotiqGymEnv(gym.Env):
     ftipNormalForce = 0
     ftipLateralFriction1 = 0
     ftipLateralFriction2 = 0
-    contactpoints = p.getContactPoints(self.blockUid, self._robotiq.robotiqUid)
+    contactpoints = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid)
     for c in contactpoints:
       totalNormalForce += c[9]
       totalLateralFriction1 += c[10]
       totalLateralFriction2 += c[12]
-    ftip1 = p.getContactPoints(self.blockUid, self._robotiq.robotiqUid, -1, self._robotiq.thirdjointidx[0])
-    ftip2 = p.getContactPoints(self.blockUid, self._robotiq.robotiqUid, -1, self._robotiq.thirdjointidx[1])
-    ftip3 = p.getContactPoints(self.blockUid, self._robotiq.robotiqUid, -1, self._robotiq.thirdjointidx[2])
+    ftip1 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[0])
+    ftip2 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[1])
+    ftip3 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[2])
     for contact in [ftip1, ftip2, ftip3]:
       for c in contact:
         ftipNormalForce += c[9]
@@ -297,16 +291,16 @@ class robotiqGymEnv(gym.Env):
 
     blockPos, blockOrn = p.getBasePositionAndOrientation(self.blockUid)
     blockOrnEuler = p.getEulerFromQuaternion(blockOrn)
-    gripperPos , gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiqUid)
+    gripperPos , gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
     gripOrnEuler = p.getEulerFromQuaternion(gripperOrn)
     blocklinvel, blockangvel = p.getBaseVelocity(self.blockUid)
-    griplinvel, gripangvel = p.getBaseVelocity(self._robotiq.robotiqUid)
+    griplinvel, gripangvel = p.getBaseVelocity(self._robotiq.robotiq_uid)
     blocklinvel = np.linalg.norm(blocklinvel)
     blockangvel = np.linalg.norm(blockangvel)
     griplinvel = np.linalg.norm(griplinvel)
     gripangvel = np.linalg.norm(gripangvel)
 
-    closestPoints = np.absolute(p.getClosestPoints(self.blockUid, self._robotiq.robotiqUid, 100, -1, -1)[0][8] - self.distance_threshold)
+    closestPoints = np.absolute(p.getClosestPoints(self.blockUid, self._robotiq.robotiq_uid, 100, -1, -1)[0][8] - self.distance_threshold)
 
     r = Rotation.from_quat(gripperOrn)
     normalvec = np.matmul(r.as_matrix(), np.array([0,1,0]))
@@ -358,8 +352,8 @@ class robotiqGymEnv(gym.Env):
 
 
     gripper_link_pose = []
-    for i in range(self._robotiq.numJoints):
-      state = p.getLinkState(self._robotiq.robotiqUid, i)
+    for i in range(self._robotiq.num_joints):
+      state = p.getLinkState(self._robotiq.robotiq_uid, i)
       pos = state[0]
       gripper_link_pose.append(pos)
 
