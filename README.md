@@ -42,7 +42,7 @@ The observation space for the robotic arm environment consists of 12 continuous 
 | 36  | Closest distance between palm of gripper and target in X     | -inf | inf  | Position (m)     |
 | 37  | Closest distance between palm of gripper and target in Y     | -inf | inf  | Position (m)     |
 | 38  | Closest distance between palm of gripper and target in Z     | -inf | inf  | Position (m)     |
-| 39  | Contact (tactile sensor) information                         | -inf | inf  | n/a              |
+| 39  | Contact (tactile sensor) information                         | -inf | inf  | Force (N)             |
 
 
 # Action Space
