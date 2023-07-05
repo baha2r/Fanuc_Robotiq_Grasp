@@ -15,7 +15,7 @@ from imitation.algorithms import bc
 
 env = robotiqGymEnv()
 venv = DummyVecEnv([lambda: RolloutInfoWrapper(env)])
-modeldir = "./models/20230207-12:41PM_SAC_rtop1/best_model.zip"
+modeldir = "./models/20230316-03:42PM_SAC_M10000_0.04_39/best_model.zip"
 expert = SAC.load(modeldir)
 
 reward, _ = evaluate_policy(expert, env, 10)
@@ -28,19 +28,22 @@ rollouts = rollout.rollout(
     sample_until = rollout.make_sample_until(min_episodes=10),
     rng=rng,
 )
+print(f"rollouts: {rollouts}")
+
 transitions = rollout.flatten_trajectories(rollouts)
+print(f"transitions: {transitions}")
 
-bc_trainer = bc.BC(
-    observation_space=env.observation_space,
-    action_space=env.action_space,
-    demonstrations=transitions,
-    rng=rng,
-)
+# bc_trainer = bc.BC(
+#     observation_space=env.observation_space,
+#     action_space=env.action_space,
+#     demonstrations=transitions,
+#     rng=rng,
+# )
 
-reward_before_training, _ = evaluate_policy(bc_trainer.policy, env, 10)
-print(f"Reward before training: {reward_before_training}")
+# reward_before_training, _ = evaluate_policy(bc_trainer.policy, env, 10)
+# print(f"Reward before training: {reward_before_training}")
 
-bc_trainer.train(n_epochs=2000)
-reward_after_training, _ = evaluate_policy(bc_trainer.policy, env, 10)
-print(f"Reward after training: {reward_after_training}")
+# bc_trainer.train(n_epochs=2000)
+# reward_after_training, _ = evaluate_policy(bc_trainer.policy, env, 10)
+# print(f"Reward after training: {reward_after_training}")
 
