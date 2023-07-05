@@ -29,20 +29,20 @@ def main():
   obs = env.reset()
  
   while not dones:
-    xtargetvel = p.getBaseVelocity(env.blockUid)[0][0]
-    ytargetvel = p.getBaseVelocity(env.blockUid)[0][1]
-    ztargetvel = p.getBaseVelocity(env.blockUid)[0][2]
-    print("xvel: ", xtargetvel)
-    print("yvel: ", ytargetvel)
-    print("zvel: ", ztargetvel)
-    # if env._envStepCounter < 100:
-    #   action = [0 , 0 , 0 , 0 , 0 , 0 ]
-    # else:
-    #   action = [0 , 0 , 0 , 0 , -0.1 , 0 ]
+    # xtargetvel = p.getBaseVelocity(env.blockUid)[0][0]
+    # ytargetvel = p.getBaseVelocity(env.blockUid)[0][1]
+    # ztargetvel = p.getBaseVelocity(env.blockUid)[0][2]
+    # print("xvel: ", xtargetvel)
+    # print("yvel: ", ytargetvel)
+    # print("zvel: ", ztargetvel)
+    if env._env_step_counter < 30:
+      action = [0 , 0 , 1 , 0 , 0 , 0 ]
+    else:
+      action = [0 , 0 , 0 , 0 , 0 , 0 ]
     # action = env.action_space.sample()
-    action = [0 , 0 , 0 , 0 , 0 , 0]
+    # action = [0 , 0 , 0 , 0 , 0 , 0]
     obs, rewards, dones, info = env.step(action)
-    targetspeed = p.getBaseVelocity(env.blockUid)
+    # targetspeed = p.getBaseVelocity(env.blockUid)
     # print(p.getAABB(env.blockUid))
     # print((p.getBasePositionAndOrientation(env._robotiq.robotiqUid)[1]))
     # print(p.getBasePositionAndOrientation(env.blockUid)[0])
