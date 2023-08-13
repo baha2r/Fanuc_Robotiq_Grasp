@@ -28,24 +28,20 @@ class robotiqGymEnv(gym.Env):
     def __init__(self,
                  urdf_root=pybullet_data.getDataPath(),
                  action_repeat=1,
-                 enable_self_collision=True,
                  renders=False,
                  records=False,
                  is_discrete=False,
                  multi_discrete=False,
-                 reward_type='sparse',
                  max_episode_steps=500):
         """
         Initialize the environment.
         """
-        self.reward_type = reward_type
         self._is_discrete = is_discrete
         self._multi_discrete = multi_discrete
         self._timeStep = 1. / 240.
         self._urdf_root = urdf_root
         self._robotiqRoot = "urdf/"
         self._action_repeat = action_repeat
-        self._enable_self_collision = enable_self_collision
         self._observation = []
         self._achieved_goal = []
         self._desired_goal = []

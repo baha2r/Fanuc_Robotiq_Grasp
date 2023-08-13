@@ -1,6 +1,11 @@
 import gym
 import numpy as np
+import os
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+import sys
 from robotiqGymEnv import robotiqGymEnv
+import gymnasium
+sys.modules["gym"] = gymnasium
 
 
 from stable_baselines3 import PPO, SAC
@@ -18,7 +23,7 @@ venv = DummyVecEnv([lambda: RolloutInfoWrapper(env)])
 modeldir = "./models/20230316-03:42PM_SAC_M10000_0.04_39/best_model.zip"
 expert = SAC.load(modeldir)
 
-reward, _ = evaluate_policy(expert, env, 10)
+reward, _ = evaluate_policy(expert, venv, 10)
 print(f"eval policy rew: {reward}")
 
 rng = np.random.default_rng()
@@ -27,11 +32,11 @@ rollouts = rollout.rollout(
     venv = venv,
     sample_until = rollout.make_sample_until(min_episodes=10),
     rng=rng,
+    unwrap=False
 )
-print(f"rollouts: {rollouts}")
 
 transitions = rollout.flatten_trajectories(rollouts)
-print(f"transitions: {transitions}")
+# print(f"transitions: {transitions}")
 
 # bc_trainer = bc.BC(
 #     observation_space=env.observation_space,
