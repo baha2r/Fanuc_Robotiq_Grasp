@@ -19,7 +19,7 @@ import random
 import pybullet_data
 from pkg_resources import parse_version
 from scipy.spatial.transform import Rotation
-from sklearn.preprocessing import normalize
+# from sklearn.preprocessing import normalize
 from scipy.spatial import ConvexHull, distance
 from pybullet_utils import transformations
 

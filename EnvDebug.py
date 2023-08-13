@@ -1,7 +1,8 @@
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
-
-import gym
+import sys
+import gymnasium
+sys.modules["gym"] = gymnasium
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -35,8 +36,8 @@ def main():
     # print("xvel: ", xtargetvel)
     # print("yvel: ", ytargetvel)
     # print("zvel: ", ztargetvel)
-    if env._env_step_counter < 30:
-      action = [0 , 0 , 1 , 0 , 0 , 0 ]
+    if env._env_step_counter < 300:
+      action = [1 , 0 , 0 , 0 , 0 , 0 ]
     else:
       action = [0 , 0 , 0 , 0 , 0 , 0 ]
     # action = env.action_space.sample()
@@ -47,7 +48,7 @@ def main():
     # print((p.getBasePositionAndOrientation(env._robotiq.robotiqUid)[1]))
     # print(p.getBasePositionAndOrientation(env.blockUid)[0])
     # print(p.getBaseVelocity(env.blockUid)[0])
-    # print(p.getBaseVelocity(env._robotiq.robotiqUid)[0])
+    print(p.getBaseVelocity(env._robotiq.robotiq_uid)[0])
     # print(targetspeed)
     # print(len(env._robotiq.linkpos))
     # print(env._contactinfo()[4])
