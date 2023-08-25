@@ -36,9 +36,9 @@ class robotiq:
         Reset the Robotiq gripper
         '''
         start_position = [0, 0, 1]
-        start_orientation = p.getQuaternionFromEuler([-math.pi/2, 0,0]) 
+        start_orientation = p.getQuaternionFromEuler([0, -math.pi/2,0]) 
         self.robotiq_uid = p.loadURDF(os.path.join(self.urdf_root_path, "robotiq.urdf"), start_position, start_orientation)
-        p.changeDynamics(self.robotiq_uid, -1, mass=100)
+        # p.changeDynamics(self.robotiq_uid, -1, mass=100)
         self.constraint_id = p.createConstraint(self.robotiq_uid, -1, -1, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0], start_position)
         self.num_joints = p.getNumJoints(self.robotiq_uid)
 

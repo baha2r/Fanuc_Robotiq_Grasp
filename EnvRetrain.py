@@ -25,32 +25,31 @@ numberofenv = 4
 
 def make_my_env():
     env = robotiqGymEnv()
+    env = Monitor(env)
     return env
 # Create and wrap the environment
 env = robotiqGymEnv()
-mass = env.targetmass
-distance_threshold = env.distance_threshold
 multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
 
 
 
-dir = "./tensorboard/20230312-06:53PM_SAC_M10000_0.04_WTS/model.zip"
+dir = "models/20230316-03:42PM_SAC_M10000_0.04_39/best_model.zip"
 
 model = SAC.load(dir, env=multienv)
 
-# mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
-# print(mean_reward)
+mean_reward, std_reward = evaluate_policy(model, Monitor(env), n_eval_episodes=10)
+print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
 
 # env = DummyVecEnv([lambda: robotiqGymEnv(renders=True, isDiscrete=False)])
 # # Automatically normalize the input features and reward
 # env = VecNormalize(env, norm_obs=True, norm_reward=True)
-evalenv = Monitor(env)
+# evalenv = Monitor(env)
 
-NAME = f"{date}_SAC_M{mass}_{distance_threshold}_WTS"
+# NAME = f"{date}_SAC_M{mass}_{distance_threshold}_WTS"
 
-callback = EvalCallback(evalenv, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=20000, deterministic=True, render=False)
+# callback = EvalCallback(evalenv, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=20000, deterministic=True, render=False)
 
-model.learn(total_timesteps=1e7,tb_log_name="second_run", reset_num_timesteps=False, log_interval=10, callback=callback)
-model.save(f"./tensorboard/{NAME}/model")
+# model.learn(total_timesteps=1e7,tb_log_name="second_run", reset_num_timesteps=False, log_interval=10, callback=callback)
+# model.save(f"./tensorboard/{NAME}/model")
 
 

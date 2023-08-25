@@ -134,14 +134,14 @@ class robotiqGymEnv(gym.Env):
 
     # self.cube = p.loadURDF(os.path.join(self._robotiq_root, "cube.urdf"), basePosition=[0,0.12,1], baseOrientation=targetorn, useMaximalCoordinates=True, useFixedBase=True)
 
-    self.blockUid = p.loadURDF(os.path.join(self._robotiq_root, "block.urdf"), 
+    self.blockUid = p.loadURDF(os.path.join(self._robotiq_root, "block_modified.urdf"), 
                                 basePosition=targetpos, baseOrientation=targetorn, useMaximalCoordinates=True) #, useFixedBase=True
     self.targetmass = 700
     
     p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
-    extforce = np.array([randnumf1, randnumf2, randnumf3]) * (100*self.targetmass)
+    extforce = np.array([randnumf1, randnumf2, randnumf3]) * (75*self.targetmass)
     # extforce = np.array([-1,.5,1]) * (100*self.targetmass)
-    # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+    p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
     # p.applyExternalTorque(self.blockUid, -1 , [0,100,0] , p.LINK_FRAME)
     
     p.setGravity(0, 0, 0)
@@ -345,9 +345,9 @@ class robotiqGymEnv(gym.Env):
     points = np.array(points)
     red_point_dot_color = np.array([red_point_dot_color] * len(points))
     
-    p.addUserDebugPoints(pointPositions=points,
-                          pointColorsRGB=red_point_dot_color,
-                          pointSize=red_point_dot_radius)
+    # p.addUserDebugPoints(pointPositions=points,
+    #                       pointColorsRGB=red_point_dot_color,
+    #                       pointSize=red_point_dot_radius)
 
 
 

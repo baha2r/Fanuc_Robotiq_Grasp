@@ -112,11 +112,11 @@ class robotiqGymEnv(gym.Env):
         # Generate random values
         randx, randy, randz, randf1, randf2, randf3 = np.random.uniform(-1, 1, 6)
 
-        targetpos = [0.0 + 0.50 * randx, 0.8 + 0.1 * randy, 1.0 + 0.50 * randz]
+        targetpos = [0.0 + 0.50 * randx, 0.8 + 0.2 * randy, 1.0 + 0.40 * randz]
         targetorn = p.getQuaternionFromEuler([0, 0, 0])
 
         self.blockUid = p.loadURDF(
-            os.path.join(self._robotiqRoot, "block.urdf"), 
+            os.path.join(self._robotiqRoot, "block_modified.urdf"), 
             basePosition=targetpos, 
             baseOrientation=targetorn, 
             useMaximalCoordinates=True
@@ -124,8 +124,8 @@ class robotiqGymEnv(gym.Env):
 
         self.targetmass = 7000
         p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
-        extforce = np.array([randf1, randf2, randf3]) * (100 * self.targetmass)
-        # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+        extforce = np.array([randf1, randf2, randf3]) * (75 * self.targetmass)
+        p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
         p.setGravity(0, 0, 0)
         self._stepcounter = 0
@@ -427,9 +427,9 @@ class robotiqGymEnv(gym.Env):
         red_point_dot_color = np.array([red_point_dot_color] * len(points))
         
         # Add points to debug visualizer
-        p.addUserDebugPoints(pointPositions=points,
-                            pointColorsRGB=red_point_dot_color,
-                            pointSize=red_point_dot_radius)
+        # p.addUserDebugPoints(pointPositions=points,
+        #                     pointColorsRGB=red_point_dot_color,
+        #                     pointSize=red_point_dot_radius)
 
         # Get the pose of each gripper link
         gripper_link_pose = [p.getLinkState(self._robotiq.robotiq_uid, i)[0] for i in range(self._robotiq.num_joints)]
