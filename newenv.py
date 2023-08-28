@@ -209,12 +209,12 @@ class robotiqGymEnv(gym.Env):
         Apply an action to the robot, simulate the physics for the defined action repeat,
         and return the current state, reward, termination, and success state of the environment.
         """
-        dx, dy, dz, droll, dpitch, dyaw = action
-        realAction = [dx, dy, dz, droll, dpitch, dyaw]
+        # dx, dy, dz, droll, dpitch, dyaw = action
+        # realAction = [dx, dy, dz, droll, dpitch, dyaw]
 
-        self._action = realAction
+        self._action = action
         for _ in range(self._action_repeat):
-            self._robotiq.apply_action(realAction)
+            self._robotiq.apply_action(action)
             p.stepSimulation()
             if self._termination():
                 break
