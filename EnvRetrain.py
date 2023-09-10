@@ -16,8 +16,8 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.results_plotter import load_results, ts2xy
 from stable_baselines3.common.env_util import make_vec_env
 import multiprocessing as mp
-from robotiqGymEnv import robotiqGymEnv
-
+from newenv import robotiqGymEnv
+import numpy as np
 
 date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
 NAME = f"{date}_SAC"
@@ -29,16 +29,35 @@ def make_my_env():
     return env
 # Create and wrap the environment
 env = robotiqGymEnv()
-multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
+# multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
 
 
 
 dir = "models/20230316-03:42PM_SAC_M10000_0.04_39/best_model.zip"
 
-model = SAC.load(dir, env=multienv)
+model = SAC.load(dir, env=env)
 
-mean_reward, std_reward = evaluate_policy(model, Monitor(env), n_eval_episodes=10)
-print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+# mean_reward, std_reward = evaluate_policy(model, Monitor(env), n_eval_episodes=100)
+# print(f"mean_reward={mean_reward:.2f} +/- {std_reward}")
+
+# Collect success values over 100 episodes
+successes = []
+for _ in range(100):
+    obs = env.reset()
+    done = False
+    while not done:
+        action, _states = model.predict(obs)
+        obs, reward, done, info = env.step(action)
+    # Assuming your environment has an attribute `success` that indicates whether the episode was successful
+    success = env._is_success()
+    successes.append(success)
+
+# Calculate mean and std of success rate
+mean_success_rate = np.mean(successes)
+std_success_rate = np.std(successes)
+
+print(f"Mean success rate: {mean_success_rate:.2f} +/- {std_success_rate:.2f}")
+
 
 # env = DummyVecEnv([lambda: robotiqGymEnv(renders=True, isDiscrete=False)])
 # # Automatically normalize the input features and reward

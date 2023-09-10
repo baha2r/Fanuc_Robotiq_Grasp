@@ -116,7 +116,7 @@ class robotiqGymEnv(gym.Env):
         targetorn = p.getQuaternionFromEuler([0, 0, 0])
 
         self.blockUid = p.loadURDF(
-            os.path.join(self._robotiqRoot, "block_modified.urdf"), 
+            os.path.join(self._robotiqRoot, "block.urdf"), 
             basePosition=targetpos, 
             baseOrientation=targetorn, 
             useMaximalCoordinates=True
@@ -141,6 +141,9 @@ class robotiqGymEnv(gym.Env):
         Check if the current state is successful. 
         Success is defined as having a reward greater than 2 for more than 100 consecutive steps.
         """
+        if self.success_counter > 100:
+            return np.float32(1.0)
+
         if self._reward() > 2:
             self.success_counter += 1
         else:
