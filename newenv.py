@@ -124,7 +124,7 @@ class robotiqGymEnv(gym.Env):
 
         self.targetmass = 7000
         p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
-        extforce = np.array([randf1, randf2, randf3]) * (75 * self.targetmass)
+        extforce = np.array([randf1, randf2, randf3]) * (70 * self.targetmass)
         p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
         p.setGravity(0, 0, 0)
@@ -249,8 +249,8 @@ class robotiqGymEnv(gym.Env):
             return np.array([])
 
         # Get the position and orientation of the base and target
-        base_pos, _ = self._p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
-        target_pos, _ = self._p.getBasePositionAndOrientation(self.blockUid)
+        base_pos, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
+        target_pos, _ = p.getBasePositionAndOrientation(self.blockUid)
 
         # Calculate the camera position based on the base position
         camera_pos = base_pos + np.array([0, 0, 0.2])
@@ -260,7 +260,7 @@ class robotiqGymEnv(gym.Env):
 
         # Calculate the view and projection matrices for the camera
         view_matrix = p.computeViewMatrix(cameraEyePosition=camera_pos, cameraTargetPosition=target_pos, cameraUpVector=[0, 1, 0])
-        proj_matrix = self._p.computeProjectionMatrixFOV(fov=60, aspect=float(width) / height, nearVal=0.1, farVal=100.0)
+        proj_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=float(width) / height, nearVal=0.1, farVal=100.0)
 
         # Render the image from the camera's perspective
         _, _, rgbImg, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix, projectionMatrix = proj_matrix, 
