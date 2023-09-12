@@ -19,14 +19,14 @@ import multiprocessing as mp
 from newenv import robotiqGymEnv
 import numpy as np
 
-date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
-NAME = f"{date}_SAC"
-numberofenv = 4
+# date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
+# NAME = f"{date}_SAC"
+# numberofenv = 4
 
-def make_my_env():
-    env = robotiqGymEnv()
-    env = Monitor(env)
-    return env
+# def make_my_env():
+#     env = robotiqGymEnv()
+#     env = Monitor(env)
+#     return env
 # Create and wrap the environment
 env = robotiqGymEnv()
 # multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
@@ -42,21 +42,28 @@ model = SAC.load(dir, env=env)
 
 # Collect success values over 100 episodes
 successes = []
+rewards = []
 for _ in range(100):
     obs = env.reset()
     done = False
+    rew = 0
     while not done:
         action, _states = model.predict(obs)
         obs, reward, done, info = env.step(action)
+        rew += reward
     # Assuming your environment has an attribute `success` that indicates whether the episode was successful
     success = env._is_success()
     successes.append(success)
+    rewards.append(rew)
 
 # Calculate mean and std of success rate
 mean_success_rate = np.mean(successes)
 std_success_rate = np.std(successes)
+mean_reward = np.mean(rewards)
+std_reward = np.std(rewards)
 
 print(f"Mean success rate: {mean_success_rate:.2f} +/- {std_success_rate:.2f}")
+print(f"Mean reward: {mean_reward:.2f} +/- {std_reward:.2f}")
 
 
 # env = DummyVecEnv([lambda: robotiqGymEnv(renders=True, isDiscrete=False)])
