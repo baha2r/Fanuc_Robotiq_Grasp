@@ -115,6 +115,9 @@ class robotiqGymEnv(gym.Env):
         targetpos = [0.0 + 0.50 * randx, 0.8 + 0.2 * randy, 1.0 + 0.40 * randz]
         targetorn = p.getQuaternionFromEuler([0, 0, 0])
 
+        # targetpos = [0.07336462703085808,0.6302821367352937,0.9215777045808058]
+        # targetorn = p.getQuaternionFromEuler([0, 0, 0])
+
         self.blockUid = p.loadURDF(
             os.path.join(self._robotiqRoot, "block.urdf"), 
             basePosition=targetpos, 
@@ -125,6 +128,7 @@ class robotiqGymEnv(gym.Env):
         self.targetmass = 7000
         p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
         extforce = np.array([randf1, randf2, randf3]) * (70 * self.targetmass)
+        # extforce = np.array([-0.11550977143397409,0.2418532964377703,0.2893681005977044]) * (60 * self.targetmass)
         p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
         p.setGravity(0, 0, 0)
