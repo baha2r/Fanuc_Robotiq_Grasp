@@ -189,9 +189,9 @@ def convert_dav_to_mp4(input_file, output_file, compression_rate=28):
     subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
-    # source_file = "/Users/baha2r/PhD/Pybullet/TestingVideos/TOP/2023-09-14-11-36-50_CAM 4_1001$1$0$3.dav"
-    # destination_file = "TOP.mp4"
-    # convert_dav_to_mp4(source_file, destination_file)
+    source_file = "/Users/baha2r/PhD/Pybullet/TestingVideos/TOP/2023-09-14-11-36-50_CAM 4_1001$1$0$3.dav"
+    destination_file = "TOP.mp4"
+    convert_dav_to_mp4(source_file, destination_file)
 
     # video_files = [
     #     "SIDE.mp4",
