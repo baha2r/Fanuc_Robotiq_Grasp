@@ -77,7 +77,7 @@ def print_video_info(input_file):
     print(f"FPS: {fps}")
     print(f"Scan type: {scan_type}")
 
-def increase_video_speed(input_file, output_file, speed_factor=2.0):
+def increase_video_speed(input_file, output_file, speed_factor=4.0):
     """
     Increase the playback speed of a video.
     
@@ -189,36 +189,33 @@ def convert_dav_to_mp4(input_file, output_file, compression_rate=28):
     subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
-    source_file = "/Users/baha2r/PhD/Pybullet/TestingVideos/TOP/2023-09-14-11-36-50_CAM 4_1001$1$0$3.dav"
-    destination_file = "TOP.mp4"
-    convert_dav_to_mp4(source_file, destination_file)
+    source_files = [
+        "SIDE.dav",
+        "SIDE2.dav",
+        "TOP.dav",
+        "BEHIND.dav"
+    ]
+    destination_files = [
+        "SIDE.mp4",
+        "SIDE2.mp4",
+        "TOP.mp4",
+        "BEHIND.mp4"
+    ]
+    for i in range(len(source_files)):
+        source_file = source_files[i]
+        destination_file = destination_files[i]
+        convert_dav_to_mp4(source_file, destination_file)
 
-    # video_files = [
-    #     "SIDE.mp4",
-    #     "SIDE2.mp4",
-    #     "TOP.mp4",
-    #     "BEHIND.mp4"
-    # ]
-    # destination_file = "merged_output.mp4"
-    # merge_videos_2x2(video_files, destination_file)
+    destination_file = "merged_output.mp4"
+    merge_videos_2x2(destination_files, destination_file)
 
-    # source_file = "merged_output.mp4"
-    # destination_file = "reduced_size_output.mp4"
-    # reduce_mp4_size(source_file, destination_file)
+    source_file = destination_file
+    destination_file = "faster_output.mp4"
+    increase_video_speed(source_file, destination_file)
 
-    # source_file = "merged_output.mp4"
-    # destination_file = "faster_output.mp4"
-    # increase_video_speed(source_file, destination_file)
+    print_video_info(destination_file)
 
-    # source_file = "faster_output.mp4"
-    # destination_file = "resized_output.mp4"
-    # resize_video(source_file, destination_file)
-
-    # print_video_info(source_file)
-    # print_video_info(destination_file)
-
-    input_video = "resized_output.mp4"
-    output_video = "path_to_output_video.mp4"
+    input_video = destination_file
+    output_video = "TEST.mp4"
     text_to_add = "4x"
     add_text_to_center(input_video, output_video, text_to_add)
-    print_video_info(output_video)
