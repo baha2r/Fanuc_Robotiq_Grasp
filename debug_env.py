@@ -12,7 +12,7 @@ import pybullet as p
 from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC
 # from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3.common.evaluation import evaluate_policy
-from robotiqGymEnv import robotiqGymEnv
+from robotiq_gym_env import robotiqGymEnv
 from stable_baselines3.common import results_plotter
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.results_plotter import load_results, ts2xy

@@ -10,7 +10,7 @@ from datetime import datetime
 from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC, DQN
 from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize, VecEnv, VecNormalize
 from stable_baselines3.common.evaluation import evaluate_policy
-from robotiqGymEnv import robotiqGymEnv
+from robotiq_gym_env import robotiqGymEnv
 from stable_baselines3.common import results_plotter
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.results_plotter import load_results, ts2xy
@@ -37,7 +37,7 @@ multienv = make_vec_env(lambda:make_my_env(), n_envs=numberofenv)
 n_actions = env.action_space.shape[-1]
 action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 evalenv = Monitor(env)
-NAME = f"{date}_SAC_M{mass}_{distance_threshold}_39"
+NAME = f"{date}_SAC_{distance_threshold}"
 stop_train_callback = StopTrainingOnNoModelImprovement(max_no_improvement_evals=10, min_evals=50, verbose=1)
 callback = EvalCallback(evalenv, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=20000, deterministic=True, render=False)#, callback_after_eval=stop_train_callback, n_eval_episodes=10)
 model = SAC("MlpPolicy", multienv, verbose=1, tensorboard_log=f"./tensorboard/{NAME}/" , batch_size=1024, train_freq=numberofenv)#, action_noise=action_noise
