@@ -32,7 +32,7 @@ class robotiqGymEnv(gym.Env):
                  records=False,
                  is_discrete=False,
                  multi_discrete=False,
-                 max_episode_steps=500):
+                 max_episode_steps=1000):
         """
         Initialize the environment.
         """
@@ -91,9 +91,9 @@ class robotiqGymEnv(gym.Env):
         self.terminated = 0
         p.resetSimulation()
         p.setPhysicsEngineParameter(
-            numSolverIterations=150, 
-            numSubSteps=4, 
-            fixedTimeStep=self._timeStep, 
+            numSolverIterations=10, 
+            # numSubSteps=4, 
+            fixedTimeStep=self._timeStep,
             contactERP=0.9, 
             globalCFM=0.00001
         )
@@ -108,7 +108,7 @@ class robotiqGymEnv(gym.Env):
         )
 
         grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
-        
+        # p.changeDynamics(self._robotiq.robotiq_uid, 
         # Generate random values
         randx, randy, randz, randf1, randf2, randf3 = np.random.uniform(-1, 1, 6)
 
@@ -127,9 +127,10 @@ class robotiqGymEnv(gym.Env):
 
         self.targetmass = 7000
         p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
+        p.changeDynamics(self.blockUid, -1, lateralFriction=5, restitution=0.0000001)
         extforce = np.array([randf1, randf2, randf3]) * (70 * self.targetmass)
         # extforce = np.array([-0.11550977143397409,0.2418532964377703,0.2893681005977044]) * (60 * self.targetmass)
-        p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+        # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
         p.setGravity(0, 0, 0)
         self._stepcounter = 0
