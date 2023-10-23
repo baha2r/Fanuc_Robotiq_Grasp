@@ -188,6 +188,51 @@ def convert_dav_to_mp4(input_file, output_file, compression_rate=28):
     
     subprocess.run(cmd, check=True)
 
+def convert_avi_to_mp4(avi_file_path, output_directory=None):
+    """
+    Converts an .avi video file to .mp4 format using ffmpeg.
+
+    Parameters:
+    - avi_file_path: str
+        The path to the .avi file that needs to be converted.
+    - output_directory: str (optional)
+        The directory where the .mp4 file should be saved.
+        If not provided, the .mp4 file will be saved in the same directory as the .avi file.
+
+    Returns:
+    - output_file_path: str
+        The path to the converted .mp4 file.
+    - conversion_status: dict
+        A dictionary with details about the conversion process.
+    """
+    if not os.path.exists(avi_file_path):
+        raise ValueError(f"'{avi_file_path}' does not exist!")
+
+    base_name = os.path.splitext(os.path.basename(avi_file_path))[0]
+    if output_directory:
+        if not os.path.exists(output_directory):
+            os.makedirs(output_directory)
+        output_file_path = os.path.join(output_directory, f"{base_name}.mp4")
+    else:
+        output_file_path = os.path.join(os.path.dirname(avi_file_path), f"{base_name}.mp4")
+
+    command = ["ffmpeg", "-i", avi_file_path, "-c:v", "libx264", "-c:a", "aac", output_file_path]
+    try:
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+        conversion_status = {
+            "success": True,
+            "message": "Conversion successful.",
+            "details": result.stderr.decode("utf-8")
+        }
+    except subprocess.CalledProcessError as e:
+        conversion_status = {
+            "success": False,
+            "message": "Conversion failed.",
+            "details": e.stderr.decode("utf-8")
+        }
+
+    return output_file_path, conversion_status
+
 if __name__ == "__main__":
     source_files = [
         "SIDE.dav",
