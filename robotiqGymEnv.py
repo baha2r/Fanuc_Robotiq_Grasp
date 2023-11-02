@@ -91,9 +91,9 @@ class robotiqGymEnv(gym.Env):
         self.terminated = 0
         p.resetSimulation()
         p.setPhysicsEngineParameter(
-            numSolverIterations=10, 
+            # numSolverIterations=10, 
             # numSubSteps=4, 
-            fixedTimeStep=self._timeStep,
+            # fixedTimeStep=self._timeStep,
             contactERP=0.9, 
             globalCFM=0.00001
         )

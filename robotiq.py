@@ -44,6 +44,7 @@ class robotiq:
         self.constraint_id = p.createConstraint(self.robotiq_uid, -1, -1, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0], start_position)
         self.num_joints = p.getNumJoints(self.robotiq_uid)
 
+
     def get_joint_state(self):
         '''
         Get the state of the joints

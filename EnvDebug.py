@@ -36,10 +36,10 @@ def main():
     # print("xvel: ", xtargetvel)
     # print("yvel: ", ytargetvel)
     # print("zvel: ", ztargetvel)
-    if env._env_step_counter < 300:
-      action = [1 , 0 , 0 , 0 , 0 , 0 ]
-    else:
-      action = [0 , 0 , 0 , 0 , 0 , 0 ]
+    # if env._env_step_counter < 300:
+    action = [1 , 0 , 0 , 0 , 0 , 0 ]
+    # else:
+    #   action = [0 , 0 , 0 , 0 , 0 , 0 ]
     # action = env.action_space.sample()
     # action = [0 , 0 , 0 , 0 , 0 , 0]
     obs, rewards, dones, info = env.step(action)
