@@ -91,11 +91,15 @@ class robotiqGymEnv(gym.Env):
         self.terminated = 0
         p.resetSimulation()
         p.setPhysicsEngineParameter(
-            # numSolverIterations=10, 
+            numSolverIterations=1000, 
             # numSubSteps=4, 
             # fixedTimeStep=self._timeStep,
             contactERP=0.9, 
-            globalCFM=0.00001
+            globalCFM=0.01,
+            enableConeFriction=0,
+            contactSlop=0.01,
+            maxNumCmdPer1ms=1000,
+            contactBreakingThreshold=0.1,
         )
         p.setTimeStep(self._timeStep)
         p.loadURDF(os.path.join(self._urdf_root, "plane.urdf"), [0, 0, 0])
@@ -122,12 +126,17 @@ class robotiqGymEnv(gym.Env):
             os.path.join(self._robotiqRoot, "block.urdf"), 
             basePosition=targetpos, 
             baseOrientation=targetorn, 
-            useMaximalCoordinates=True
+            useMaximalCoordinates=True,
+            flags=p.URDF_INITIALIZE_SAT_FEATURES
         )
 
-        self.targetmass = 7000
+        self.targetmass = 700
         p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
-        p.changeDynamics(self.blockUid, -1, lateralFriction=5, restitution=0.0000001)
+        # p.changeDynamics(self.blockUid, -1, lateralFriction=.5, spinningFriction=.5, rollingFriction=.51,
+                #  restitution=0.00000001, contactStiffness=100, contactDamping=10)
+        # for i in range(self._robotiq.num_joints):
+        #     p.changeDynamics(self._robotiq.robotiq_uid, i, lateralFriction=1, spinningFriction=1, rollingFriction=1,
+        #          restitution=0.001, contactStiffness=1000, contactDamping=10)
         extforce = np.array([randf1, randf2, randf3]) * (70 * self.targetmass)
         # extforce = np.array([-0.11550977143397409,0.2418532964377703,0.2893681005977044]) * (60 * self.targetmass)
         # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
@@ -207,7 +216,7 @@ class robotiqGymEnv(gym.Env):
         self._observation = np.append(self._observation, minpos)
 
         # Add contact information to observation
-        totalforce = self._contactinfo()[4]
+        totalforce = self._contactinfo()[5]
         # self._observation = np.append(self._observation, totalforce)
 
         return self._observation
@@ -319,6 +328,9 @@ class robotiqGymEnv(gym.Env):
         # Get contact points between block and robotiq
         contactpoints = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid)
 
+        # get number of contact points
+        number_of_contact_points = len(contactpoints)
+
         for c in contactpoints:
             # Sum up total forces
             totalNormalForce += c[9]
@@ -341,7 +353,7 @@ class robotiqGymEnv(gym.Env):
         # Count the number of contact points for each fingertip
         ftipContactPoints = np.array([len(ftip1), len(ftip2), len(ftip3)])
 
-        return ftipNormalForce, ftipLateralFriction1, ftipLateralFriction2, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2
+        return ftipNormalForce, ftipLateralFriction1, ftipLateralFriction2, number_of_contact_points, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2
 
     def _reward(self):
         """
@@ -380,7 +392,7 @@ class robotiqGymEnv(gym.Env):
         dotvec = np.dot(diffvector/np.linalg.norm(diffvector), normalvec/np.linalg.norm(normalvec))
 
         # Compute contact information
-        ftipNormalForce, ftipLateralFriction1, ftipLateralFriction1, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2 = self._contactinfo()
+        ftipNormalForce, ftipLateralFriction1, ftipLateralFriction2, number_of_contact_points, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2 = self._contactinfo()
 
         r_top = self._r_topology()
         r_top = 1 if r_top > 0 else 0

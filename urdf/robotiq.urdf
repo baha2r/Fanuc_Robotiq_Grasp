@@ -2,19 +2,19 @@
 <robot name="fanuc_m_20id" xmlns:xacro="http://wiki.ros.org/xacro">
 
     <material name="palm_color">
-        <color rgba="0.878 0.527 0.914 1" />
+        <color rgba="0.75 0.75 0.75 1" />
     </material>
     <material name="link0_color">
-        <color rgba="0.655, 0.393, 0.055 1" />
+        <color rgba="0.75 0.75 0.75 1" />
     </material>
     <material name="link1_color">
-        <color rgba="0.266, 0.419, 0.062 1" />
+        <color rgba="0.5 0 0 1" specular="0.5" shininess="0.5" reflectance="0.5" />
     </material>
     <material name="link2_color">
-        <color rgba="0.179, 0.559, 0.503 1" />
+        <color rgba="0.5 0.5 0.5 1" specular="0.5" shininess="0.5" reflectance="0.5" />
     </material>
     <material name="link3_color">
-        <color rgba="0.832, 0.446, 0.551 1" />
+        <color rgba="0 0 0 1" />
     </material>
 
     <link name="palm">
@@ -31,10 +31,6 @@
             <geometry>
                 <mesh filename="meshes/collision/palm.STL" />
             </geometry>
-            <material name="yellow">
-                <color rgba="0 1 1 1" />
-            </material>
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin xyz="0 0 0" rpy="1.57 1.57 1.57" />
@@ -56,10 +52,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_0.STL" />
             </geometry>
-            <material name="yellow">
-                <color rgba="0 1 1 1" />
-            </material>
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -80,8 +72,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_1.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -107,8 +97,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_2.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -129,8 +117,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_3.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>        
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -143,7 +129,6 @@
         <child link="finger_1_link_0" />
         <axis xyz="0 1 0" />
         <origin rpy="0 3.1416 -1.57" xyz="-0.0455 0.0214 0.036" />
-        <limit lower="-0.16" upper="0.25" velocity="100" />
     </joint>
     <joint name="finger_1_joint_1" type="revolute">
         <parent link="finger_1_link_0" />
@@ -180,10 +165,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_0.STL" />
             </geometry>
-            <material name="yellow">
-                <color rgba="0 1 1 1" />
-            </material>
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -204,8 +185,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_1.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -232,8 +211,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_2.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -255,8 +232,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_3.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -269,7 +244,6 @@
         <child link="finger_2_link_0" />
         <axis xyz="0 1 0" />
         <origin rpy="0 3.1416 -1.57" xyz="-0.0455 0.0214 -0.036" />
-        <limit lower="-0.16" upper="0.25" velocity="100" />
     </joint>
     <joint name="finger_2_joint_1" type="revolute">
         <parent link="finger_2_link_0" />
@@ -306,10 +280,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_0.STL" />
             </geometry>
-            <material name="yellow">
-                <color rgba="0 1 1 1" />
-            </material>
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -331,8 +301,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_1.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -359,8 +327,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_2.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -382,8 +348,6 @@
             <geometry>
                 <mesh filename="meshes/collision/link_3.STL" />
             </geometry>
-            <material name="yellow" />
-            <contact_coefficients mu ="1" kp="1000" kd="1"/>
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<robot name="robotiq_gripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Material Properties -->
+  <xacro:property name="palm_color" value="0.75 0.75 0.75 1" />
+  <xacro:property name="link0_color" value="0.75 0.75 0.75 1" />
+  <xacro:property name="link1_color" value="0.5 0 0 1" />
+  <xacro:property name="link2_color" value="0.5 0.5 0.5 1" />
+  <xacro:property name="link3_color" value="0 0 0 1" />
+
+  <!-- Link Macro -->
+  <xacro:macro name="link" params="name color visual_mesh collision_mesh mass ixx ixy ixz iyy iyz izz">
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${visual_mesh}" />
+        </geometry>
+        <material name="${color}">
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${collision_mesh}" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="${mass}" />
+        <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}" />
+      </inertial>
+    </link>
+  </xacro:macro>
+
+  <!-- Joint Macro -->
+  <xacro:macro name="joint" params="name type parent child axis origin rpy lower upper velocity">
+    <joint name="${name}" type="${type}">
+      <parent link="${parent}" />
+      <child link="${child}" />
+      <axis xyz="${axis}" />
+      <origin xyz="${origin}" rpy="${rpy}" />
+      <limit lower="${lower}" upper="${upper}" velocity="${velocity}" />
+    </joint>
+  </xacro:macro>
+
+  <!-- Palm Link -->
+  <xacro:link name="palm" parent="base_link" color="palm_color" visual_mesh="meshes/visual/palm.dae" collision_mesh="meshes/collision/palm.STL" mass="1.3" ixx="0.006012" ixy="0.000079" ixz="-0.00024" iyy="0.012892" iyz="0" izz="0.002435" />
+
+  <!-- Finger 1 Links -->
+  <xacro:link name="finger_1_link_0" color="link0_color" visual_mesh="meshes/visual/link_0.dae" collision_mesh="meshes/collision/link_0.STL" mass="0.05" ixx="0.01" ixy="-0.00002" ixz="0.00001" iyy="0.0008" iyz="0" izz="0.001" />
+  <xacro:link name="finger_1_link_1" color="link1_color" visual_mesh="meshes/visual/link_1.dae" collision_mesh="meshes/collision/link_1.STL" mass="0.15" ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
+  <xacro:link name="finger_1_link_2" color="link2_color" visual_mesh="meshes/visual/link_2.dae" collision_mesh="meshes/collision/link_2.STL" mass="0.15" ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
+  <xacro:link name="finger_1_link_3" color="link3_color" visual_mesh="meshes/visual/link_3.dae" collision_mesh="meshes/collision/link_3.STL" mass="0.05" ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632" />
+
+  <!-- Finger 1 Joints -->
+  <xacro:joint name="finger_1_joint_0" type="fixed" parent="palm" child="finger_1_link_0" axis="0 1 0" origin="-0.0455 0.0214 0.036" rpy="0 3.1416 -1.57" lower="0" upper="0" velocity="0" />
+  <xacro:joint name="finger_1_joint_1" type="revolute" parent="finger_1_link_0" child="finger_1_link_1" axis="0 0 1" origin="0.020 0 0" rpy="0 0 0" lower="0" upper="1.2211" velocity="10" />
+  <xacro:joint name="finger_1_joint_2" type="revolute" parent="finger_1_link_1" child="finger_1_link_2" axis="0 0 1" origin="0.050 -0.028 0" rpy="0 0 -0.52" lower="0" upper="1.350" velocity="100" />
+  <xacro:joint name="finger_1_joint_3" type="revolute" parent="finger_1_link_2" child="finger_1_link_3" axis="0 0 1" origin="0.039 0 0" rpy="0 0 0" lower="-0.900" upper="0.75" velocity="100" />
+
+  <!-- Finger 2 Links -->
+  <xacro:link name="finger_2_link_0" color="link0_color" visual_mesh="meshes/visual/link_0.dae" collision_mesh="meshes/collision/link_0.STL" mass="0.05" ixx="0.01" ixy="-0.00002" ixz="0.00001" iyy="0.0008" iyz="0" izz="0.001" />
+  <xacro:link name="finger_2_link_1" color="link1_color" visual_mesh="meshes/visual/link_1.dae" collision_mesh="meshes/collision/link_1.STL" mass="0.15" ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
+  <xacro:link name="finger_2_link_2" color="link2_color" visual_mesh="meshes/visual/link_2.dae" collision_mesh="meshes/collision/link_2.STL" mass="0.15" ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
+  <xacro:link name="finger_2_link_3" color="link3_color" visual_mesh="meshes/visual/link_3.dae" collision_mesh="meshes/collision/link_3.STL" mass="0.05" ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632" />
+
+  <!-- Finger 2 Joints -->
+  <xacro:joint name="finger_2_joint_0" type="fixed" parent="palm" child="finger_2_link_0" axis="0 1 0" origin="-0.0455 -0.0214 0.036" rpy="0 3.1416 1.57" lower="0" upper="0" velocity="0" />
+  <xacro:joint name="finger_2_joint_1" type="revolute" parent="finger_2_link_0" child="finger_2_link_1" axis="0 0 1" origin="0.020 0 0" rpy="0 0 0" lower="0" upper="1.2211" velocity="10" />
+  <xacro:joint name="finger_2_joint_2" type="revolute" parent="finger_2_link_1" child="finger_2_link_2" axis="0 0 1" origin="0.050 0.028 0" rpy="0 0 0.52" lower="0" upper="1.350" velocity="100" />
+  <xacro:joint name="finger_2_joint_3" type="revolute" parent="finger_2_link_2" child="finger_2_link_3" axis="0 0 1" origin="0.039 0 0" rpy="0 0 0" lower="-0.900" upper="0.75" velocity="100" />
+
+  <!-- Middle Finger Links -->
+  <xacro:link name="finger_3_link_0" color="link0_color" visual_mesh="meshes/visual/link_0.dae" collision_mesh="meshes/collision/link_0.STL" mass="0.05" ixx="0.01" ixy="-0.00002" ixz="0.00001" iyy="0.0008" iyz="0" izz="0.001" />
+  <xacro:link name="finger_3_link_1" color="link1_color" visual_mesh="meshes/visual/link_1.dae" collision_mesh="meshes/collision/link_1.STL" mass="0.15" ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
+  <xacro:link name="finger_3_link_2" color="link2_color" visual_mesh="meshes/visual/link_2.dae" collision_mesh="meshes/collision/link_2.STL" mass="0.15" ixx="0.001859" ixy="-0.000376" ixz="0.000028" iyy="0.012756" iyz="0" izz="0.0024" />
+  <xacro:link name="finger_3_link_3" color="link3_color" visual_mesh="meshes/visual/link_3.dae" collision_mesh="meshes/collision/link_3.STL" mass="0.05" ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632" />
+
+  <!-- Middle Finger Joints -->
+  <xacro:joint name="finger_3_joint_0" type="fixed" parent="palm" child="finger_3_link_0" axis="0 1 0" origin="0.0 0.0 0.036" rpy="0 3.1416 0" lower="0" upper="0" velocity="0" />
+  <xacro:joint name="finger_3_joint_1" type="revolute" parent="finger_3_link_0" child="finger_3_link_1" axis="0 0 1" origin="0.020 0 0" rpy="0 0 0" lower="0" upper="1.2211" velocity="10" />
+  <xacro:joint name="finger_3_joint_2" type="revolute" parent="finger_3_link_1" child="finger_3_link_2" axis="0 0 1" origin="0.050 0 0" rpy="0 0 0" lower="0" upper="1.350" velocity="100" />
+  <xacro:joint name="finger_3_joint_3" type="revolute" parent="finger_3_link_2" child="finger_3_link_3" axis="0 0 1" origin="0.039 0 0" rpy="0 0 0" lower="-0.900" upper="0.75" velocity="100" />
+
+</robot>
