@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<!-- <?xml version="1.0"?>
 <robot name="block_2">
   <link name="block_2_base_link">
     <contact>
@@ -26,4 +26,26 @@
       </geometry>
     </collision>
   </link>
+</robot> -->
+
+<!-- <?xml version="1.0"?> -->
+<robot name="block">
+  <link name="block_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="urdf/target.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="blockmat">
+        <color rgba="0.1 0.7 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="urdf/target.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
 </robot>
+
