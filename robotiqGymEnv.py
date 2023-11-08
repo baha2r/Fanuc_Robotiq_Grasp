@@ -56,6 +56,7 @@ class robotiqGymEnv(gym.Env):
         self._reach = 0
         self._keypoints = 100
         self.distance_threshold = 0.04
+        self._accumulated_contact_force = 0
 
         # connect to PyBullet
         if self._records:
@@ -91,15 +92,15 @@ class robotiqGymEnv(gym.Env):
         self.terminated = 0
         p.resetSimulation()
         p.setPhysicsEngineParameter(
-            numSolverIterations=1000, 
+            numSolverIterations=100, 
             # numSubSteps=4, 
             # fixedTimeStep=self._timeStep,
             contactERP=0.9, 
-            globalCFM=0.01,
+            globalCFM=0.0,
             enableConeFriction=0,
-            contactSlop=0.01,
-            maxNumCmdPer1ms=1000,
-            contactBreakingThreshold=0.1,
+            contactSlop=0.0001,
+            maxNumCmdPer1ms=100,
+            contactBreakingThreshold=0.01,
         )
         p.setTimeStep(self._timeStep)
         p.loadURDF(os.path.join(self._urdf_root, "plane.urdf"), [0, 0, 0])
@@ -130,10 +131,15 @@ class robotiqGymEnv(gym.Env):
             flags=p.URDF_INITIALIZE_SAT_FEATURES
         )
 
-        self.targetmass = 700
-        p.changeDynamics(self.blockUid, -1, mass=self.targetmass)
-        # p.changeDynamics(self.blockUid, -1, lateralFriction=.5, spinningFriction=.5, rollingFriction=.51,
-                #  restitution=0.00000001, contactStiffness=100, contactDamping=10)
+        self.targetmass = 40
+        p.changeDynamics(self.blockUid, -1,
+                 mass=self.targetmass, # adjust mass
+                 lateralFriction=0.35, # adjust lateral friction
+                 spinningFriction=0.001, # adjust spinning friction
+                 rollingFriction=0.001, # adjust rolling friction               
+                #  contactStiffness=1000, contactDamping=10
+                ) # adjust contact stiffness and damping
+        
         # for i in range(self._robotiq.num_joints):
         #     p.changeDynamics(self._robotiq.robotiq_uid, i, lateralFriction=1, spinningFriction=1, rollingFriction=1,
         #          restitution=0.001, contactStiffness=1000, contactDamping=10)
@@ -278,7 +284,7 @@ class robotiqGymEnv(gym.Env):
 
         # Render the image from the camera's perspective
         _, _, rgbImg, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix, projectionMatrix = proj_matrix, 
-                                            shadow=1, renderer=p.ER_BULLET_HARDWARE_OPENGL)
+                                            shadow=1, renderer=p.ER_BULLET_HARDWARE_OPENGL) # renderer=p.ER_TINY_RENDERER
         
         # Convert the image to a RGB array
         rgb_array = np.array(rgbImg, dtype=np.uint8)
@@ -330,30 +336,36 @@ class robotiqGymEnv(gym.Env):
 
         # get number of contact points
         number_of_contact_points = len(contactpoints)
+        totalLateralFrictionForce = [0, 0, 0]
 
         for c in contactpoints:
             # Sum up total forces
             totalNormalForce += c[9]
-            totalLateralFriction1 += c[10]
-            totalLateralFriction2 += c[12]
-
+            totalLateralFrictionForce[0] += c[11][0] * c[10] + c[13][0] * c[12]
+            totalLateralFrictionForce[1] += c[11][1] * c[10] + c[13][1] * c[12]
+            totalLateralFrictionForce[2] += c[11][2] * c[10] + c[13][2] * c[12]
+            
         # Get contact points between block and each fingertip of robotiq
         ftip1 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[0])
         ftip2 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[1])
         ftip3 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[2])
 
         # Loop over all the fingertips' contact points
+        ftipLateralFrictionForce = [0, 0, 0]
         for contact in [ftip1, ftip2, ftip3]:
             for c in contact:
                 # Sum up forces at the fingertips
                 ftipNormalForce += c[9]
-                ftipLateralFriction1 += c[10]
-                ftipLateralFriction2 += c[12]
+                ftipLateralFrictionForce[0] = c[11][0] * c[10] + c[13][0] * c[12]
+                ftipLateralFrictionForce[1] = c[11][1] * c[10] + c[13][1] * c[12]
+                ftipLateralFrictionForce[2] = c[11][2] * c[10] + c[13][2] * c[12]
 
         # Count the number of contact points for each fingertip
         ftipContactPoints = np.array([len(ftip1), len(ftip2), len(ftip3)])
+        
+        self._accumulated_contact_force += totalNormalForce
 
-        return ftipNormalForce, ftipLateralFriction1, ftipLateralFriction2, number_of_contact_points, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2
+        return ftipNormalForce, ftipLateralFrictionForce, totalLateralFrictionForce, number_of_contact_points, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2
 
     def _reward(self):
         """

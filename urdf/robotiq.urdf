@@ -115,7 +115,7 @@
         <collision>
             <origin rpy="0 0 0.52" xyz="0 0 0" />
             <geometry>
-                <mesh filename="meshes/collision/link3.stl" />
+                <mesh filename="urdf/meshes/collision/link3.stl" />
             </geometry>
         </collision>        
         <inertial>
