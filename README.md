@@ -5,7 +5,7 @@ Welcome to the Fanuc Robotiq Grasp project! This repository houses an innovative
 
 ## Technologies
 - **Programming Language:** Python
-- **Key Libraries:** [List any specific robotics or machine learning libraries used]
+- **Key Libraries:** pybullet torch tensorboard numpy scikit-learn gym
 
 ## Installation and Setup
 To get started with the Fanuc Robotiq Grasp, follow these steps:
@@ -17,7 +17,7 @@ To get started with the Fanuc Robotiq Grasp, follow these steps:
    ```
 
 2. **Set Up the Environment:**
-   - Ensure Python [version] is installed.
+   - Ensure Python 3.8 or higher is installed.
    - Install required packages:
      ```
      pip install -r requirements.txt
