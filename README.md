@@ -1,3 +1,28 @@
+# Fanuc Robotiq Grasp
+
+## Introduction
+Welcome to the Fanuc Robotiq Grasp project! This repository houses an innovative solution for robotic arm manipulation, specifically designed for the Fanuc Robotiq gripper. Leveraging advanced algorithms and robotics principles, this project aims to enhance the capabilities of robotic arms in complex manipulation tasks.
+
+## Technologies
+- **Programming Language:** Python
+- **Key Libraries:** [List any specific robotics or machine learning libraries used]
+
+## Installation and Setup
+To get started with the Fanuc Robotiq Grasp, follow these steps:
+
+1. **Clone the Repository:**
+   ```
+   git clone https://github.com/baha2r/Fanuc_Robotiq_Grasp.git
+   cd Fanuc_Robotiq_Grasp
+   ```
+
+2. **Set Up the Environment:**
+   - Ensure Python [version] is installed.
+   - Install required packages:
+     ```
+     pip install -r requirements.txt
+     ```
+
 # Observation Space
 The observation space for the robotic arm environment is represented by the configuration, Box(-inf, inf, (40,), float32). This space consists of a set of 40 continuous variables, each describing a distinct attribute related to the position, movement, and velocity of both the robotic gripper and its target. These variables embody an extensive range of information about the environment, capturing the dynamism and intricacies involved in the manipulative tasks of the robotic arm. 
 
