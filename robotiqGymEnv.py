@@ -43,8 +43,6 @@ class robotiqGymEnv(gym.Env):
         self._robotiqRoot = "urdf/"
         self._action_repeat = action_repeat
         self._observation = []
-        self._achieved_goal = []
-        self._desired_goal = []
         self._stepcounter = 0
         self._renders = renders
         self._records = records
@@ -92,15 +90,17 @@ class robotiqGymEnv(gym.Env):
         self.terminated = 0
         p.resetSimulation()
         p.setPhysicsEngineParameter(
-            numSolverIterations=100, 
+            numSolverIterations=1000, 
             # numSubSteps=4, 
             # fixedTimeStep=self._timeStep,
             contactERP=0.9, 
-            globalCFM=0.0,
+            globalCFM=0.01,
             enableConeFriction=0,
             contactSlop=0.0001,
-            maxNumCmdPer1ms=100,
+            maxNumCmdPer1ms=1000,
             contactBreakingThreshold=0.01,
+            enableFileCaching=1,
+            restitutionVelocityThreshold=0.01,
         )
         p.setTimeStep(self._timeStep)
         p.loadURDF(os.path.join(self._urdf_root, "plane.urdf"), [0, 0, 0])
@@ -108,8 +108,6 @@ class robotiqGymEnv(gym.Env):
         self._robotiq = robotiq.robotiq(
             urdf_root_path=self._robotiqRoot, 
             time_step=self._timeStep, 
-            is_discrete=self._is_discrete, 
-            multi_discrete=self._multi_discrete
         )
 
         grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
@@ -131,21 +129,22 @@ class robotiqGymEnv(gym.Env):
             flags=p.URDF_INITIALIZE_SAT_FEATURES
         )
 
-        self.targetmass = 40
+        self.targetmass = 100
         p.changeDynamics(self.blockUid, -1,
                  mass=self.targetmass, # adjust mass
                  lateralFriction=0.35, # adjust lateral friction
                  spinningFriction=0.001, # adjust spinning friction
                  rollingFriction=0.001, # adjust rolling friction               
-                #  contactStiffness=1000, contactDamping=10
+                 contactStiffness=1000, 
+                 contactDamping=10
                 ) # adjust contact stiffness and damping
         
         # for i in range(self._robotiq.num_joints):
         #     p.changeDynamics(self._robotiq.robotiq_uid, i, lateralFriction=1, spinningFriction=1, rollingFriction=1,
         #          restitution=0.001, contactStiffness=1000, contactDamping=10)
-        extforce = np.array([randf1, randf2, randf3]) * (70 * self.targetmass)
-        # extforce = np.array([-0.11550977143397409,0.2418532964377703,0.2893681005977044]) * (60 * self.targetmass)
-        # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+        extforce = np.array([randf1, randf2, randf3]) * (30 * self.targetmass)
+        # extforce = np.array([1,1,1]) * (30 * self.targetmass)
+        p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
         p.setGravity(0, 0, 0)
         self._stepcounter = 0
@@ -344,7 +343,9 @@ class robotiqGymEnv(gym.Env):
             totalLateralFrictionForce[0] += c[11][0] * c[10] + c[13][0] * c[12]
             totalLateralFrictionForce[1] += c[11][1] * c[10] + c[13][1] * c[12]
             totalLateralFrictionForce[2] += c[11][2] * c[10] + c[13][2] * c[12]
-            
+        
+        totalLateralFrictionForce = np.array(totalLateralFrictionForce)
+        
         # Get contact points between block and each fingertip of robotiq
         ftip1 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[0])
         ftip2 = p.getContactPoints(self.blockUid, self._robotiq.robotiq_uid, -1, self._robotiq.third_joint_idx[1])

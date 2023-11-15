@@ -11,15 +11,13 @@ class robotiq:
     '''
     A class to simulate Robotiq gripper using PyBullet
     '''
-    def __init__(self, urdf_root_path="urdf/", time_step=1. / 240., is_discrete=False, multi_discrete=False):
+    def __init__(self, urdf_root_path="urdf/", time_step=1. / 240.):
         '''
         Initialize the Robotiq gripper
         '''
         self.pybullet_urdf_root_path = pybullet_data.getDataPath()
         self.urdf_root_path = urdf_root_path
         self.time_step = time_step
-        self.is_discrete = is_discrete
-        self.multi_discrete = multi_discrete
         self.max_velocity = .35
         self.max_force = 200.
         self.first_joint_idx = [1, 5, 9]
@@ -37,12 +35,11 @@ class robotiq:
         '''
         start_position = [0, 0, 1]
         # radomize the orientation of the gripper
-        # start_orientation = p.getQuaternionFromEuler([np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi)])
-        start_orientation = p.getQuaternionFromEuler([0, np.pi/2, 0])
+        start_orientation = p.getQuaternionFromEuler([np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi)])
+        # start_orientation = p.getQuaternionFromEuler([-np.pi/2, 0, 0])
         self.robotiq_uid = p.loadURDF(os.path.join(self.urdf_root_path, "robotiq.urdf"), 
                                       basePosition = start_position, 
                                       baseOrientation = start_orientation,
-                                    #   useMaximalCoordinates=True,
                                       flags=p.URDF_INITIALIZE_SAT_FEATURES
                                       )
         # p.changeDynamics(self.robotiq_uid, -1, mass=100)
