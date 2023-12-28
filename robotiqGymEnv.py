@@ -55,6 +55,11 @@ class robotiqGymEnv(gym.Env):
         self._keypoints = 100
         self.distance_threshold = 0.04
         self._accumulated_contact_force = 0
+        self.distanceReward = 0
+        self.oriReward = 0
+        self.r_top = 0
+        self.contactpenalize = 0
+        self.target_yaw = 0
 
         # connect to PyBullet
         if self._records:
@@ -90,19 +95,19 @@ class robotiqGymEnv(gym.Env):
         self.terminated = 0
         p.resetSimulation()
         p.setPhysicsEngineParameter(
-            numSolverIterations=1000, 
+            numSolverIterations=500, 
             # numSubSteps=4, 
             # fixedTimeStep=self._timeStep,
             contactERP=0.9, 
             globalCFM=0.01,
-            enableConeFriction=0,
+            enableConeFriction=1,
             contactSlop=0.0001,
             maxNumCmdPer1ms=1000,
             contactBreakingThreshold=0.01,
             enableFileCaching=1,
             restitutionVelocityThreshold=0.01,
         )
-        p.setTimeStep(self._timeStep)
+        # p.setTimeStep(self._timeStep)
         p.loadURDF(os.path.join(self._urdf_root, "plane.urdf"), [0, 0, 0])
 
         self._robotiq = robotiq.robotiq(
@@ -111,12 +116,15 @@ class robotiqGymEnv(gym.Env):
         )
 
         grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
-        # p.changeDynamics(self._robotiq.robotiq_uid, 
+        # p.changeDynamics(self._robotiq.robotiq_uid, -1, mass=1000)
+
         # Generate random values
         randx, randy, randz, randf1, randf2, randf3 = np.random.uniform(-1, 1, 6)
 
         targetpos = [0.0 + 0.50 * randx, 0.8 + 0.2 * randy, 1.0 + 0.40 * randz]
-        targetorn = p.getQuaternionFromEuler([0, 0, 0])
+        # targetorn = p.getQuaternionFromEuler([0, 0, 0])
+        targetorn = p.getQuaternionFromEuler([0, 0, self.target_yaw])
+        print(self.target_yaw)
 
         # targetpos = [0.07336462703085808,0.6302821367352937,0.9215777045808058]
         # targetorn = p.getQuaternionFromEuler([0, 0, 0])
@@ -142,7 +150,7 @@ class robotiqGymEnv(gym.Env):
         # for i in range(self._robotiq.num_joints):
         #     p.changeDynamics(self._robotiq.robotiq_uid, i, lateralFriction=1, spinningFriction=1, rollingFriction=1,
         #          restitution=0.001, contactStiffness=1000, contactDamping=10)
-        extforce = np.array([randf1, randf2, randf3]) * (30 * self.targetmass)
+        extforce = np.array([randf1, randf2, randf3]) * (20 * self.targetmass)
         # extforce = np.array([1,1,1]) * (30 * self.targetmass)
         p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
@@ -160,7 +168,7 @@ class robotiqGymEnv(gym.Env):
         Check if the current state is successful. 
         Success is defined as having a reward greater than 2 for more than 100 consecutive steps.
         """
-        if self.success_counter > 100:
+        if self.success_counter > 300:
             return np.float32(1.0)
 
         if self._reward() > 2:
@@ -168,7 +176,7 @@ class robotiqGymEnv(gym.Env):
         else:
             self.success_counter = 0
 
-        return np.float32(self.success_counter > 100)
+        return np.float32(self.success_counter > 300)
     
     def getExtendedObservation(self):
         """
@@ -182,6 +190,16 @@ class robotiqGymEnv(gym.Env):
         griplinvel, gripangvel = p.getBaseVelocity(self._robotiq.robotiq_uid)
         blockPos, blockOri = p.getBasePositionAndOrientation(self.blockUid)
         blocklinVel, blockangVel = p.getBaseVelocity(self.blockUid)
+        # change the block position and orientation and block velocity and angular velocity from tuple to np.array
+        blockPos = np.array(blockPos)
+        blockOri = np.array(blockOri)
+        blocklinVel = np.array(blocklinVel)
+        blockangVel = np.array(blockangVel)
+        # add noise to block position and orientation and block velocity and angular velocity
+        # blockPos += np.random.normal(0, 0.01, blockPos.shape)
+        # blockOri += np.random.normal(0, 0.01, blockOri.shape)
+        # blocklinVel += np.random.normal(0, 0.01, blocklinVel.shape)
+        # blockangVel += np.random.normal(0, 0.01, blockangVel.shape)
 
         # Convert block and gripper orientation from Quaternion to Euler for ease of manipulation
         blockEul = p.getEulerFromQuaternion(blockOri)
@@ -218,7 +236,12 @@ class robotiqGymEnv(gym.Env):
         # Add minimum distance between the robot and the block to observation
         closestpoints = p.getClosestPoints(self._robotiq.robotiq_uid, self.blockUid, 100, -1, -1)
         minpos = np.subtract(closestpoints[0][5], closestpoints[0][6])
+        minpos = np.array(minpos)
+        # minpos += np.random.normal(0, 0.01, minpos.shape)
         self._observation = np.append(self._observation, minpos)
+
+        # add noise to self._observation
+        # self._observation += np.random.normal(0, 0.01, self._observation.shape)
 
         # Add contact information to observation
         totalforce = self._contactinfo()[5]
@@ -408,13 +431,13 @@ class robotiqGymEnv(gym.Env):
         ftipNormalForce, ftipLateralFriction1, ftipLateralFriction2, number_of_contact_points, ftipContactPoints, totalNormalForce, totalLateralFriction1, totalLateralFriction2 = self._contactinfo()
 
         r_top = self._r_topology()
-        r_top = 1 if r_top > 0 else 0
+        self.r_top = 1 if r_top > 0 else 0
 
-        contactpenalize = -1 if totalNormalForce > 0 else 0
+        self.contactpenalize = -1 if totalNormalForce > 0 else 0
 
         # Compute rewards for different aspects
-        distanceReward = 1 - math.tanh(closestPoints)
-        oriReward = 1 - math.tanh(distance.euclidean(np.array(blockOrnEuler),np.array(gripOrnEuler)))
+        self.distanceReward = 1 - math.tanh(closestPoints)
+        self.oriReward = 1 - math.tanh(distance.euclidean(np.array(blockOrnEuler),np.array(gripOrnEuler)))
         normalForceReward = 1 - math.tanh(totalNormalForce)
         gripangvelReward = 1 - math.tanh(gripangvel)
         fingerActionReward = 1 - math.tanh(abs(self._action[-1]))
@@ -423,7 +446,7 @@ class robotiqGymEnv(gym.Env):
         orientationActionReward = np.linalg.norm(self._action[3:6]) / np.sqrt(3)
 
         # Combine rewards to get final reward
-        reward = distanceReward + oriReward + r_top + contactpenalize 
+        reward = self.distanceReward + self.oriReward + self.r_top + self.contactpenalize 
 
         return reward
 

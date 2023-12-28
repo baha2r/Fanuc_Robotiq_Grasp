@@ -16,7 +16,7 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.results_plotter import load_results, ts2xy
 from stable_baselines3.common.env_util import make_vec_env
 import multiprocessing as mp
-from newenv import robotiqGymEnv
+from robotiqGymEnv import robotiqGymEnv
 import numpy as np
 
 # date = datetime. now(). strftime("%Y%m%d-%I:%M%p")

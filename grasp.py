@@ -6,7 +6,7 @@ import numpy as np
 import os
 import sys
 
-
+p.connect(p.GUI)
 
 # This function is used to load the URDF file of the robot
 def loadURDF(robotName, robotStartPos, robotStartOrientation):
