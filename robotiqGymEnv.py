@@ -124,7 +124,7 @@ class robotiqGymEnv(gym.Env):
         targetpos = [0.0 + 0.50 * randx, 0.8 + 0.2 * randy, 1.0 + 0.40 * randz]
         # targetorn = p.getQuaternionFromEuler([0, 0, 0])
         targetorn = p.getQuaternionFromEuler([0, 0, self.target_yaw])
-        print(self.target_yaw)
+        # print(self.target_yaw)
 
         # targetpos = [0.07336462703085808,0.6302821367352937,0.9215777045808058]
         # targetorn = p.getQuaternionFromEuler([0, 0, 0])

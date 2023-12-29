@@ -15,19 +15,21 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.callbacks import EvalCallback, BaseCallback, CheckpointCallback, CallbackList
 from stable_baselines3.common.monitor import Monitor
 from datetime import datetime
+from stable_baselines3.common.buffers import ReplayBuffer
 
 def make_my_env():
     env = robotiqGymEnv()
     return env
 
-# Load your pre-trained SAC agent
-agent = SAC.load("models/20230316-03:42PM_SAC/best_model.zip")
-date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
-NAME = f"{date}"
-# Initialize your environment
 env = robotiqGymEnv(records=False, renders=False)
 evalenv = Monitor(env)
 multienv = make_vec_env(lambda:make_my_env(), n_envs=4)
+# Load your pre-trained SAC agent
+agent = SAC.load("models/20230316-03:42PM_SAC/best_model.zip", env=env)
+date = datetime. now(). strftime("%Y%m%d-%I:%M%p")
+NAME = f"{date}"
+# Initialize your environment
+
 
 # Define the curriculum
 max_tilt_angle = np.pi/4  # rad
@@ -58,7 +60,7 @@ class CurriculumLearningCallback(BaseCallback):
         success_rate = success_count / num_episodes
         return success_rate
 
-    def on_step(self) -> bool:
+    def _on_step(self) -> bool:
         self.step_counter += 1
         # Perform evaluation at specified frequency
         if self.step_counter % self.eval_freq == 0:
@@ -117,12 +119,52 @@ class CurriculumLearningCallback(BaseCallback):
         return True
 """
 
+def populate_replay_buffer(agent, env, replay_buffer, num_steps):
+    obs = env.reset()
+    for _ in range(num_steps):
+        action, _states = agent.predict(obs, deterministic=True)
+        new_obs, reward, done, info = env.step(action)
+        replay_buffer.add(obs, new_obs, action, reward, done, info)
+        obs = new_obs
+        if done:
+            obs = env.reset()
+
+# Initialize replay buffer (ensure the buffer size is appropriate for your environment)
+replay_buffer_size = 100000  # Adjust this size based on your environment and requirements
+replay_buffer = ReplayBuffer(replay_buffer_size, agent.policy.observation_space, agent.policy.action_space, device=agent.device)
+
+# Populate the replay buffer with experiences from the pre-trained agent
+populate_replay_buffer_steps = 10000  # Adjust this number based on your requirements
+# populate_replay_buffer(agent, env, replay_buffer, populate_replay_buffer_steps)
+
+# Set the agent's replay buffer
+# agent.replay_buffer = replay_buffer
+
 # Initialize callback
 curriculum_callback = CurriculumLearningCallback(env, agent, orientation_levels, eval_freq=20000)
 eval_callback = EvalCallback(evalenv, best_model_save_path=f"./models/{NAME}/", log_path=f"./logs/{NAME}/", eval_freq=20000, deterministic=True, render=False, n_eval_episodes=10)
 callback_list = CallbackList([curriculum_callback, eval_callback])
 
 # Training with callback
-agent.set_env(multienv)
-agent.learn(total_timesteps=1000000, callback=callback_list, log_interval=10)
+# agent.set_env(multienv)
+
+# Define the new learning rate
+# new_learning_rate = 0.0001
+# agent.policy.lr_schedule = new_learning_rate
+
+# Update the learning rate in the optimizer
+# for param_group in agent.policy.optimizer.param_groups:
+#     param_group['lr'] = new_learning_rate
+
+# If your SAC model has separate optimizers for actor and critic, update both
+# if hasattr(agent.policy, 'actor_optimizer') and hasattr(agent.policy, 'critic_optimizer'):
+#     for param_group in agent.policy.actor_optimizer.param_groups:
+#         param_group['lr'] = new_learning_rate
+#     for param_group in agent.policy.critic_optimizer.param_groups:
+#         param_group['lr'] = new_learning_rate
+
+# agent.learning_starts = 50000
+agent.set_env(env)
+agent.learning_rate = 0.000001
+agent.learn(total_timesteps=1e7, log_interval=10)
 agent.save(f"./tensorboard/{NAME}/model")

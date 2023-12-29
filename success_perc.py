@@ -1,7 +1,7 @@
 import debug
 
 success = []
-for i in range(100):
+for i in range(10):
     suc = debug.main()
     success.append(suc)
 

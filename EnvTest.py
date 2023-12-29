@@ -3,19 +3,10 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 import sys
 import gymnasium
 sys.modules["gym"] = gymnasium
-import numpy as np
-import matplotlib.pyplot as plt
-import time
-from datetime import datetime
-
-from stable_baselines3 import A2C, DDPG, PPO, TD3, SAC
-# from stable_baselines3.common.env_util import make_vec_env
+from stable_baselines3 import SAC
 from stable_baselines3.common.evaluation import evaluate_policy
 from robotiqGymEnv import robotiqGymEnv
-from stable_baselines3.common import results_plotter
 from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.results_plotter import load_results, ts2xy
-from stable_baselines3.common.env_util import make_vec_env
 
 
 def main():
@@ -24,13 +15,13 @@ def main():
   # env = make_vec_env(lambda: env, n_envs=4)
 
   # rewa = evaluate_policy(model, env, deterministic=True, return_episode_rewards = True)
-  dir = "models/20230316-03:42PM_SAC_M10000_0.04_39/best_model.zip"
+  dir = "models/20230316-03:42PM_SAC/best_model.zip"
   # dir = "tensorboard/20230127-03:21PM_SAC/model.zip"
   model = SAC.load(dir)
+  evalenv = Monitor(env)
 
-
-  mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=10)
-  print(mean_reward)
+  mean_reward, std_reward = evaluate_policy(model, evalenv, n_eval_episodes=10, deterministic=False, render=False)
+  print(f"mean_reward: {mean_reward:.2f} +/- {std_reward}")
 
   # dones = False
   # obs = env.reset()
