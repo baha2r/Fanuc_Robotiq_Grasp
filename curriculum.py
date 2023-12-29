@@ -149,7 +149,7 @@ callback_list = CallbackList([curriculum_callback, eval_callback])
 # agent.set_env(multienv)
 
 # Define the new learning rate
-# new_learning_rate = 0.0001
+new_learning_rate = 0.000001
 # agent.policy.lr_schedule = new_learning_rate
 
 # Update the learning rate in the optimizer
@@ -157,14 +157,14 @@ callback_list = CallbackList([curriculum_callback, eval_callback])
 #     param_group['lr'] = new_learning_rate
 
 # If your SAC model has separate optimizers for actor and critic, update both
-# if hasattr(agent.policy, 'actor_optimizer') and hasattr(agent.policy, 'critic_optimizer'):
-#     for param_group in agent.policy.actor_optimizer.param_groups:
-#         param_group['lr'] = new_learning_rate
-#     for param_group in agent.policy.critic_optimizer.param_groups:
-#         param_group['lr'] = new_learning_rate
+if hasattr(agent.policy, 'actor_optimizer') and hasattr(agent.policy, 'critic_optimizer'):
+    for param_group in agent.policy.actor_optimizer.param_groups:
+        param_group['lr'] = new_learning_rate
+    for param_group in agent.policy.critic_optimizer.param_groups:
+        param_group['lr'] = new_learning_rate
 
 # agent.learning_starts = 50000
 agent.set_env(env)
-agent.learning_rate = 0.000001
+agent.learning_rate = new_learning_rate
 agent.learn(total_timesteps=1e7, log_interval=10)
 agent.save(f"./tensorboard/{NAME}/model")
