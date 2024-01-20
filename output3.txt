@@ -1,0 +1,181 @@
+nohup: ignoring input
+/home/baha/anaconda3/envs/gym-env/lib/python3.10/site-packages/gymnasium/experimental/wrappers/jax_to_numpy.py:75: DeprecationWarning: jax.numpy.DeviceArray is deprecated. Use jax.Array.
+  @jax_to_numpy.register(jnp.DeviceArray)
+/home/baha/anaconda3/envs/gym-env/lib/python3.10/site-packages/gymnasium/experimental/wrappers/jax_to_torch.py:105: DeprecationWarning: jax.numpy.DeviceArray is deprecated. Use jax.Array.
+  @jax_to_torch.register(jnp.DeviceArray)
+pybullet build time: Nov  6 2023 16:28:13
+2023-12-30 20:42:26.731374: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/baha/.local/lib/python3.10/site-packages/cv2/../../lib64::/home/baha/.mujoco/mujoco210/bin
+2023-12-30 20:42:27.093708: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/baha/.local/lib/python3.10/site-packages/cv2/../../lib64::/home/baha/.mujoco/mujoco210/bin
+2023-12-30 20:42:27.093777: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/baha/.local/lib/python3.10/site-packages/cv2/../../lib64::/home/baha/.mujoco/mujoco210/bin
+2023-12-30 20:42:27.093784: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+Logging to ./tensorboard/20230316-03:42PM_SAC_M10000_0.04_39/SAC_4
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 1e+03    |
+|    ep_rew_mean     | 2.26e+03 |
+|    success_rate    | 0.8      |
+| time/              |          |
+|    episodes        | 10       |
+|    fps             | 67       |
+|    time_elapsed    | 147      |
+|    total_timesteps | 10010    |
+| train/             |          |
+|    actor_loss      | -227     |
+|    critic_loss     | 55.5     |
+|    ent_coef        | 0.018    |
+|    ent_coef_loss   | -21.4    |
+|    learning_rate   | 9.99e-07 |
+|    n_updates       | 782470   |
+---------------------------------
+Evaluation at step 20000, success rate: 66.00%
+Eval num_timesteps=20000, episode_reward=2213.17 +/- 373.48
+Episode length: 1001.00 +/- 0.00
+Success rate: 80.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 1e+03    |
+|    mean_reward     | 2.21e+03 |
+|    success_rate    | 0.8      |
+| time/              |          |
+|    total_timesteps | 20000    |
+| train/             |          |
+|    actor_loss      | -224     |
+|    critic_loss     | 7.06     |
+|    ent_coef        | 0.018    |
+|    ent_coef_loss   | -16.9    |
+|    learning_rate   | 9.98e-07 |
+|    n_updates       | 784967   |
+---------------------------------
+New best mean reward!
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 1.05e+03 |
+|    ep_rew_mean     | 2.33e+03 |
+|    success_rate    | 0.8      |
+| time/              |          |
+|    episodes        | 20       |
+|    fps             | 32       |
+|    time_elapsed    | 650      |
+|    total_timesteps | 21001    |
+| train/             |          |
+|    actor_loss      | -226     |
+|    critic_loss     | 6.97     |
+|    ent_coef        | 0.018    |
+|    ent_coef_loss   | -16.1    |
+|    learning_rate   | 9.98e-07 |
+|    n_updates       | 785218   |
+---------------------------------
+----------------------------------
+| rollout/           |           |
+|    ep_len_mean     | 1.03e+03  |
+|    ep_rew_mean     | 2.22e+03  |
+|    success_rate    | 0.6333333 |
+| time/              |           |
+|    episodes        | 30        |
+|    fps             | 38        |
+|    time_elapsed    | 801       |
+|    total_timesteps | 31011     |
+| train/             |           |
+|    actor_loss      | -238      |
+|    critic_loss     | 69.8      |
+|    ent_coef        | 0.0179    |
+|    ent_coef_loss   | -11.3     |
+|    learning_rate   | 9.97e-07  |
+|    n_updates       | 787720    |
+----------------------------------
+Evaluation at step 20000, success rate: 19.00%
+Eval num_timesteps=40000, episode_reward=1763.74 +/- 215.17
+Episode length: 1001.00 +/- 0.00
+Success rate: 30.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 1e+03    |
+|    mean_reward     | 1.76e+03 |
+|    success_rate    | 0.3      |
+| time/              |          |
+|    total_timesteps | 40000    |
+| train/             |          |
+|    actor_loss      | -253     |
+|    critic_loss     | 148      |
+|    ent_coef        | 0.0179   |
+|    ent_coef_loss   | -7.15    |
+|    learning_rate   | 9.96e-07 |
+|    n_updates       | 789967   |
+---------------------------------
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 1.05e+03 |
+|    ep_rew_mean     | 2.18e+03 |
+|    success_rate    | 0.575    |
+| time/              |          |
+|    episodes        | 40       |
+|    fps             | 33       |
+|    time_elapsed    | 1263     |
+|    total_timesteps | 42002    |
+| train/             |          |
+|    actor_loss      | -259     |
+|    critic_loss     | 86.3     |
+|    ent_coef        | 0.0179   |
+|    ent_coef_loss   | -7.35    |
+|    learning_rate   | 9.96e-07 |
+|    n_updates       | 790468   |
+---------------------------------
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 1.04e+03 |
+|    ep_rew_mean     | 2.08e+03 |
+|    success_rate    | 0.46     |
+| time/              |          |
+|    episodes        | 50       |
+|    fps             | 36       |
+|    time_elapsed    | 1405     |
+|    total_timesteps | 52012    |
+| train/             |          |
+|    actor_loss      | -276     |
+|    critic_loss     | 8.17     |
+|    ent_coef        | 0.0179   |
+|    ent_coef_loss   | -4.61    |
+|    learning_rate   | 9.95e-07 |
+|    n_updates       | 792970   |
+---------------------------------
+Evaluation at step 20000, success rate: 1.00%
+Eval num_timesteps=60000, episode_reward=1337.03 +/- 273.37
+Episode length: 1001.00 +/- 0.00
+Success rate: 0.00%
+---------------------------------
+| eval/              |          |
+|    mean_ep_length  | 1e+03    |
+|    mean_reward     | 1.34e+03 |
+|    success_rate    | 0.0      |
+| time/              |          |
+|    total_timesteps | 60000    |
+| train/             |          |
+|    actor_loss      | -278     |
+|    critic_loss     | 91.3     |
+|    ent_coef        | 0.0178   |
+|    ent_coef_loss   | -7.24    |
+|    learning_rate   | 9.94e-07 |
+|    n_updates       | 794967   |
+---------------------------------
+-----------------------------------
+| rollout/           |            |
+|    ep_len_mean     | 1.05e+03   |
+|    ep_rew_mean     | 2e+03      |
+|    success_rate    | 0.38333333 |
+| time/              |            |
+|    episodes        | 60         |
+|    fps             | 33         |
+|    time_elapsed    | 1853       |
+|    total_timesteps | 63003      |
+| train/             |            |
+|    actor_loss      | -271       |
+|    critic_loss     | 75.8       |
+|    ent_coef        | 0.0178     |
+|    ent_coef_loss   | -6.94      |
+|    learning_rate   | 9.94e-07   |
+|    n_updates       | 795718     |
+-----------------------------------

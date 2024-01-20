@@ -51,7 +51,6 @@ for _ in range(100):
         action, _states = model.predict(obs)
         obs, reward, done, info = env.step(action)
         rew += reward
-    # Assuming your environment has an attribute `success` that indicates whether the episode was successful
     success = env._is_success()
     successes.append(success)
     rewards.append(rew)
