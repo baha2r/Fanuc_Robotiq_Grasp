@@ -198,10 +198,10 @@ class robotiqGymEnv(gym.Env):
         blocklinVel = np.array(blocklinVel)
         blockangVel = np.array(blockangVel)
         # add noise to block position and orientation and block velocity and angular velocity
-        blockPos    += np.random.normal(noise_mean, noise_std, blockPos.shape)
-        blockOri    += np.random.normal(noise_mean, noise_std, blockOri.shape)
-        blocklinVel += np.random.normal(noise_mean, noise_std, blocklinVel.shape)
-        blockangVel += np.random.normal(noise_mean, noise_std, blockangVel.shape)
+        # blockPos    += np.random.normal(noise_mean, noise_std, blockPos.shape)
+        # blockOri    += np.random.normal(noise_mean, noise_std, blockOri.shape)
+        # blocklinVel += np.random.normal(noise_mean, noise_std, blocklinVel.shape)
+        # blockangVel += np.random.normal(noise_mean, noise_std, blockangVel.shape)
 
         # Convert block and gripper orientation from Quaternion to Euler for ease of manipulation
         blockEul = p.getEulerFromQuaternion(blockOri)
