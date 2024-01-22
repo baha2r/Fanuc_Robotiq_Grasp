@@ -8,6 +8,19 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from robotiqGymEnv import robotiqGymEnv
 from stable_baselines3.common.monitor import Monitor
 
+def evaluate_agent(env, agent, num_episodes=100):
+  """ Evaluate the agent over a specified number of episodes """
+  success_count = 0
+  for _ in range(num_episodes):
+      obs = env.reset()
+      done = False
+      while not done:
+          action, _states = agent.predict(obs, deterministic=True)
+          obs, reward, done, info = env.step(action)
+          if done and info.get("is_success", False):
+              success_count += 1
+  success_rate = success_count / num_episodes
+  return success_rate
 
 def main():
 
@@ -16,12 +29,13 @@ def main():
 
   # rewa = evaluate_policy(model, env, deterministic=True, return_episode_rewards = True)
   dir = "models/20230316-03:42PM_SAC/best_model.zip"
-  # dir = "tensorboard/20230127-03:21PM_SAC/model.zip"
   model = SAC.load(dir)
   evalenv = Monitor(env)
 
-  mean_reward, std_reward = evaluate_policy(model, evalenv, n_eval_episodes=10, deterministic=False, render=False)
-  print(f"mean_reward: {mean_reward:.2f} +/- {std_reward}")
+  # mean_reward, std_reward = evaluate_policy(model, evalenv, n_eval_episodes=10, deterministic=False, render=False)
+  # print(f"mean_reward: {mean_reward:.2f} +/- {std_reward}")
+  success_rate = evaluate_agent(evalenv, model, num_episodes=100)
+  print(f"success rate: {success_rate}")
 
   # dones = False
   # obs = env.reset()

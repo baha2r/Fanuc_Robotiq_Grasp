@@ -87,7 +87,7 @@ class CurriculumLearningCallback(BaseCallback):
 
     def _on_step(self) -> bool:
         self.step_counter += 1
-        print(f"Replay Buffer Size: {len(self.agent.replay_buffer)}")
+        # print(f"Replay Buffer Size: {self.agent.replay_buffer.size()}")
 
         # Perform evaluation at specified frequency
         if self.step_counter % self.eval_freq == 0:
@@ -123,7 +123,7 @@ replay_buffer_size = 100000  # Adjust this size based on your environment and re
 replay_buffer = ReplayBuffer(replay_buffer_size, agent.policy.observation_space, agent.policy.action_space, device=agent.device)
 
 # Populate the replay buffer with experiences from the pre-trained agent
-populate_replay_buffer_steps = 100000  # Adjust this number based on your requirements
+populate_replay_buffer_steps = 10000  # Adjust this number based on your requirements
 populate_replay_buffer(agent, env, replay_buffer, populate_replay_buffer_steps)
 
 # Set the agent's replay buffer
@@ -152,10 +152,11 @@ new_learning_rate = 1e-6
 #     for param_group in agent.policy.critic_optimizer.param_groups:
 #         param_group['lr'] = new_learning_rate
 
-# agent.learning_starts = 50000
+agent.learning_starts = 500000
 agent.set_env(env)
 agent.lr_schedule = linear_schedule(1e-6)
 # agent.n_envs = 1
 agent.target_update_interval = 4
+print(f"The loaded_model has {agent.replay_buffer.size()} transitions in its buffer")
 agent.learn(total_timesteps=1e7, log_interval=10, callback=callback_list)
 agent.save(f"./tensorboard/{NAME}/model")

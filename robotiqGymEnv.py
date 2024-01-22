@@ -184,6 +184,8 @@ class robotiqGymEnv(gym.Env):
         The extended observation includes relative position, velocity, and contact information.
         """
         self._observation = self._robotiq.get_observation()
+        noise_mean = 0
+        noise_std = 0.01
 
         # Fetch base position and orientation of gripper and block
         gripperPos, gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
@@ -191,15 +193,15 @@ class robotiqGymEnv(gym.Env):
         blockPos, blockOri = p.getBasePositionAndOrientation(self.blockUid)
         blocklinVel, blockangVel = p.getBaseVelocity(self.blockUid)
         # change the block position and orientation and block velocity and angular velocity from tuple to np.array
-        blockPos = np.array(blockPos)
-        blockOri = np.array(blockOri)
+        blockPos    = np.array(blockPos)
+        blockOri    = np.array(blockOri)
         blocklinVel = np.array(blocklinVel)
         blockangVel = np.array(blockangVel)
         # add noise to block position and orientation and block velocity and angular velocity
-        # blockPos += np.random.normal(0, 0.01, blockPos.shape)
-        # blockOri += np.random.normal(0, 0.01, blockOri.shape)
-        # blocklinVel += np.random.normal(0, 0.01, blocklinVel.shape)
-        # blockangVel += np.random.normal(0, 0.01, blockangVel.shape)
+        blockPos    += np.random.normal(noise_mean, noise_std, blockPos.shape)
+        blockOri    += np.random.normal(noise_mean, noise_std, blockOri.shape)
+        blocklinVel += np.random.normal(noise_mean, noise_std, blocklinVel.shape)
+        blockangVel += np.random.normal(noise_mean, noise_std, blockangVel.shape)
 
         # Convert block and gripper orientation from Quaternion to Euler for ease of manipulation
         blockEul = p.getEulerFromQuaternion(blockOri)

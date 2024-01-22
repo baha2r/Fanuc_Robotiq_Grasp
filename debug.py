@@ -165,7 +165,7 @@ def main():
     model_file = "models/20230316-03:42PM_SAC/best_model.zip"
     model = load_model(model_file)
 
-    with robotiqGymEnv(records=False, renders=False) as env:
+    with robotiqGymEnv(records=False, renders=True) as env:
         obs = env.reset()
         # steps = range(500)  # Define the number of steps here
         data, success = extract_data(env, model, obs)
