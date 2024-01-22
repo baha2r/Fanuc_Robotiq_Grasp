@@ -213,7 +213,7 @@ def main():
     # # plot_data(zip(*data["finger2_min_dists"]), ["finger2_min_dist_1", "finger2_min_dist_2", "finger2_min_dist_3"])
 
     # # Saving data to CSV
-    save_to_csv("output_data.csv", data)
+    save_to_csv(f"{saved_dir}/output_data.csv", data)
     
 
     # # Calculating and printing final positions
