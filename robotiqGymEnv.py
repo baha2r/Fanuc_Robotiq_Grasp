@@ -12,6 +12,7 @@ import robotiq
 import pybullet_data
 from scipy.spatial.transform import Rotation
 from scipy.spatial import ConvexHull, distance
+from moviepy.editor import ImageSequenceClip
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 os.sys.path.insert(0, currentdir)
 
@@ -32,7 +33,9 @@ class robotiqGymEnv(gym.Env):
                  records=False,
                  is_discrete=False,
                  multi_discrete=False,
-                 max_episode_steps=1000):
+                 max_episode_steps=1000,
+                 savedir="test_data/test1",
+                 ):
         """
         Initialize the environment.
         """
@@ -60,10 +63,15 @@ class robotiqGymEnv(gym.Env):
         self.r_top = 0
         self.contactpenalize = 0
         self.target_yaw = 0
+        self.savedir = savedir
+        self._cam1_images = []
+        self._cam2_images = []
+        self._cam3_images = []
 
         # connect to PyBullet
+        rec = f"--mp4={self.savedir}/video.mp4"
         if self._records:
-            p.connect(p.GUI, options="--mp4=test.mp4")
+            p.connect(p.GUI, options=rec)
         elif self._renders:
             p.connect(p.GUI)
         else:
@@ -263,6 +271,7 @@ class robotiqGymEnv(gym.Env):
         for _ in range(self._action_repeat):
             self._robotiq.apply_action(action)
             p.stepSimulation()
+            self.render()
             if self._termination():
                 break
             self._stepcounter += 1
@@ -293,32 +302,38 @@ class robotiqGymEnv(gym.Env):
             return np.array([])
 
         # Get the position and orientation of the base and target
-        base_pos, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
+        grip_pos, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
         target_pos, _ = p.getBasePositionAndOrientation(self.blockUid)
 
         # Calculate the camera position based on the base position
-        camera_pos = base_pos + np.array([0, 0, 0.2])
+        camera_pos = grip_pos + np.array([0, -0.05, 0.2])
 
         # Define the size of the rendered image
         width, height = RENDER_WIDTH, RENDER_HEIGHT
 
-        # Calculate the view and projection matrices for the camera
-        view_matrix = p.computeViewMatrix(cameraEyePosition=camera_pos, cameraTargetPosition=target_pos, cameraUpVector=[0, 1, 0])
-        proj_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=float(width) / height, nearVal=0.1, farVal=100.0)
+        # # Calculate the view and projection matrices for the camera
+        view_matrix_1 = p.computeViewMatrix(cameraEyePosition=camera_pos, cameraTargetPosition=target_pos, cameraUpVector=[0, 1, 0])
+        view_matrix_2 = p.computeViewMatrixFromYawPitchRoll(cameraTargetPosition=grip_pos, distance=0.9, yaw=90, pitch=-20, roll=0, upAxisIndex=2)
+        view_matrix_3 = p.computeViewMatrixFromYawPitchRoll(cameraTargetPosition=target_pos, distance=0.9, yaw=180, pitch=-20, roll=0, upAxisIndex=2)
+        proj_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=float(width) / height, nearVal=0.1, farVal=10.0)
 
-        # Render the image from the camera's perspective
-        _, _, rgbImg, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix, projectionMatrix = proj_matrix, 
-                                            shadow=1, renderer=p.ER_BULLET_HARDWARE_OPENGL) # renderer=p.ER_TINY_RENDERER
+        # First camera
+        _, _, rgbImg1, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_1, projectionMatrix = proj_matrix)
+        rgbImg1 = rgbImg1[:, :, :3]
+        self._cam1_images.append(rgbImg1)
+
+        # Second camera
+        _, _, rgbImg2, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_2, projectionMatrix = proj_matrix)
+        rgbImg2 = rgbImg2[:, :, :3]
+        self._cam2_images.append(rgbImg2)
         
-        # Convert the image to a RGB array
-        rgb_array = np.array(rgbImg, dtype=np.uint8)
-        rgb_array = np.reshape(rgb_array, (height, width, 4))
-        rgb_array = rgb_array[:, :, :3]
+        # third camera
+        _, _, rgbImg3, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_3, projectionMatrix = proj_matrix)
+        rgbImg3 = rgbImg3[:, :, :3]
+        self._cam3_images.append(rgbImg3)
+        
 
-        # Reset the visualizer camera
-        p.resetDebugVisualizerCamera(cameraDistance = 0.9, cameraYaw = 90, cameraPitch = -20, cameraTargetPosition = base_pos)
-
-        return rgb_array
+        return np.array([])
 
     def _termination(self):
         """
