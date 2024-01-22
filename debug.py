@@ -11,7 +11,7 @@ import numpy as np
 import csv
 from moviepy.editor import ImageSequenceClip
 
-saved_dir = "test_data/test1"
+saved_dir = "test_data/noisy"
 
 # Check if the directory exists, and if not, create it
 if not os.path.exists(saved_dir):

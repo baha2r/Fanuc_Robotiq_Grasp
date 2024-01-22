@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-df = pd.read_csv('test_data/test1/output_data.csv')
+df = pd.read_csv('test_data/noisy/output_data.csv')
 
 # Prepare the plot
 fig, ax = plt.subplots()
