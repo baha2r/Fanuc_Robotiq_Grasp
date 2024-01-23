@@ -193,7 +193,7 @@ class robotiqGymEnv(gym.Env):
         """
         self._observation = self._robotiq.get_observation()
         noise_mean = 0
-        noise_std = 0.01
+        noise_std = 0.02
 
         # Fetch base position and orientation of gripper and block
         gripperPos, gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
