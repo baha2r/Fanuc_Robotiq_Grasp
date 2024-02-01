@@ -11,13 +11,11 @@ class robotiq:
     '''
     A class to simulate Robotiq gripper using PyBullet
     '''
-    def __init__(self, urdf_root_path="urdf/", time_step=1. / 240.):
+    def __init__(self):
         '''
         Initialize the Robotiq gripper
         '''
         self.pybullet_urdf_root_path = pybullet_data.getDataPath()
-        self.urdf_root_path = urdf_root_path
-        self.time_step = time_step
         self.max_velocity = .35
         self.max_force = 200.
         self.first_joint_idx = [1, 5, 9]
@@ -39,7 +37,7 @@ class robotiq:
         # radomize the orientation of the gripper
         start_orientation = p.getQuaternionFromEuler([np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi)])
         start_orientation = p.getQuaternionFromEuler([0, -np.pi/2, 0])
-        self.robotiq_uid = p.loadURDF(os.path.join(self.urdf_root_path, "robotiq.urdf"), 
+        self.robotiq_uid = p.loadURDF("urdf/robotiq.urdf", 
                                       basePosition = start_position, 
                                       baseOrientation = start_orientation,
                                       flags=p.URDF_INITIALIZE_SAT_FEATURES

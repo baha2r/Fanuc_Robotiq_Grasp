@@ -31,19 +31,14 @@ class robotiqGymEnv(gym.Env):
                  action_repeat=1,
                  renders=False,
                  records=False,
-                 is_discrete=False,
-                 multi_discrete=False,
                  max_episode_steps=1000,
                  savedir="test_data/test1",
                  ):
         """
         Initialize the environment.
         """
-        self._is_discrete = is_discrete
-        self._multi_discrete = multi_discrete
         self._timeStep = 1. / 240.
         self._urdf_root = urdf_root
-        self._robotiqRoot = "urdf/"
         self._action_repeat = action_repeat
         self._observation = []
         self._stepcounter = 0
@@ -51,9 +46,6 @@ class robotiqGymEnv(gym.Env):
         self._records = records
         self._max_steps = max_episode_steps
         self.terminated = 0
-        self._cam_dist = 0.4
-        self._cam_yaw = 180
-        self._cam_pitch = -40
         self._reach = 0
         self._keypoints = 100
         self.distance_threshold = 0.04
@@ -84,15 +76,10 @@ class robotiqGymEnv(gym.Env):
         self.observation_space = spaces.Box(-observation_high, observation_high, dtype=np.float32)
 
         # Define action space
-        if self._multi_discrete:
-            self.action_space = spaces.MultiDiscrete([5,5,5])
-        elif self._is_discrete:
-            self.action_space = spaces.Discrete(5)
-        else:
-            action_dim = 6
-            self._action_bound = 1
-            action_high = np.array([self._action_bound] * action_dim , dtype=np.float32)
-            self.action_space = spaces.Box(-action_high, action_high, dtype=np.float32)
+        action_dim = 6
+        self._action_bound = 1
+        action_high = np.array([self._action_bound] * action_dim , dtype=np.float32)
+        self.action_space = spaces.Box(-action_high, action_high, dtype=np.float32)
 
         self.viewer = None
 
@@ -118,10 +105,7 @@ class robotiqGymEnv(gym.Env):
         # p.setTimeStep(self._timeStep)
         p.loadURDF(os.path.join(self._urdf_root, "plane.urdf"), [0, 0, 0])
 
-        self._robotiq = robotiq.robotiq(
-            urdf_root_path=self._robotiqRoot, 
-            time_step=self._timeStep, 
-        )
+        self._robotiq = robotiq.robotiq()
 
         grippose, _ = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
         # p.changeDynamics(self._robotiq.robotiq_uid, -1, mass=1000)
@@ -138,7 +122,7 @@ class robotiqGymEnv(gym.Env):
         # targetorn = p.getQuaternionFromEuler([0, 0, 0])
 
         self.blockUid = p.loadURDF(
-            os.path.join(self._robotiqRoot, "block.urdf"), 
+            "urdf/block.urdf", 
             basePosition=targetpos, 
             baseOrientation=targetorn, 
             useMaximalCoordinates=True,
@@ -193,7 +177,7 @@ class robotiqGymEnv(gym.Env):
         """
         self._observation = self._robotiq.get_observation()
         noise_mean = 0
-        noise_std = 0.02
+        noise_std = 0.01
 
         # Fetch base position and orientation of gripper and block
         gripperPos, gripperOrn = p.getBasePositionAndOrientation(self._robotiq.robotiq_uid)
@@ -271,7 +255,7 @@ class robotiqGymEnv(gym.Env):
         for _ in range(self._action_repeat):
             self._robotiq.apply_action(action)
             p.stepSimulation()
-            self.render()
+            # self.render()
             if self._termination():
                 break
             self._stepcounter += 1

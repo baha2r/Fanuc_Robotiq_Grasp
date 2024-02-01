@@ -32,8 +32,8 @@ def main():
   model = SAC.load(dir)
   evalenv = Monitor(env)
 
-  # mean_reward, std_reward = evaluate_policy(model, evalenv, n_eval_episodes=10, deterministic=False, render=False)
-  # print(f"mean_reward: {mean_reward:.2f} +/- {std_reward}")
+  mean_reward, std_reward = evaluate_policy(model, evalenv, n_eval_episodes=100, deterministic=False, render=False)
+  print(f"mean_reward: {mean_reward:.2f} +/- {std_reward}")
   success_rate = evaluate_agent(evalenv, model, num_episodes=100)
   print(f"success rate: {success_rate}")
 
