@@ -115,7 +115,7 @@
         <collision>
             <origin rpy="0 0 0.52" xyz="0 0 0" />
             <geometry>
-                <mesh filename="urdf/meshes/collision/link3.stl" />
+                <mesh filename="urdf/meshes/collision/link_3.STL" />
             </geometry>
         </collision>        
         <inertial>
@@ -123,6 +123,11 @@
             <mass value="0.05" />
             <inertia ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632" />
         </inertial>
+        <contact>
+            <lateral_friction value="1.0"/>
+            <spinning_friction value=".001"/>
+            <rolling_friction value="0.03"/>
+        </contact>
     </link>
     <joint name="palm_finger_1_joint" type="fixed">
         <parent link="palm" />
@@ -135,21 +140,21 @@
         <child link="finger_1_link_1" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 0" xyz="0.020 0 0" />
-        <limit lower="0" upper="1.2211" velocity="10" />
+        <limit lower="0" upper="1.1694" velocity="100" kp="500" kd="50" />
     </joint>
     <joint name="finger_1_joint_2" type="revolute">
         <parent link="finger_1_link_1" />
         <child link="finger_1_link_2" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 -0.52" xyz="0.050 -.028 0" />
-        <limit lower="0" upper="1.350" velocity="100" />
+        <limit lower="0" upper="1.5708" velocity="100" kp="500" kd="50" />
     </joint>
     <joint name="finger_1_joint_3" type="revolute">
         <parent link="finger_1_link_2" />
         <child link="finger_1_link_3" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 0" xyz="0.039 0 0" />
-        <limit lower="-0.900" upper="0.75" velocity="100" />
+        <limit lower="-0.9599" upper="0.7505" velocity="100" kp="500" kd="50" />
     </joint>
     <link name="finger_2_link_0">
         <visual>
@@ -230,7 +235,7 @@
         <collision>
             <origin rpy="0 0 0.52" xyz="0 0 0" />
             <geometry>
-                <mesh filename="meshes/collision/link3.stl" />
+                <mesh filename="meshes/collision/link_3.STL" />
             </geometry>
         </collision>
         <inertial>
@@ -238,6 +243,11 @@
             <mass value="0.05" />
             <inertia ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632" />
         </inertial>
+        <contact>
+            <lateral_friction value="1.0"/>
+            <spinning_friction value=".001"/>
+            <rolling_friction value="0.03"/>
+        </contact>
     </link>
     <joint name="palm_finger_2_joint" type="fixed">
         <parent link="palm" />
@@ -250,21 +260,21 @@
         <child link="finger_2_link_1" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 0" xyz="0.020 0 0" />
-        <limit lower="0" upper="1.2211" velocity="100" />
+        <limit lower="0" upper="1.1694" velocity="100" kp="500" kd="50" />
     </joint>
     <joint name="finger_2_joint_2" type="revolute">
         <parent link="finger_2_link_1" />
         <child link="finger_2_link_2" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 -0.52" xyz="0.050 -.028 0" />
-        <limit lower="0" upper="1.350" velocity="100" />
+        <limit lower="0" upper="1.5708" velocity="100" kp="500" kd="50" />
     </joint>
     <joint name="finger_2_joint_3" type="revolute">
         <parent link="finger_2_link_2" />
         <child link="finger_2_link_3" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 0" xyz="0.039 0 0" />
-        <limit lower="-0.900" upper="0.75" velocity="100" />
+        <limit lower="-0.9599" upper="0.7505" velocity="100" kp="500" kd="50" />
     </joint>
     <link name="finger_middle_link_0">
         <visual>
@@ -346,7 +356,7 @@
         <collision>
             <origin rpy="0 0 0.52" xyz="0 0 0" />
             <geometry>
-                <mesh filename="meshes/collision/link3.stl" />
+                <mesh filename="meshes/collision/link_3.STL" />
             </geometry>
         </collision>
         <inertial>
@@ -354,7 +364,11 @@
             <mass value="0.05" />
             <inertia ixx="0.001239" ixy="-0.000251" ixz="0.000019" iyy="0.00085" iyz="0" izz="0.001632" />
         </inertial>
-
+        <contact>
+            <lateral_friction value="1.0"/>
+            <spinning_friction value=".001"/>
+            <rolling_friction value="0.03"/>
+        </contact>
     </link>
     <joint name="palm_finger_middle_joint" type="fixed">
         <parent link="palm" />
@@ -367,21 +381,21 @@
         <child link="finger_middle_link_1" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 0" xyz="0.020 0 0" />
-        <limit lower="0" upper="1.2211" velocity="100" />
+        <limit lower="0" upper="1.1694" velocity="100" kp="500" kd="50" />
     </joint>
     <joint name="finger_middle_joint_2" type="revolute">
         <parent link="finger_middle_link_1" />
         <child link="finger_middle_link_2" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 -0.52" xyz="0.050 -.028 0" />
-        <limit lower="0" upper="1.350" velocity="100" />
+        <limit lower="0" upper="1.5708" velocity="100" kp="500" kd="50" />
     </joint>
     <joint name="finger_middle_joint_3" type="revolute">
         <parent link="finger_middle_link_2" />
         <child link="finger_middle_link_3" />
         <axis xyz="0 0 1" />
         <origin rpy="0 0 0" xyz="0.039 0 0" />
-        <limit lower="-0.900" upper="0.75" velocity="100" />
+        <limit lower="-0.9599" upper="0.7505" velocity="100" kp="500" kd="50" />
     </joint>
 
 </robot>

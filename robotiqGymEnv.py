@@ -46,7 +46,6 @@ class robotiqGymEnv(gym.Env):
         self._records = records
         self._max_steps = max_episode_steps
         self.terminated = 0
-        self._reach = 0
         self._keypoints = 100
         self.distance_threshold = 0.04
         self._accumulated_contact_force = 0
@@ -89,19 +88,19 @@ class robotiqGymEnv(gym.Env):
         """
         self.terminated = 0
         p.resetSimulation()
+        # Physics engine parameters
         p.setPhysicsEngineParameter(
-            numSolverIterations=500, 
-            # numSubSteps=4, 
-            # fixedTimeStep=self._timeStep,
-            contactERP=0.9, 
+            numSolverIterations=500,
+            contactERP=0.9,
             globalCFM=0.01,
             enableConeFriction=1,
-            contactSlop=0.0001,
+            contactSlop=0.000001,
             maxNumCmdPer1ms=1000,
-            contactBreakingThreshold=0.01,
+            contactBreakingThreshold=0.000001,
             enableFileCaching=1,
-            restitutionVelocityThreshold=0.01,
+            restitutionVelocityThreshold=0.01
         )
+        
         # p.setTimeStep(self._timeStep)
         p.loadURDF(os.path.join(self._urdf_root, "plane.urdf"), [0, 0, 0])
 
@@ -125,18 +124,18 @@ class robotiqGymEnv(gym.Env):
             "urdf/block.urdf", 
             basePosition=targetpos, 
             baseOrientation=targetorn, 
-            useMaximalCoordinates=True,
-            flags=p.URDF_INITIALIZE_SAT_FEATURES
+            # useMaximalCoordinates=True,
+            # flags=p.URDF_INITIALIZE_SAT_FEATURES
         )
 
-        self.targetmass = 100
+        self.targetmass = 5
         p.changeDynamics(self.blockUid, -1,
                  mass=self.targetmass, # adjust mass
-                 lateralFriction=0.35, # adjust lateral friction
-                 spinningFriction=0.001, # adjust spinning friction
-                 rollingFriction=0.001, # adjust rolling friction               
-                 contactStiffness=1000, 
-                 contactDamping=10
+                #  lateralFriction=0.35, # adjust lateral friction
+                #  spinningFriction=0.001, # adjust spinning friction
+                #  rollingFriction=0.001, # adjust rolling friction               
+                #  contactStiffness=1000, 
+                #  contactDamping=10
                 ) # adjust contact stiffness and damping
         
         # for i in range(self._robotiq.num_joints):
@@ -144,7 +143,7 @@ class robotiqGymEnv(gym.Env):
         #          restitution=0.001, contactStiffness=1000, contactDamping=10)
         extforce = np.array([randf1, randf2, randf3]) * (20 * self.targetmass)
         # extforce = np.array([1,1,1]) * (30 * self.targetmass)
-        p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+        # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
         p.setGravity(0, 0, 0)
         self._stepcounter = 0
@@ -190,10 +189,10 @@ class robotiqGymEnv(gym.Env):
         blocklinVel = np.array(blocklinVel)
         blockangVel = np.array(blockangVel)
         # add noise to block position and orientation and block velocity and angular velocity
-        blockPos    += np.random.normal(noise_mean, noise_std, blockPos.shape)
-        blockOri    += np.random.normal(noise_mean, noise_std, blockOri.shape)
-        blocklinVel += np.random.normal(noise_mean, noise_std, blocklinVel.shape)
-        blockangVel += np.random.normal(noise_mean, noise_std, blockangVel.shape)
+        # blockPos    += np.random.normal(noise_mean, noise_std, blockPos.shape)
+        # blockOri    += np.random.normal(noise_mean, noise_std, blockOri.shape)
+        # blocklinVel += np.random.normal(noise_mean, noise_std, blocklinVel.shape)
+        # blockangVel += np.random.normal(noise_mean, noise_std, blockangVel.shape)
 
         # Convert block and gripper orientation from Quaternion to Euler for ease of manipulation
         blockEul = p.getEulerFromQuaternion(blockOri)
@@ -255,7 +254,7 @@ class robotiqGymEnv(gym.Env):
         for _ in range(self._action_repeat):
             self._robotiq.apply_action(action)
             p.stepSimulation()
-            # self.render()
+            self.render()
             if self._termination():
                 break
             self._stepcounter += 1

@@ -40,7 +40,7 @@ class robotiq:
         self.robotiq_uid = p.loadURDF("urdf/robotiq.urdf", 
                                       basePosition = start_position, 
                                       baseOrientation = start_orientation,
-                                      flags=p.URDF_INITIALIZE_SAT_FEATURES
+                                    #   flags=p.URDF_INITIALIZE_SAT_FEATURES
                                       )
         # p.changeDynamics(self.robotiq_uid, -1, mass=100)
         self.constraint_id = p.createConstraint(self.robotiq_uid, -1, -1, -1, p.JOINT_FIXED, [0, 0, 0], [0, 0, 0], start_position)

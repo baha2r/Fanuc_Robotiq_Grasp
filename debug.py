@@ -10,8 +10,11 @@ from robotiqGymEnv import robotiqGymEnv
 import numpy as np
 import csv
 from moviepy.editor import ImageSequenceClip
+from statetest import GripperFingerStateMachine as GSM
 
-saved_dir = "test_data/02noise"
+
+
+saved_dir = "test_data/M5"
 
 # Check if the directory exists, and if not, create it
 if not os.path.exists(saved_dir):
@@ -26,6 +29,15 @@ def load_model(file_path):
     Load the model from the given file path.
     """
     return SAC.load(file_path)
+
+def close_fingers(gripper, target):
+    """
+    Close the fingers.
+    """
+    fingers = [GSM(gripper, target, i) for i in range(1, 4)]
+    for finger in fingers:
+        finger.close()
+    print("finger 3 status: ", fingers[2].sensors)
 
 def extract_data(env, model, obs):
     """
@@ -61,9 +73,13 @@ def extract_data(env, model, obs):
     }
 
     done = False
+    info = {"is_success": False}
 
     while not done:
         action, _states = model.predict(obs, deterministic=True)
+        if info["is_success"]:
+            close_fingers(env._robotiq.robotiq_uid, env.blockUid)
+            action = np.array([0, 0, 0, 0, 0, 0])
         obs, rewards, done, info = env.step(action)
         
         finger1_link1_world_angles = np.array(p.getEulerFromQuaternion(p.getLinkState(env._robotiq.robotiq_uid, 2)[1]))
