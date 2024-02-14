@@ -14,7 +14,7 @@ from statetest import GripperFingerStateMachine as GSM
 
 
 
-saved_dir = "test_data/M5"
+saved_dir = "test_data/M10V2.5"
 
 # Check if the directory exists, and if not, create it
 if not os.path.exists(saved_dir):
@@ -37,7 +37,9 @@ def close_fingers(gripper, target):
     fingers = [GSM(gripper, target, i) for i in range(1, 4)]
     for finger in fingers:
         finger.close()
-    print("finger 3 status: ", fingers[2].sensors)
+    # print("finger 1 status: ", fingers[0].sensors)
+    # print("finger 2 status: ", fingers[1].sensors)
+    # print("finger 3 status: ", fingers[2].sensors)
 
 def extract_data(env, model, obs):
     """
@@ -135,13 +137,9 @@ def extract_data(env, model, obs):
         data["finger1_link2_world_angles"].append(finger1_link2_world_angles)
         data["finger1_link3_world_angles"].append(finger1_link3_world_angles)
         
-    cam1 = env._cam1_images
-    cam2 = env._cam2_images
-    cam3 = env._cam3_images
-
-    make_video(cam1, f"{saved_dir}/camera1.mp4")
-    make_video(cam2, f"{saved_dir}/camera2.mp4")
-    make_video(cam3, f"{saved_dir}/camera3.mp4")
+    make_video(env._cam1_images, f"{saved_dir}/camera1.mp4")
+    make_video(env._cam2_images, f"{saved_dir}/camera2.mp4")
+    make_video(env._cam3_images, f"{saved_dir}/camera3.mp4")
     success = info["is_success"]
     return data, success
 

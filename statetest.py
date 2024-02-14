@@ -33,8 +33,10 @@ class GripperFingerStateMachine(StateMachine):
         self.second_joint_idx = [2, 6, 10]
         self.third_joint_idx = [3, 7, 11]
         self.sensors = self.ReadSensor()  # Assuming sensors is a list or dict representing [C1, C2, C3, L1, L2, L3, L4]
-        self.targetV = 1.5
+        self.targetV = 2.5
         self.force = .5
+        if self.finger == 2:
+            self.force *= 2
         super().__init__()
 
     def fingertip_contact(self):
@@ -149,7 +151,8 @@ class GripperFingerStateMachine(StateMachine):
             self.stop_finger_from_j3()
         else:
             self.control_joint(joint_index=self.third_joint_idx[self.finger], 
-                               targetVel=self.targetV, force=self.force)  # example force value for closing j3
+                               targetVel=self.targetV, force=self.force)
+            print('closing j3')
 
     def stop_finger(self):
         if self.sensors[2]:
@@ -165,21 +168,21 @@ class GripperFingerStateMachine(StateMachine):
                                     controlMode=p.POSITION_CONTROL,
                                     targetPosition = theta1,
                                     targetVelocity = 0,
-                                    force=50,
+                                    force=100,
             )
             p.setJointMotorControl2(bodyUniqueId=self.gripper, 
                                     jointIndex=self.second_joint_idx[self.finger], 
                                     controlMode=p.POSITION_CONTROL,
                                     targetPosition = theta2,
                                     targetVelocity = 0,
-                                    force=50,
+                                    force=100,
             )
             p.setJointMotorControl2(bodyUniqueId=self.gripper, 
                                     jointIndex=self.third_joint_idx[self.finger], 
                                     controlMode=p.POSITION_CONTROL,
                                     targetPosition = theta3,
                                     targetVelocity = 0,
-                                    force=50,
+                                    force=100,
             )
         else:
             self.resume_j1_closing_j3_opening()

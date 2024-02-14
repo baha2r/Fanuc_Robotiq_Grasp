@@ -31,7 +31,7 @@ class robotiqGymEnv(gym.Env):
                  action_repeat=1,
                  renders=False,
                  records=False,
-                 max_episode_steps=1000,
+                 max_episode_steps=1500,
                  savedir="test_data/test1",
                  ):
         """
@@ -90,15 +90,15 @@ class robotiqGymEnv(gym.Env):
         p.resetSimulation()
         # Physics engine parameters
         p.setPhysicsEngineParameter(
-            numSolverIterations=500,
-            contactERP=0.9,
-            globalCFM=0.01,
+            numSolverIterations=1000,
+            contactERP=0.8,
+            globalCFM=0.001,
             enableConeFriction=1,
-            contactSlop=0.000001,
+            contactSlop=0.001,
             maxNumCmdPer1ms=1000,
-            contactBreakingThreshold=0.000001,
+            contactBreakingThreshold=0.001,
             enableFileCaching=1,
-            restitutionVelocityThreshold=0.01
+            restitutionVelocityThreshold=0.001,
         )
         
         # p.setTimeStep(self._timeStep)
@@ -128,7 +128,7 @@ class robotiqGymEnv(gym.Env):
             # flags=p.URDF_INITIALIZE_SAT_FEATURES
         )
 
-        self.targetmass = 5
+        self.targetmass = 10
         p.changeDynamics(self.blockUid, -1,
                  mass=self.targetmass, # adjust mass
                 #  lateralFriction=0.35, # adjust lateral friction
@@ -159,7 +159,7 @@ class robotiqGymEnv(gym.Env):
         Check if the current state is successful. 
         Success is defined as having a reward greater than 2 for more than 100 consecutive steps.
         """
-        if self.success_counter > 300:
+        if self.success_counter > 150:
             return np.float32(1.0)
 
         if self._reward() > 2:
@@ -167,7 +167,7 @@ class robotiqGymEnv(gym.Env):
         else:
             self.success_counter = 0
 
-        return np.float32(self.success_counter > 300)
+        return np.float32(self.success_counter > 150)
     
     def getExtendedObservation(self):
         """
