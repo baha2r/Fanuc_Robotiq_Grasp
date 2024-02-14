@@ -33,7 +33,7 @@ class GripperFingerStateMachine(StateMachine):
         self.second_joint_idx = [2, 6, 10]
         self.third_joint_idx = [3, 7, 11]
         self.sensors = self.ReadSensor()  # Assuming sensors is a list or dict representing [C1, C2, C3, L1, L2, L3, L4]
-        self.targetV = 2.5
+        self.targetV = 1.5
         self.force = .5
         if self.finger == 2:
             self.force *= 2

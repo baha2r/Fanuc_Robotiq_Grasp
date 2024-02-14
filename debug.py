@@ -14,7 +14,7 @@ from statetest import GripperFingerStateMachine as GSM
 
 
 
-saved_dir = "test_data/M10V2.5"
+saved_dir = "test_data/M10V1.5"
 
 # Check if the directory exists, and if not, create it
 if not os.path.exists(saved_dir):
