@@ -10,11 +10,11 @@ from robotiqGymEnv import robotiqGymEnv
 import numpy as np
 import csv
 from moviepy.editor import ImageSequenceClip
-from statetest import GripperFingerStateMachine as GSM
+# from statetest import GripperFingerStateMachine as GSM
 
 
 
-saved_dir = "test_data/M10V5"
+saved_dir = "test_data/test10"
 
 # Check if the directory exists, and if not, create it
 if not os.path.exists(saved_dir):
@@ -30,13 +30,13 @@ def load_model(file_path):
     """
     return SAC.load(file_path)
 
-def close_fingers(gripper, target):
-    """
-    Close the fingers.
-    """
-    fingers = [GSM(gripper, target, i) for i in range(1, 4)]
-    for finger in fingers:
-        finger.close()
+# def close_fingers(gripper, target):
+#     """
+#     Close the fingers.
+#     """
+#     fingers = [GSM(gripper, target, i) for i in range(1, 4)]
+#     for finger in fingers:
+#         finger.close()
     # print("finger 1 status: ", fingers[0].sensors)
     # print("finger 2 status: ", fingers[1].sensors)
     # print("finger 3 status: ", fingers[2].sensors)
@@ -72,6 +72,7 @@ def extract_data(env, model, obs):
         "finger1_link1_world_angles": [],
         "finger1_link2_world_angles": [],
         "finger1_link3_world_angles": [],
+        "closest_distance": [],
     }
 
     done = False
@@ -79,9 +80,9 @@ def extract_data(env, model, obs):
 
     while not done:
         action, _states = model.predict(obs, deterministic=True)
-        if info["is_success"]:
-            close_fingers(env._robotiq.robotiq_uid, env.blockUid)
-            action = np.array([0, 0, 0, 0, 0, 0])
+        # if info["is_success"]:
+        #     close_fingers(env._robotiq.robotiq_uid, env.blockUid)
+        #     action = np.array([0, 0, 0, 0, 0, 0])
         obs, rewards, done, info = env.step(action)
         
         finger1_link1_world_angles = np.array(p.getEulerFromQuaternion(p.getLinkState(env._robotiq.robotiq_uid, 2)[1]))
@@ -127,6 +128,7 @@ def extract_data(env, model, obs):
         data["target_velocity"].append(target_velocity)
         data["target_angular_velocity"].append(target_angular_velocity)
         data["closest_point"].append(closest_point)
+        data["closest_distance"].append(np.linalg.norm(closest_point))
         data["contact_force"].append(env._contactinfo()[5])
         data["num_contact_points"].append(env._contactinfo()[3])
         data["fingertip_num_contact_points"].append(env._contactinfo()[4])
@@ -152,7 +154,7 @@ def plot_data(data, labels):
         plt.plot(d, label=label)
         plt.legend()
         plt.xlabel("Time step")
-        plt.savefig(f"{saved_dir}/{label}.png")
+    plt.savefig(f"{saved_dir}/{label}.png")
 
 def plot_combined_data(data_gripper, data_target, labels, upper_bound=None, lower_bound=None):
     """
@@ -213,17 +215,18 @@ def main():
     plot_combined_data(zip(*data["gripper_velocity"]),zip(*data["target_velocity"]),["x_vel", "y_vel", "z_vel"], upper_bound=0.5, lower_bound=-0.5)
     plot_data(zip(*data["closest_point"]), ["min_x", "min_y", "min_z"]) 
     plot_data([data["rewards"]], ["rewards"])
-    plot_data([data["contact_force"]], ["contact force"])
-    plot_data([data["accumulated_contact_force"]], ["accumulated contact force"])
-    plot_data(zip(*data["finger1_angles"]), ["finger1_angle_1", "finger1_angle_2", "finger1_angle_3"])
-    plot_data(zip(*data["finger2_angles"]), ["finger2_angle_1", "finger2_angle_2", "finger2_angle_3"])
-    plot_data(zip(*data["finger3_angles"]), ["finger3_angle_1", "finger3_angle_2", "finger3_angle_3"])
-    plot_data([data["num_contact_points"]], ["num_contact_points"])
-    plot_data(zip(*data["fingertip_num_contact_points"]), ["fingertip_1", "fingertip_2", "fingertip_3"])
-    plot_data([data["totalLateralFrictionForce"]], ["totalLateralFrictionForce"])
-    plot_data(zip(*data["finger1_link1_world_angles"]), ["finger1_link1_world_roll", "finger1_link1_world_pitch", "finger1_link1_world_yaw"])
-    plot_data(zip(*data["finger1_link2_world_angles"]), ["finger1_link2_world_roll", "finger1_link2_world_pitch", "finger1_link2_world_yaw"])
-    plot_data(zip(*data["finger1_link3_world_angles"]), ["finger1_link3_world_roll", "finger1_link3_world_pitch", "finger1_link3_world_yaw"])
+    plot_data([data["closest_distance"]], ["closest_distance"])
+    # plot_data([data["contact_force"]], ["contact force"])
+    # plot_data([data["accumulated_contact_force"]], ["accumulated contact force"])
+    # plot_data(zip(*data["finger1_angles"]), ["finger1_angle_1", "finger1_angle_2", "finger1_angle_3"])
+    # plot_data(zip(*data["finger2_angles"]), ["finger2_angle_1", "finger2_angle_2", "finger2_angle_3"])
+    # plot_data(zip(*data["finger3_angles"]), ["finger3_angle_1", "finger3_angle_2", "finger3_angle_3"])
+    # plot_data([data["num_contact_points"]], ["num_contact_points"])
+    # plot_data(zip(*data["fingertip_num_contact_points"]), ["fingertip_1", "fingertip_2", "fingertip_3"])
+    # plot_data([data["totalLateralFrictionForce"]], ["totalLateralFrictionForce"])
+    # plot_data(zip(*data["finger1_link1_world_angles"]), ["finger1_link1_world_roll", "finger1_link1_world_pitch", "finger1_link1_world_yaw"])
+    # plot_data(zip(*data["finger1_link2_world_angles"]), ["finger1_link2_world_roll", "finger1_link2_world_pitch", "finger1_link2_world_yaw"])
+    # plot_data(zip(*data["finger1_link3_world_angles"]), ["finger1_link3_world_roll", "finger1_link3_world_pitch", "finger1_link3_world_yaw"])
     # # plot_data(zip(*data["finger2_min_dists"]), ["finger2_min_dist_1", "finger2_min_dist_2", "finger2_min_dist_3"])
 
     # # Saving data to CSV

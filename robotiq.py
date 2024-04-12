@@ -36,7 +36,7 @@ class robotiq:
         start_position = [0, 0, 1]
         # radomize the orientation of the gripper
         start_orientation = p.getQuaternionFromEuler([np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi), np.random.uniform(-np.pi, np.pi)])
-        start_orientation = p.getQuaternionFromEuler([0, -np.pi/2, 0])
+        # start_orientation = p.getQuaternionFromEuler([0, -np.pi/2, 0])
         self.robotiq_uid = p.loadURDF("urdf/robotiq.urdf", 
                                       basePosition = start_position, 
                                       baseOrientation = start_orientation,

@@ -31,7 +31,7 @@ class robotiqGymEnv(gym.Env):
                  action_repeat=1,
                  renders=False,
                  records=False,
-                 max_episode_steps=1500,
+                 max_episode_steps=500,
                  savedir="test_data/test1",
                  ):
         """
@@ -112,9 +112,9 @@ class robotiqGymEnv(gym.Env):
         # Generate random values
         randx, randy, randz, randf1, randf2, randf3 = np.random.uniform(-1, 1, 6)
 
-        targetpos = [0.0 + 0.50 * randx, 0.8 + 0.2 * randy, 1.0 + 0.40 * randz]
-        # targetorn = p.getQuaternionFromEuler([0, 0, 0])
-        targetorn = p.getQuaternionFromEuler([0, 0, self.target_yaw])
+        targetpos = [0.0 + 0.30 * randx, 0.6 + 0.2 * randy, 1.0 + 0.20 * randz]
+        targetorn = p.getQuaternionFromEuler([0, 0, 0])
+        # targetorn = p.getQuaternionFromEuler([0, 0, self.target_yaw])
         # print(self.target_yaw)
 
         # targetpos = [0.07336462703085808,0.6302821367352937,0.9215777045808058]
@@ -141,9 +141,9 @@ class robotiqGymEnv(gym.Env):
         # for i in range(self._robotiq.num_joints):
         #     p.changeDynamics(self._robotiq.robotiq_uid, i, lateralFriction=1, spinningFriction=1, rollingFriction=1,
         #          restitution=0.001, contactStiffness=1000, contactDamping=10)
-        extforce = np.array([randf1, randf2, randf3]) * (20 * self.targetmass)
+        extforce = np.array([randf1, randf2, randf3]) * (30 * self.targetmass)
         # extforce = np.array([1,1,1]) * (30 * self.targetmass)
-        # p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
+        p.applyExternalForce(self.blockUid, -1 , extforce , [0,0,0] , p.LINK_FRAME)
 
         p.setGravity(0, 0, 0)
         self._stepcounter = 0
@@ -310,7 +310,7 @@ class robotiqGymEnv(gym.Env):
         rgbImg2 = rgbImg2[:, :, :3]
         self._cam2_images.append(rgbImg2)
         
-        # third camera
+        # # third camera
         _, _, rgbImg3, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_3, projectionMatrix = proj_matrix)
         rgbImg3 = rgbImg3[:, :, :3]
         self._cam3_images.append(rgbImg3)
