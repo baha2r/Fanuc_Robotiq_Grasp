@@ -3,6 +3,9 @@
 ## Introduction
 Welcome to the Fanuc Robotiq Grasp project! This repository houses an innovative solution for robotic arm manipulation, specifically designed for the Fanuc Robotiq gripper. Leveraging advanced algorithms and robotics principles, this project aims to enhance the capabilities of robotic arms in complex manipulation tasks.
 
+## Graphical Abstract
+![ICRA_Graphical Abstract](https://github.com/baha2r/Fanuc_Robotiq_Grasp/assets/75396051/3cc2b0ba-dcd4-447e-8164-edc73c19a8ea)
+
 ## Technologies
 - **Programming Language:** Python
 - **Key Libraries:** pybullet torch tensorboard numpy scikit-learn gym
