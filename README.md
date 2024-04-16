@@ -26,6 +26,10 @@ To get started with the Fanuc Robotiq Grasp, follow these steps:
      pip install -r requirements.txt
      ```
 
+## Random Episode Results
+https://github.com/baha2r/Fanuc_Robotiq_Grasp/assets/75396051/1ea4628b-04dc-428c-9b16-f2c66807f35f
+
+
 ## Observation Space
 The observation space for the robotic arm environment is represented by the configuration, Box(-inf, inf, (40,), float32). This space consists of a set of 40 continuous variables, each describing a distinct attribute related to the position, movement, and velocity of both the robotic gripper and its target. These variables embody an extensive range of information about the environment, capturing the dynamism and intricacies involved in the manipulative tasks of the robotic arm. 
 
