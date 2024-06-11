@@ -1,4 +1,5 @@
-# Fanuc Robotiq Grasp
+# Towards Real-World Efficiency: Domain Randomization in Reinforcement Learning for Pre-Capture of Free-Floating Moving Targets by Autonomous Robots
+
 
 ## Introduction
 Welcome to the Fanuc Robotiq Grasp project! This repository houses an innovative solution for robotic arm manipulation, specifically designed for the Fanuc Robotiq gripper. Leveraging advanced algorithms and robotics principles, this project aims to enhance the capabilities of robotic arms in complex manipulation tasks.
