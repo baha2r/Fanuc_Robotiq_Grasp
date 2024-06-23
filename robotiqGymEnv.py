@@ -13,6 +13,7 @@ import pybullet_data
 from scipy.spatial.transform import Rotation
 from scipy.spatial import ConvexHull, distance
 from moviepy.editor import ImageSequenceClip
+import pickle
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 os.sys.path.insert(0, currentdir)
 
@@ -32,7 +33,9 @@ class robotiqGymEnv(gym.Env):
                  renders=False,
                  records=False,
                  max_episode_steps=500,
-                 savedir="test_data/test1",
+                 store_data=False,
+                 savedir = "test_data/test01",
+                 data_path = "data.pkl",
                  ):
         """
         Initialize the environment.
@@ -54,6 +57,8 @@ class robotiqGymEnv(gym.Env):
         self.r_top = 0
         self.contactpenalize = 0
         self.target_yaw = 0
+        self.data_path = data_path
+        self.store_data = store_data
         self.savedir = savedir
         self._cam1_images = []
         self._cam2_images = []
@@ -61,9 +66,7 @@ class robotiqGymEnv(gym.Env):
 
         # connect to PyBullet
         rec = f"--mp4={self.savedir}/video.mp4"
-        if self._records:
-            p.connect(p.GUI, options=rec)
-        elif self._renders:
+        if self._renders:
             p.connect(p.GUI)
         else:
             p.connect(p.DIRECT)
@@ -138,6 +141,8 @@ class robotiqGymEnv(gym.Env):
                 #  contactDamping=10
                 ) # adjust contact stiffness and damping
         
+        # Initialize a list to store data dictionaries
+        self.df = []
         # for i in range(self._robotiq.num_joints):
         #     p.changeDynamics(self._robotiq.robotiq_uid, i, lateralFriction=1, spinningFriction=1, rollingFriction=1,
         #          restitution=0.001, contactStiffness=1000, contactDamping=10)
@@ -254,20 +259,30 @@ class robotiqGymEnv(gym.Env):
         for _ in range(self._action_repeat):
             self._robotiq.apply_action(action)
             p.stepSimulation()
-            self.render()
-            if self._termination():
+            if self._records:
+                self.render()
+            if self.store_data:
+                self.update_data()
+            if self.terminated:
+                serialized_data = pickle.dumps(self.df)
+                # save the serialized data to a pickle file
+                with open(self.data_path, "wb") as f:
+                    f.write(serialized_data)
                 break
             self._stepcounter += 1
 
-        if self._renders:
+        if self._records:
             time.sleep(self._timeStep)
 
         self._observation = self.getExtendedObservation()
-        done = self._termination()
-        reward = self._reward()
+        self._termination()
+        if self.terminated:
+                serialized_data = pickle.dumps(self.df)
+                # save the serialized data to a pickle file
+                with open(self.data_path, "wb") as f:
+                    f.write(serialized_data)
         infos = {"is_success": self._is_success()}
-        ob, reward, terminated, info = self._observation, reward, done, infos
-        return ob, reward, terminated, info
+        return self._observation, self._reward(), self.terminated, infos
 
     def render(self, mode="rgb_array", close=False):
         """
@@ -327,10 +342,8 @@ class robotiqGymEnv(gym.Env):
         - False otherwise.
         """
         if self._stepcounter > self._max_steps:
-            return True
+            self.terminated = True
         
-        return False
-
     def _contactinfo(self):
         """
         Compute various contact forces between the block and the robotiq and 
@@ -501,6 +514,84 @@ class robotiqGymEnv(gym.Env):
         n_count = np.count_nonzero(n) / self._keypoints
 
         return n_count
+
+    def update_data(self):
+        
+        """columns = ['stepcounter', 'grasp_stepcounter', 'position_action', 'orientation_action', 'gripper_position',
+                    'gripper_orientation', 'gripper_linear_velocity', 'gripper_angular_velocity', 'block_position',
+                    'block_orientation', 'block_linear_velocity', 'block_angular_velocity', 'closest_points',
+                    'positioning_reward', 'grasp_reward', 'action_fingers_closing_speed', 'action_fingers_closing_force',
+                    'action_fingers_grasping_force', 'joints1_angles', 'joints1_velocity', 'joints1_appliedJointMotorTorque',
+                    'min_ftip_distance', 'ftipContactPoints', 'ftipNormalForce', 'accumulated_Normal_Force',
+                    'ftip_lateral_friction_X', 'ftip_lateral_friction_Y', 'ftip_lateral_friction_Z',
+                    'finger1_angle', 'finger2_angle', 'finger3_angle', 
+                    'is_reach', 'is_grasp',
+                    ]
+        """
+        self.positioning_observation = self.getExtendedObservation()
+        # self.grasp_observation = self.getObservation()
+        # Ensure that numpy arrays are stored as object type within the DataFrame
+        stepcounter = self._stepcounter if isinstance(self._stepcounter, np.ndarray) else np.array([self._stepcounter])
+        position_action = self._action[0:3] if isinstance(self._action[0:3], np.ndarray) else np.array([self._action[0:3]])
+        orientation_action = self._action[3:6] if isinstance(self._action[3:6], np.ndarray) else np.array([self._action[3:6]])
+        gripper_position = self.positioning_observation[0:3] if isinstance(self.positioning_observation[0:3], np.ndarray) else np.array([self.positioning_observation[0:3]])
+        gripper_orientation = self.positioning_observation[3:6] if isinstance(self.positioning_observation[3:6], np.ndarray) else np.array([self.positioning_observation[3:6]])
+        gripper_linear_velocity = self.positioning_observation[6:9] if isinstance(self.positioning_observation[6:9], np.ndarray) else np.array([self.positioning_observation[6:9]])
+        gripper_angular_velocity = self.positioning_observation[9:12] if isinstance(self.positioning_observation[9:12], np.ndarray) else np.array([self.positioning_observation[9:12]])
+        block_position = self.positioning_observation[12:15] if isinstance(self.positioning_observation[12:15], np.ndarray) else np.array([self.positioning_observation[12:15]])
+        block_orientation = self.positioning_observation[15:18] if isinstance(self.positioning_observation[15:18], np.ndarray) else np.array([self.positioning_observation[15:18]])
+        block_linear_velocity = self.positioning_observation[24:27] if isinstance(self.positioning_observation[24:27], np.ndarray) else np.array([self.positioning_observation[24:27]])
+        block_angular_velocity = self.positioning_observation[27:30] if isinstance(self.positioning_observation[27:30], np.ndarray) else np.array([self.positioning_observation[27:30]])
+        closest_points = self.positioning_observation[36:39] if isinstance(self.positioning_observation[36:39], np.ndarray) else np.array([self.positioning_observation[36:39]])
+        positioning_reward = self._reward() if isinstance(self._reward(), np.ndarray) else np.array([self._reward()])
+        # joints1_angles = self.grasp_observation[0:3] if isinstance(self.grasp_observation[0:3], np.ndarray) else np.array([self.grasp_observation[0:3]])
+        # joints1_velocity = self.grasp_observation[3:6] if isinstance(self.grasp_observation[3:6], np.ndarray) else np.array([self.grasp_observation[3:6]])
+        # joints1_appliedJointMotorTorque = self.grasp_observation[6:9] if isinstance(self.grasp_observation[6:9], np.ndarray) else np.array([self.grasp_observation[6:9]])
+        # min_ftip_distance = self.grasp_observation[9:12] if isinstance(self.grasp_observation[9:12], np.ndarray) else np.array([self.grasp_observation[9:12]])
+        # ftipContactPoints = self.grasp_observation[12:15] if isinstance(self.grasp_observation[12:15], np.ndarray) else np.array([self.grasp_observation[12:15]])
+        # ftipNormalForce = self.grasp_observation[15:18] if isinstance(self.grasp_observation[15:18], np.ndarray) else np.array([self.grasp_observation[15:18]])
+        # accumulated_Normal_Force = self.grasp_observation[18] if isinstance(self.grasp_observation[18], np.ndarray) else np.array([self.grasp_observation[18]])
+        is_reach = self._is_success if isinstance(self._is_success, np.ndarray) else np.array([self._is_success])
+
+        # Create a new DataFrame for the current timestep
+        new_data = {
+            'stepcounter': stepcounter,
+            'position_action': position_action,
+            'orientation_action': orientation_action,
+            'gripper_position': gripper_position,
+            'gripper_orientation': gripper_orientation,
+            'gripper_linear_velocity': gripper_linear_velocity,
+            'gripper_angular_velocity': gripper_angular_velocity,
+            'block_position': block_position,
+            'block_orientation': block_orientation,
+            'block_linear_velocity': block_linear_velocity,
+            'block_angular_velocity': block_angular_velocity,
+            'closest_points': closest_points,
+            'positioning_reward': positioning_reward,
+            # 'grasp_reward': grasp_reward,
+            # 'action_fingers_closing_speed': action_fingers_closing_speed,
+            # 'action_fingers_closing_force': action_fingers_closing_force,
+            # 'action_fingers_grasping_force': action_fingers_grasping_force,
+            # 'joints1_angles': joints1_angles,
+            # 'joints1_velocity': joints1_velocity,
+            # 'joints1_appliedJointMotorTorque': joints1_appliedJointMotorTorque,
+            # 'min_ftip_distance': min_ftip_distance,
+            # 'ftipContactPoints': ftipContactPoints,
+            # 'ftipNormalForce': ftipNormalForce,
+            # 'accumulated_Normal_Force': accumulated_Normal_Force,
+            # 'ftip_lateral_friction_X': ftip_lateral_friction_X,
+            # 'ftip_lateral_friction_Y': ftip_lateral_friction_Y,
+            # 'ftip_lateral_friction_Z': ftip_lateral_friction_Z,
+            # 'finger1_angle': finger1_angle,
+            # 'finger2_angle': finger2_angle,
+            # 'finger3_angle': finger3_angle,
+            'is_reach': is_reach,
+            # 'is_grasp': is_grasp,
+            # 'grasp_success': grasp_success,
+            # 'contact': contacts_list,
+        }
+        # use pickle to add the new data to the existing pickle variable
+        self.df.append(new_data)
 
     def close(self):
         """
