@@ -41,7 +41,7 @@ def plot_distribution(distribution, zones, direction, ylabel='Data Value'):
     plt.title(f'Distribution over Timesteps for {direction} Data')
     plt.savefig(f"{direction}_distribution.png")
 
-def calculate_distribution(data, num_zones):
+def calculate_distribution(data, num_zones=100):
     min_val = np.min(data)
     max_val = np.max(data)
     zones = np.linspace(min_val, max_val, num_zones + 1)
@@ -94,25 +94,25 @@ gripper_angular_velocities_magnitudes = np.linalg.norm(gripper_angular_velocitie
 gripper_angular_velocities = np.expand_dims(gripper_angular_velocities_magnitudes, axis=2)
 
 
-distribution, zones = calculate_distribution(position_rewards, num_zones=20)
+distribution, zones = calculate_distribution(position_rewards)
 plot_distribution(distribution, zones, 'Position Rewards')
 
-distribution, zones = calculate_distribution(closest_points, num_zones=20)
+distribution, zones = calculate_distribution(closest_points)
 plot_distribution(distribution, zones, 'Closest Points', ylabel='meter')
 
-distribution, zones = calculate_distribution(position_actions, num_zones=20)
+distribution, zones = calculate_distribution(position_actions)
 plot_distribution(distribution, zones, 'Position Actions')
 
-distribution, zones = calculate_distribution(orientation_actions, num_zones=10)
+distribution, zones = calculate_distribution(orientation_actions)
 plot_distribution(distribution, zones, 'Orientation Actions')
 
-distribution, zones = calculate_distribution(gripper_linear_velocities, num_zones=20)
+distribution, zones = calculate_distribution(gripper_linear_velocities)
 plot_distribution(distribution, zones, 'Gripper Linear Velocities', ylabel='meter/second')
 
-distribution, zones = calculate_distribution(quaternion_differences, num_zones=20)
+distribution, zones = calculate_distribution(quaternion_differences)
 plot_distribution(distribution, zones, 'Quaternion Differences', ylabel='radians')
 
-distribution, zones = calculate_distribution(gripper_angular_velocities, num_zones=20)
+distribution, zones = calculate_distribution(gripper_angular_velocities)
 plot_distribution(distribution, zones, 'Gripper Angular Velocities', ylabel='radians/second')
 
 print("Plot created successfully!")
