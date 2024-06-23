@@ -36,9 +36,9 @@ def plot_distribution(distribution, zones, direction, ylabel='Data Value'):
     plt.figure(figsize=(12, 6))
     plt.imshow(distribution.T, aspect='auto', cmap='viridis', origin='lower', extent=[0, distribution.shape[0], zones[0], zones[-1]])
     plt.colorbar(label='Intensity')
-    plt.xlabel('Timesteps')
-    plt.ylabel(ylabel)
-    plt.title(f'Distribution over Timesteps for {direction} Data')
+    plt.xlabel('Timesteps', fontsize=14)
+    plt.ylabel(ylabel, fontsize=14)
+    plt.title(f'Distribution over Timesteps for {direction} Data', fontsize=16)
     plt.savefig(f"{direction}_distribution.png")
 
 def calculate_distribution(data, num_zones=100):
