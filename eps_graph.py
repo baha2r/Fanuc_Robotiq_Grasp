@@ -103,7 +103,7 @@ plot_distribution(distribution, zones, 'Closest Points', ylabel='meter')
 distribution, zones = calculate_distribution(position_actions)
 plot_distribution(distribution, zones, 'Position Actions')
 
-distribution, zones = calculate_distribution(orientation_actions)
+distribution, zones = calculate_distribution(orientation_actions, num_zones=40)
 plot_distribution(distribution, zones, 'Orientation Actions')
 
 distribution, zones = calculate_distribution(gripper_linear_velocities)
@@ -112,7 +112,7 @@ plot_distribution(distribution, zones, 'Gripper Linear Velocities', ylabel='mete
 distribution, zones = calculate_distribution(quaternion_differences)
 plot_distribution(distribution, zones, 'Quaternion Differences', ylabel='radians')
 
-distribution, zones = calculate_distribution(gripper_angular_velocities)
+distribution, zones = calculate_distribution(gripper_angular_velocities, num_zones=40)
 plot_distribution(distribution, zones, 'Gripper Angular Velocities', ylabel='radians/second')
 
 print("Plot created successfully!")
