@@ -32,13 +32,13 @@ def quaternion_difference_norm(q1, q2):
     q_diff = R.from_quat(q1).inv() * R.from_quat(q2)
     return np.linalg.norm(q_diff.as_quat())
 
-def plot_distribution(distribution, zones, direction):
+def plot_distribution(distribution, zones, direction, ylabel='Data Value'):
     plt.figure(figsize=(12, 6))
     plt.imshow(distribution.T, aspect='auto', cmap='viridis', origin='lower', extent=[0, distribution.shape[0], zones[0], zones[-1]])
     plt.colorbar(label='Intensity')
     plt.xlabel('Timesteps')
-    plt.ylabel('Data Value')
-    plt.title(f'Distribution over Timesteps for {direction} direction')
+    plt.ylabel(ylabel)
+    plt.title(f'Distribution over Timesteps for {direction} Data')
     plt.savefig(f"{direction}_distribution.png")
 
 def calculate_distribution(data, num_zones):
@@ -64,6 +64,7 @@ closest_points = data['all_closest_points']
 position_actions = data['all_position_actions']
 orientation_actions = data['all_orientation_actions']
 gripper_linear_velocities = data['all_gripper_linear_velocities']
+gripper_angular_velocities = data['all_gripper_angular_velocities']
 gripper_orientations = data['all_gripper_orientations']
 block_orientations = data['all_block_orientations']
 gripper_quaternions = np.apply_along_axis(euler_to_quaternion, 2, gripper_orientations)
@@ -89,25 +90,29 @@ orientation_actions_magnitudes = np.linalg.norm(orientation_actions, axis=2)
 orientation_actions = np.expand_dims(orientation_actions_magnitudes, axis=2)
 gripper_linear_velocities_magnitudes = np.linalg.norm(gripper_linear_velocities, axis=2)
 gripper_linear_velocities = np.expand_dims(gripper_linear_velocities_magnitudes, axis=2)
+gripper_angular_velocities_magnitudes = np.linalg.norm(gripper_angular_velocities, axis=2)
+gripper_angular_velocities = np.expand_dims(gripper_angular_velocities_magnitudes, axis=2)
 
 
-
-distribution, zones = calculate_distribution(position_rewards, num_zones=50)
+distribution, zones = calculate_distribution(position_rewards, num_zones=20)
 plot_distribution(distribution, zones, 'Position Rewards')
 
-distribution, zones = calculate_distribution(closest_points, num_zones=25)
-plot_distribution(distribution, zones, 'Closest Points')
+distribution, zones = calculate_distribution(closest_points, num_zones=20)
+plot_distribution(distribution, zones, 'Closest Points', ylabel='meter')
 
-distribution, zones = calculate_distribution(position_actions, num_zones=50)
+distribution, zones = calculate_distribution(position_actions, num_zones=20)
 plot_distribution(distribution, zones, 'Position Actions')
 
 distribution, zones = calculate_distribution(orientation_actions, num_zones=10)
 plot_distribution(distribution, zones, 'Orientation Actions')
 
-distribution, zones = calculate_distribution(gripper_linear_velocities, num_zones=50)
-plot_distribution(distribution, zones, 'Gripper Linear Velocities')
+distribution, zones = calculate_distribution(gripper_linear_velocities, num_zones=20)
+plot_distribution(distribution, zones, 'Gripper Linear Velocities', ylabel='meter/second')
 
-distribution, zones = calculate_distribution(quaternion_differences, num_zones=25)
-plot_distribution(distribution, zones, 'Quaternion Differences')
+distribution, zones = calculate_distribution(quaternion_differences, num_zones=20)
+plot_distribution(distribution, zones, 'Quaternion Differences', ylabel='radians')
+
+distribution, zones = calculate_distribution(gripper_angular_velocities, num_zones=20)
+plot_distribution(distribution, zones, 'Gripper Angular Velocities', ylabel='radians/second')
 
 print("Plot created successfully!")
