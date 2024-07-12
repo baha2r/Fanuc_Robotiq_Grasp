@@ -32,7 +32,7 @@ class robotiqGymEnv(gym.Env):
                  action_repeat=1,
                  renders=False,
                  records=False,
-                 max_episode_steps=500,
+                 max_episode_steps=750,
                  store_data=False,
                  savedir = "test_data/test01",
                  data_path = "data.pkl",
@@ -114,14 +114,11 @@ class robotiqGymEnv(gym.Env):
 
         # Generate random values
         randx, randy, randz, randf1, randf2, randf3 = np.random.uniform(-1, 1, 6)
+        self.target_roll, self.target_pitch, self.target_yaw = np.random.uniform(-np.pi/6, np.pi/6, 3)
 
-        targetpos = [0.0 + 0.30 * randx, 0.6 + 0.2 * randy, 1.0 + 0.20 * randz]
-        targetorn = p.getQuaternionFromEuler([0, 0, 0])
-        # targetorn = p.getQuaternionFromEuler([0, 0, self.target_yaw])
-        # print(self.target_yaw)
-
-        # targetpos = [0.07336462703085808,0.6302821367352937,0.9215777045808058]
-        # targetorn = p.getQuaternionFromEuler([0, 0, 0])
+        targetpos = [0.0 + 0.20 * randx, 1 + 0.1 * randy, 1.0 + 0.20 * randz]
+        targetorn = p.getQuaternionFromEuler([self.target_roll, self.target_pitch, self.target_yaw])
+        targetorn = p.getQuaternionFromEuler([0, self.target_pitch, 0])
 
         self.blockUid = p.loadURDF(
             "urdf/block.urdf", 
@@ -180,6 +177,9 @@ class robotiqGymEnv(gym.Env):
         The extended observation includes relative position, velocity, and contact information.
         """
         self._observation = self._robotiq.get_observation()
+        # self._observation[3] -= self.target_roll
+        self._observation[4] -= self.target_pitch
+        # self._observation[5] -= self.target_yaw
         noise_mean = 0
         noise_std = 0.01
 
@@ -201,6 +201,7 @@ class robotiqGymEnv(gym.Env):
 
         # Convert block and gripper orientation from Quaternion to Euler for ease of manipulation
         blockEul = p.getEulerFromQuaternion(blockOri)
+        blockEul = np.array([0,0,0])
         gripEul = p.getEulerFromQuaternion(gripperOrn)
 
         # Define block pose and append to observation
@@ -316,19 +317,19 @@ class robotiqGymEnv(gym.Env):
         proj_matrix = p.computeProjectionMatrixFOV(fov=60, aspect=float(width) / height, nearVal=0.1, farVal=10.0)
 
         # First camera
-        _, _, rgbImg1, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_1, projectionMatrix = proj_matrix)
-        rgbImg1 = rgbImg1[:, :, :3]
-        self._cam1_images.append(rgbImg1)
+        # _, _, rgbImg1, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_1, projectionMatrix = proj_matrix)
+        # rgbImg1 = rgbImg1[:, :, :3]
+        # self._cam1_images.append(rgbImg1)
 
         # Second camera
         _, _, rgbImg2, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_2, projectionMatrix = proj_matrix)
         rgbImg2 = rgbImg2[:, :, :3]
         self._cam2_images.append(rgbImg2)
         
-        # # third camera
-        _, _, rgbImg3, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_3, projectionMatrix = proj_matrix)
-        rgbImg3 = rgbImg3[:, :, :3]
-        self._cam3_images.append(rgbImg3)
+        # # # third camera
+        # _, _, rgbImg3, _, _ = p.getCameraImage(width, height, viewMatrix = view_matrix_3, projectionMatrix = proj_matrix)
+        # rgbImg3 = rgbImg3[:, :, :3]
+        # self._cam3_images.append(rgbImg3)
         
 
         return np.array([])
@@ -529,6 +530,9 @@ class robotiqGymEnv(gym.Env):
                     ]
         """
         self.positioning_observation = self.getExtendedObservation()
+        blockPos, blockOri = p.getBasePositionAndOrientation(self.blockUid)
+        blockEul = p.getEulerFromQuaternion(blockOri)
+
         # self.grasp_observation = self.getObservation()
         # Ensure that numpy arrays are stored as object type within the DataFrame
         stepcounter = self._stepcounter if isinstance(self._stepcounter, np.ndarray) else np.array([self._stepcounter])
@@ -539,7 +543,8 @@ class robotiqGymEnv(gym.Env):
         gripper_linear_velocity = self.positioning_observation[6:9] if isinstance(self.positioning_observation[6:9], np.ndarray) else np.array([self.positioning_observation[6:9]])
         gripper_angular_velocity = self.positioning_observation[9:12] if isinstance(self.positioning_observation[9:12], np.ndarray) else np.array([self.positioning_observation[9:12]])
         block_position = self.positioning_observation[12:15] if isinstance(self.positioning_observation[12:15], np.ndarray) else np.array([self.positioning_observation[12:15]])
-        block_orientation = self.positioning_observation[15:18] if isinstance(self.positioning_observation[15:18], np.ndarray) else np.array([self.positioning_observation[15:18]])
+        # block_orientation = self.positioning_observation[15:18] if isinstance(self.positioning_observation[15:18], np.ndarray) else np.array([self.positioning_observation[15:18]])
+        block_orientation = blockEul if isinstance(blockEul, np.ndarray) else np.array([blockEul])
         block_linear_velocity = self.positioning_observation[24:27] if isinstance(self.positioning_observation[24:27], np.ndarray) else np.array([self.positioning_observation[24:27]])
         block_angular_velocity = self.positioning_observation[27:30] if isinstance(self.positioning_observation[27:30], np.ndarray) else np.array([self.positioning_observation[27:30]])
         closest_points = self.positioning_observation[36:39] if isinstance(self.positioning_observation[36:39], np.ndarray) else np.array([self.positioning_observation[36:39]])

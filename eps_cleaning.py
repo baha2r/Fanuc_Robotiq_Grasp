@@ -219,6 +219,7 @@ def load_and_process_files(path, num_files=100):
 
     for i in tqdm(range(num_files), desc="Processing files"):
         file_path = os.path.join(path, f'test{i}.pkl')
+        file_path = os.path.join(path, f'data.pkl')
         try:
             with open(file_path, 'rb') as f:
                 data = pickle.load(f)
@@ -277,6 +278,7 @@ def process_file_data(data, collections):
 
 
 if __name__ == "__main__":
-    path = 'SAC_trained_eps'
-    data_collections = load_and_process_files(path, num_files=500)
+    # EnvDebug.py
+    path = '/home/baha/pybullet/robotiqGymnasiumApproach/'
+    data_collections = load_and_process_files(path, num_files=1)
     save_data(path, **data_collections)

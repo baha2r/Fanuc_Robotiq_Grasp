@@ -83,8 +83,8 @@ quaternion_differences[quaternion_differences > 2.65] -= .2
 
 closest_points_magnitudes = np.linalg.norm(closest_points, axis=2)
 closest_points = np.expand_dims(closest_points_magnitudes, axis=2)
-closest_points[closest_points > 0.8] = 0.8
-closest_points[closest_points > 0.6] -= 0.15
+# closest_points[closest_points > 0.8] = 0.8
+# closest_points[closest_points > 0.6] -= 0.35
 position_actions_magnitudes = np.linalg.norm(position_actions, axis=2)
 position_actions = np.expand_dims(position_actions_magnitudes, axis=2)
 orientation_actions_magnitudes = np.linalg.norm(orientation_actions, axis=2)

@@ -9,17 +9,16 @@ from stable_baselines3 import SAC
 model = SAC.load("models/20230316-03:42PM_SAC/best_model.zip")
 
 counter = 0
-for i in range(300,500):
-    print(f"Episode {i}")
-    env = robotiqGymEnv(store_data=True, data_path = f"SAC_trained_eps/test{i}.pkl")
+for i in range(100):
+    env = robotiqGymEnv(store_data=False)
     state = env.reset()
     done = 0
     while not done:
         action, _ = model.predict(state, deterministic=True)
         state, reward, done, info = env.step(action)
-    # print(f"action: {action}, reward: {reward}, done: {done}, info: {info}")
+    print(f"Episode {i} with success {info} finished")
     if info["is_success"] == True:
         counter += 1
 # print(f"Episode {episode} finished")
-print(f"Success rate: {counter/10}")
+print(f"Success rate: {counter/100}")
  
