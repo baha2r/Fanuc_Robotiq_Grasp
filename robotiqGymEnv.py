@@ -518,16 +518,9 @@ class robotiqGymEnv(gym.Env):
 
     def update_data(self):
         
-        """columns = ['stepcounter', 'grasp_stepcounter', 'position_action', 'orientation_action', 'gripper_position',
-                    'gripper_orientation', 'gripper_linear_velocity', 'gripper_angular_velocity', 'block_position',
-                    'block_orientation', 'block_linear_velocity', 'block_angular_velocity', 'closest_points',
-                    'positioning_reward', 'grasp_reward', 'action_fingers_closing_speed', 'action_fingers_closing_force',
-                    'action_fingers_grasping_force', 'joints1_angles', 'joints1_velocity', 'joints1_appliedJointMotorTorque',
-                    'min_ftip_distance', 'ftipContactPoints', 'ftipNormalForce', 'accumulated_Normal_Force',
-                    'ftip_lateral_friction_X', 'ftip_lateral_friction_Y', 'ftip_lateral_friction_Z',
-                    'finger1_angle', 'finger2_angle', 'finger3_angle', 
-                    'is_reach', 'is_grasp',
-                    ]
+        """columns = ['stepcounter', 'position_action', 'orientation_action', 'gripper_position', 'gripper_orientation', 
+        'gripper_linear_velocity', 'gripper_angular_velocity', 'block_position', 'block_orientation', 'block_linear_velocity',
+        'block_angular_velocity', 'closest_points', 'positioning_reward', 'is_reach']
         """
         self.positioning_observation = self.getExtendedObservation()
         blockPos, blockOri = p.getBasePositionAndOrientation(self.blockUid)
@@ -549,13 +542,6 @@ class robotiqGymEnv(gym.Env):
         block_angular_velocity = self.positioning_observation[27:30] if isinstance(self.positioning_observation[27:30], np.ndarray) else np.array([self.positioning_observation[27:30]])
         closest_points = self.positioning_observation[36:39] if isinstance(self.positioning_observation[36:39], np.ndarray) else np.array([self.positioning_observation[36:39]])
         positioning_reward = self._reward() if isinstance(self._reward(), np.ndarray) else np.array([self._reward()])
-        # joints1_angles = self.grasp_observation[0:3] if isinstance(self.grasp_observation[0:3], np.ndarray) else np.array([self.grasp_observation[0:3]])
-        # joints1_velocity = self.grasp_observation[3:6] if isinstance(self.grasp_observation[3:6], np.ndarray) else np.array([self.grasp_observation[3:6]])
-        # joints1_appliedJointMotorTorque = self.grasp_observation[6:9] if isinstance(self.grasp_observation[6:9], np.ndarray) else np.array([self.grasp_observation[6:9]])
-        # min_ftip_distance = self.grasp_observation[9:12] if isinstance(self.grasp_observation[9:12], np.ndarray) else np.array([self.grasp_observation[9:12]])
-        # ftipContactPoints = self.grasp_observation[12:15] if isinstance(self.grasp_observation[12:15], np.ndarray) else np.array([self.grasp_observation[12:15]])
-        # ftipNormalForce = self.grasp_observation[15:18] if isinstance(self.grasp_observation[15:18], np.ndarray) else np.array([self.grasp_observation[15:18]])
-        # accumulated_Normal_Force = self.grasp_observation[18] if isinstance(self.grasp_observation[18], np.ndarray) else np.array([self.grasp_observation[18]])
         is_reach = self._is_success if isinstance(self._is_success, np.ndarray) else np.array([self._is_success])
 
         # Create a new DataFrame for the current timestep

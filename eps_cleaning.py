@@ -276,7 +276,6 @@ def process_file_data(data, collections):
     collections['all_positioning_rewards'].append(positioning_rewards)
     collections['all_is_reach'].append(is_reach)
 
-
 if __name__ == "__main__":
     # EnvDebug.py
     path = '/home/baha/pybullet/robotiqGymnasiumApproach/'
