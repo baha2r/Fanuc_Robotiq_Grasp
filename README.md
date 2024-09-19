@@ -99,6 +99,7 @@ In this work, we introduce a novel reward function that integrates both dense an
 The episode will be truncated when the duration reaches a total of max_episode_steps which by default is set to 500 timesteps. The episode is never terminated since the task is continuing with an infinite horizon.
 
 ## Cite
+'''
 @INPROCEEDINGS{10610017,
   author={Beigomi, Bahador and Zhu, Zheng H.},
   booktitle={2024 IEEE International Conference on Robotics and Automation (ICRA)}, 
@@ -109,4 +110,5 @@ The episode will be truncated when the duration reaches a total of max_episode_s
   pages={11753-11759},
   keywords={Training;Target tracking;Source coding;Reinforcement learning;Robustness;Sensors;Grippers},
   doi={10.1109/ICRA57147.2024.10610017}}
+'''
 
