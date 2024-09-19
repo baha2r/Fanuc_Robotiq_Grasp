@@ -7,6 +7,7 @@ authors:
 - family-names: "Zhu"
   given-names: "Zheng H."
   orcid: "https://orcid.org/0000-0002-0149-0473"
+preferred-citation : @inproceedings
 title: "Towards Real-World Efficiency: Domain Randomization in Reinforcement Learning for Pre-Capture of Free-Floating Moving Targets by Autonomous Robots"
 doi: 10.1109/ICRA57147.2024.10610017
 date-released: 2024-09-19
